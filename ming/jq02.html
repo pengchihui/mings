@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js-phone/jquery-1.7.2.js" ></script>
+	</head>
+	<body>
+		<div>45</div>
+		<script>
+			
+			/*自定义一个存储地址参数*/
+			url="http://baijiahao.baidu.com/s?id=1600579987767529621&wfr=spider&for=pc"
+		    String.prototype.huo=function(){
+		    	//定义一个正则
+		    	var reg=/([^?&!]+)=([^?&!]+)/g
+		    	var obj={};
+				//当str.replace替换中的第一个参数正则，第二个参数是函数时，
+				//会发生一个处理效果，把当前正则与字符串进行匹配，有几项匹配的结果，
+				//当前这个回调函数就会被触发执行几次。
+                  this.replace(reg,(argments)=>{
+                  	  obj[argments.split("=")[0]]=argments.split("=")[1];
+                  });
+		    	 return obj;
+		    }
+		    
+		    String.prototype.qu=function(){
+		    	//定义一个正则
+		    	var reg=/([^?&!]+)=([^?&!]+)/g
+		    	var obj={};
+				//当str.replace替换中的第一个参数正则，第二个参数是函数时，
+				//会发生一个处理效果，把当前正则与字符串进行匹配，有几项匹配的结果，
+				//当前这个回调函数就会被触发执行几次。
+                  this.replace(reg,(...arg)=>{
+                  	  obj[arg[1]]=arg[2];
+                  });
+		    	 return obj;
+		    }
+			$("div").hide(4000,function(){console.log("我走了，别想我，想我就打电话")})
+		    $('table').on('click','td',function(){ alert($(this).html()); })
+			//当然你也可以给个参数，同原生原理
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

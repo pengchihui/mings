@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        ul {
+            list-style: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //高亮显示： 鼠标进入当前li背景颜色，其他背景颜色去掉
+        /*$(function(){
+            //获取每个li，并注册鼠标进入以及离开事件
+            $('#uu>li').mouseenter(function() {
+                $(this).css('backgroundColor','red');
+            });
+            $('#uu>li').mouseleave(function() {
+                $(this).css('backgroundColor','');
+            });
+        });*/
+        /*$(function(){
+            //获取每个li，并注册鼠标进入以及离开事件
+            $('#uu>li').mouseenter(function() {
+                $(this).css('backgroundColor','red');
+            }).mouseleave(function() {
+                $(this).css('backgroundColor','');
+            });
+        });*/
+        $(function(){
+            //获取每个li，并注册鼠标进入以及离开事件
+            $('#uu>li').mouseenter(function() {
+                $(this).css('backgroundColor','red');
+            }).mouseleave(function() {
+                $(this).css('backgroundColor','');
+            }).click(function(event) {
+                //鼠标点击的时候，当前li中的字体样式改变
+                $(this).css('color','green').css('fontSize','30px').css('fontFamily','站酷高端黑');
+            });
+        });
+    </script>
+    <ul id="uu">
+        <li>歌曲1</li>
+        <li>歌曲2</li>
+        <li>歌曲3</li>
+        <li>歌曲4</li>
+        <li>歌曲5</li>
+        <li>歌曲6</li>
+        <li>歌曲7</li>
+        <li>歌曲8</li>
+        <li>歌曲9</li>
+        <li>歌曲10</li>
+    </ul>
+</body>
+</html>

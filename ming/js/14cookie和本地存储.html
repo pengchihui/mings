@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		
+		
+	</head>
+	<body>
+		
+		<input type="text" />
+		<input type="password" />
+		<button>存储</button>
+		<button>读取</button>
+		<button>删除</button>
+		<button>本地存储</button>
+		<button>本地存储读取</button>
+		<button>本地存储删除</button>
+		<script>
+			
+			var inp=document.getElementsByTagName("input");
+			var btn=document.getElementsByTagName("button");
+			
+			btn[0].onclick=function(){
+				console.log(inp[0].value)
+				console.log(inp[1].value)
+				//cookie存储：（不能单独文件打开去使用）
+				//浏览器缓存，大部分浏览器最多纪录300条，一个站点最多20条，一条最多4096字节
+				//只能存放字符串数据
+				//存储通过document.cookie="键=值;expires=date;path=/;secure=true;HttpOnly=true"  ，一次只能存储一条数据
+				
+				var time=new Date();
+				//time.setMinutes(time.getMinutes()+1);
+				time.setDate(time.getDate()+30)
+				
+				document.cookie="name="+inp[0].value+";expires="+time.toUTCString()+";path=/"
+				document.cookie="password="+inp[1].value
+			}
+			
+			btn[1].onclick=function(){
+				//读取cookie
+				var str=document.cookie;
+				//str="password=123456; name=阿斯顿撒"
+				console.log(str.split(";")[1].split("=")[1])//["password=123456"," name=阿斯顿撒"]
+			}
+			
+			btn[2].onclick=function(){
+				//删除cookie
+				//document.cookie=""
+				//document.cookie="name=;"
+				var time=new Date();
+				time.setDate(time.getDate()-1)
+				document.cookie="name=;expires="+time.toUTCString()
+			}
+			
+			
+			
+			//本地存储
+			//一次一条，只能字符串数据，没有时间限制
+			btn[3].onclick=function(){
+				localStorage.setItem("asd",["a","b"])
+			}
+			
+			//本地存储的读取
+			btn[4].onclick=function(){
+				var str=localStorage.getItem("asd")//"a,b"
+				console.log(str[1])
+			}
+				//本地存储的删除
+			btn[5].onclick=function(){
+				localStorage.removeItem("json")//"a,b"
+			}
+			
+			
+//clear	清空localStorage上存储的数据
+//setItem	存储数据
+//getItem	读取数据
+//removeItem	删除某个具体变量
+//hasOwnProperty	检查localStorage上是否保存了变量X，需要传入X
+//key	读取第i个数据的名字或称为键值（从0开始计算）
+//length	localStorage存储变量的个数
+//propertyIsEnumerable	用来检测属性是否属于某个对象
+//toLocalString	将（数组）转为本地字符串
+//valueOf	获取所有存储的数据
+			
+			
+			
+			
+			//json数据：它是一个字符串，只是格式特写像对象和数组的写法
+			var obj123={name:"asd",age:15}
+			var json='[{"name":"asd","age":15},{"name":"def","age":15}]'
+			//localStorage.setItem("json",json)
+			//var str_obj=localStorage.getItem("json")
+			var obj=JSON.parse(json)//把json字符串转换成对应的对象或数组
+			console.log(obj)
+			
+			var str123=JSON.stringify(obj123)//把对象或数组转换成对应的json字符串
+			console.log(str123)
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

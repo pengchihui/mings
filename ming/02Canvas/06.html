@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>其他线条相关的属性及方法</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        /**
+         *
+         * 1. moveTo();
+         * 2. lineTo();
+         * 3. stroke();
+         * 4. fill();
+         * 5. stokeStyle　属性  描边颜色---#000
+         * 6. lineWidth 属性  线宽  默认 1px
+         * 7. fillStyle 属性  填充颜色---#000
+         *
+         * 其他几个线条相关属性：
+         *   lineCap  线末端的类型   butt、round、square
+         *   lineJoin  线相交拐点类型： miter、round、bevel(斜面)
+         *
+         * 关于虚线的几个方法：
+         *    setLineDash();   设置成为虚线
+         */
+        //第一条
+        //蓝色、10px
+        //开启新路径
+        ctx.beginPath();
+        ctx.moveTo(100,100);
+        ctx.lineTo(150,50);
+        ctx.lineTo(200,100);
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 10;
+        ctx.lineCap = 'butt';
+        ctx.lineJoin = 'miter';
+        ctx.stroke();
+
+        // 第二条
+        // 红色 20px
+        ctx.beginPath();
+        ctx.moveTo(100,200);
+        ctx.lineTo(150,150);
+        ctx.lineTo(200,200);
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 20;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.stroke();
+
+
+        // 第三条
+        // 黄色 30px
+        ctx.beginPath();
+        ctx.moveTo(100,300);
+        ctx.lineTo(150,250);
+        ctx.lineTo(200,300);
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 30;
+        ctx.lineCap = 'square';
+        ctx.lineJoin = 'bevel';
+        ctx.stroke();
+
+
+        //第四条  虚线
+        ctx.beginPath();
+        ctx.moveTo(100,350.5);
+        ctx.lineTo(400,350.5);
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 1;
+        // 用于设置虚线
+        // 传递一个数组，用来描述排列方式
+        ctx.setLineDash([5,10]);
+
+        // 关于虚线的一个属性：
+        // lineDashOffset   虚线偏移
+        ctx.lineDashOffset = 100;
+
+        // 用于获取虚线的排列方式
+        console.log(ctx.getLineDash());
+        ctx.stroke();
+
+
+
+        /**
+         * 练习：
+         *    画镂空的房子
+         */
+    </script>
+</body>
+</html>

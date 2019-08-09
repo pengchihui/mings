@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			canvas {
+				background: #eee;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- canvas画布宽高不可以用css控制 -->
+		<canvas id="box" width="400" height="400"></canvas>
+
+		<script>
+			var box = document.getElementById("box");
+			var obj = box.getContext("2d");
+
+			//线stroke  面fill   矩形rect
+			//矩形rect (x坐标，y坐标，宽度，高度)  
+			obj.fillStyle = "red";
+			obj.rect(10, 20, 200, 100);			
+			obj.fill()
+			
+			//线条(x坐标，y坐标)  	
+			obj.beginPath();//开始			
+			obj.fillStyle="black";
+			obj.moveTo(0,400)
+			obj.lineTo(200,200)
+			obj.lineTo(400,400)
+			obj.fill()
+			
+			//圆形(x坐标，y坐标，半径，起始角度位置，结束角度位置，是否逆时针)  
+			obj.beginPath();
+			obj.fillStyle="blue";
+			obj.arc(300, 150,70,Math.PI/2,Math.PI*3,false);
+			obj.fill()
+			
+			
+			//清除画布(x坐标，y坐标，宽度，高度)  
+			obj.clearRect(0,0,400,200)
+			
+			//字体
+			obj.fillStyle="rgb(255,0,255)"
+			obj.font="30px 宋体";
+			obj.fillText("你",0,30)
+			
+			
+			//旋转画布图形(以整个画布的左上角为中心点旋转的，会影响后续的图形)
+			obj.rotate(Math.PI/180*30)			
+			obj.fillStyle="rgb(255,0,0)"
+			obj.font="30px 宋体";
+			obj.fillText("好",30,30)
+			
+			
+			//把画布角度旋转回去
+			obj.rotate(-Math.PI/180*30)
+			obj.beginPath();
+			obj.fillStyle = "red";
+			obj.rect(100, 20, 200, 20);			
+			obj.fill()
+			
+			
+			//重新定义中心点(移动画布图形，会影响后续的图形)
+			obj.translate(200,0);
+			obj.beginPath()
+			obj.fillStyle = "red";
+			obj.rect(0, 0, 100, 5);			
+			obj.fill()
+			
+			
+			//把画布中心点设置回去
+			obj.translate(-200,0);
+			obj.beginPath()
+			obj.fillStyle = "green";
+			obj.rect(0, 0, 100, 5);			
+			obj.fill()
+			
+			
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+
+	</body>
+</html>

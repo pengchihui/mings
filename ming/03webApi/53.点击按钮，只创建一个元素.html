@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="显示效果" id="btn" />
+    <div id="dv">
+    </div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        /**
+         * 无论我点多少次，都只创建一个元素
+         */
+        //先判断，有没有这个按钮
+        /*my$('btn').onclick=function(){
+            //判断有没有这个按钮，有就删除，没有的话就创建
+            if(my$('btn2')){
+                my$('dv').removeChild(my$('btn2'));
+            }
+            var obj = document.createElement('input');
+            obj.type="button";
+            obj.id='btn2';
+            obj.value='按钮';
+            my$('dv').appendChild(obj);
+        };*/
+        my$('btn').onclick=function(){
+            //判断有没有这个按钮，有就删除，没有的话就创建
+            if(!my$('btn2')){
+                var obj = document.createElement('input');
+                obj.type="button";
+                obj.id='btn2';
+                obj.value='按钮';
+                my$('dv').appendChild(obj);
+            }
+        };
+    </script>
+</body>
+</html>

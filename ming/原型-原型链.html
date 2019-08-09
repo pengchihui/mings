@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background: pink;
+				margin-bottom: 30px;
+				position: absolute;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box1" style="left: 0; top: 0;"></div>
+		<div id="box2" style="left: 0; top: 0;"></div>
+		
+		<script>
+			 
+			//继承
+			function animal(val1,val2){
+				this.name=val1;
+				this.age=val2;
+			}
+			 
+		    function dog(name,age){
+		    	this.type="狗";
+//		    	animal.call(this,name,age);
+//		    	animal.apply(this,arguments);
+//		    	animal.apply(this,[name,age]);
+		    } 
+		    
+            dog.prototype=new animal("百灵鸟",100);
+            dog.prototype.sex="男";
+            dog.prototype.constructor=dog;
+            var m=new dog();
+            console.log(m.sex)
+            //工厂模式
+            function go(val1,val2){
+            	var jo=new Object();
+            	jo.name=val1;
+            	jo.age=val2;
+            	return jo;
+            }
+            //原型函数
+           dog.prototype.say=function(){
+           	   console.log("你很美味");
+           }
+           //构造函数里面放不共用的资源，原型里面放共用的资
+           //__proto__ 原型链    m(实例化对象) => dog()(构造函数) => Object()(构造函数) => null
+           
+           //原型移动
+           function Dro(var3){
+           	  this.name=document.getElementById(var3);
+           }
+           
+           Dro.prototype.move=function(){
+           	     this.name.onmousedown=function(event){
+           	     	   var firstx=event.offsetX; 
+           	     	   var firsty=event.offsetY;
+//         	     	   console.log("初始坐标："+firstx+"\t"+firsty);
+           	     	  this.onmousemove=function(event){
+           	     	   	  var movex=event.clientX; //视口
+           	     	   	  var movey=event.clientY;
+//         	     	   	  console.log("最后坐标："+movex+"\t"+movey);
+           	     	   	  this.style.left=movex-firstx+"px";
+					      this.style.top=movey-firsty+"px";
+           	     	   }
+           	     }
+           	     this.name.onmouseup=function(event){
+           	     	  this.onmousemove=null;
+           	     }
+           }
+           
+           var box1=new Dro("box1");
+               box1.move();
+              
+           var box2=new Dro("box2");
+               box2.move();
+            
+				
+		</script>
+
+	</body>
+</html>

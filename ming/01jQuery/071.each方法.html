@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        ul {
+            list-style-type: none;
+            overflow: hidden;
+        }
+        ul li {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         *    咱们讲过   jQuery中 有一个特性     隐式迭代
+         *        就是  jQuery会自动帮我们遍历
+         *        但是，当我们每个元素做不同的操作，这时就需要我们自己遍历，
+         *        可以使用each方法，帮助我们遍历jQuery对象
+         *
+         *      
+         *          针对每个li   设置不同的透明度
+         */
+        $(function(){
+            $('#uu>li').each(function(index,ele){
+                var opacity=(index+1)/10;//透明度
+                $(ele).css('opacity',opacity);
+            });
+        }); 
+    </script>
+    <ul id="uu">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+</body>
+</html>

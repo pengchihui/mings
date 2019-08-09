@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-image: url(./images/1.jpg);
+        }
+        .mask {
+            background-color: rgba(255,255,255,.3);
+            text-align: center;
+            height: 200px;
+        }
+        .mask img {
+            width: 200px;
+            margin-top: 35px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="mask" class="mask">
+    <img src="./images/1.jpg" alt="" />
+    <img src="./images/2.jpg" alt="" />
+    <img src="./images/3.jpg" alt="" />
+</div>
+<script src="js/common.js"></script>
+<script>
+    var imgObj = my$('mask').children;//获取所有子元素
+    //循环遍历所有img然后注册点击事件
+    for (var i=0;i<imgObj.length;i++){
+        imgObj[i].onclick=function(){
+            document.body.style.backgroundImage='url('+this.src+')';
+        };
+    }
+</script>
+</body>
+</html>

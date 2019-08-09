@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>画一个镂空的正方形</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        ctx.moveTo(100,100);
+        ctx.lineTo(300,100);
+        ctx.lineTo(300,300);
+        ctx.lineTo(100,300);
+        ctx.closePath();
+
+        ctx.moveTo(150,150);
+        ctx.lineTo(150,250);
+        ctx.lineTo(250,250);
+        ctx.lineTo(250,150);
+        ctx.closePath();
+
+        ctx.fill();
+
+        /**
+         * 非零环绕填充规则：
+         *   想要判断哪块区域会不会被填充，从此处拉一条线到最外边，
+         *   与其相交的轨迹（路径），
+         *   如果是顺时针方向，那么就+1，
+         *   如果是逆时针方向，那么就-1，
+         *   最后的结果：
+         *   如果为0，则不填充，
+         *   如果非0，则填充
+         */
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				height: 300px;
+				background: #eee;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#box>ul {
+				width: 1000%;
+				height: 300px;
+				position: absolute;
+			}
+			
+			#box>ul>li {
+				width: 10%;
+				list-style: none;
+				float: left;
+				height: 300px;
+			}
+			
+			#box>button {
+				position: absolute;
+				padding: 10px;
+				top: 120px;
+				right: 0;
+				cursor: pointer;
+			}
+			
+			#box>button:first-of-type {
+				left: 0;
+				right: auto;
+			}
+			
+			#box>.btn {
+				position: absolute;
+				bottom: 10px;
+			}
+			
+			#box>.btn>a {
+				display: block;
+				float: left;
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border-radius: 50%;
+				margin: 0 10px;
+			}
+			#box>.btn>.on{
+				background: yellow;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="box" style=" width: 500px;">
+			<ul style="left: 0%;">
+				<li style="background: red;"></li>
+				<li style="background: green;"></li>
+				<li style="background: blue;"></li>
+			</ul>
+			<button>&lt;</button>
+			<button>&gt;</button>
+			<div class="btn">
+				
+			</div>
+		</div>
+		
+		<script>
+		var box=document.getElementById("box");
+		var ul=box.children[0];
+		var li=ul.children;
+		var turn_l=box.children[1];
+		var turn_r=box.children[2];
+		var btn=box.getElementsByTagName("div")[0];		
+		for(var i=0;i<li.length;i++){
+			li[i].index=i;
+			var a=document.createElement("a");
+			a.index=i;
+			btn.appendChild(a);
+		}
+		btn.children[0].className="on";
+		btn.style.left=(box.clientWidth/2)-(btn.clientWidth/2)+"px";
+
+		function move(val){	
+				var x=parseInt(ul.style.left) 
+				var obj=x/-100;
+				console.log(obj)
+				var pic_move=setInterval(function(){	
+					if(x==-val*100){  
+						clearInterval(pic_move)
+					}else if(obj-val>0){			
+						ul.style.left=(++x)+"%"		
+					}else{
+						ul.style.left=(--x)+"%"		
+					}
+				},10)				
+				for(var m=0;m<a.length;m++){
+					a[m].className=""
+				}
+				a[val].className="on"
+		}
+
+		var a=btn.children;
+		var on=0
+		for(var i=0;i<a.length;i++){
+			a[i].onclick=function(){				
+				move(this.index)				
+			}
+		}
+		
+		turn_l.onclick=function(){
+			move(on<=0?on=0:--on)
+		}
+		turn_r.onclick=function(){
+			move(on>=2?on=2:++on)			
+		}
+		</script>
+	</body>
+</html>

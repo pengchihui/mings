@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<script>
+			/*响应式布局*/
+			window.onresize = function() {
+				document.documentElement.style.fontSize = document.documentElement.clientWidth / 720 * 100 + "px"
+			}
+			/*页面加载完成*/
+			window.onload = function() {
+
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<!--冒泡排序-->
+		<script>
+			var arry = [12, 13, 45, 0, 21, 3, 8];
+			for(var i = 0; i < arry.length; i++) {
+				for(var j = 0; j < arry.length; j++) {
+					/*从大到下排序*/
+					if(arry[j] < arry[j + 1]) {
+						var k = arry[j];
+						arry[j] = arry[j + 1];
+						arry[j + 1] = k;
+					}
+				}
+			}
+
+			//	由于示例代码中的“ ？ ： ”运算符优先级远小于“+”运算符的优先级，因此代码应该解读为:
+			//	['Value is ' + (val != '0')] ? 'define' : 'undefine' ，很显然，“?”前面的一部分包含字符串，布尔值一定为true，因此此段代码运行的结果
+
+			var val = 'c';
+			var str = 'Value is' + (val != 'c') ? 'a' : 'b';
+			console.log(str);
+
+			//			首先，我们需要知道，在js中 0 == false和1 == true是正确的。
+			//因此在分析3>2>1时，我们可以将其分为两步，首先是3>2返回是true，也就等价于1。
+			//所以1>1结果自然是false了。
+
+			var c = 1 < 2 < 3; /*1    */
+			var d = 3 < 2 < 1; /*0  1*/
+			console.log(c, d);
+
+			//JS中所有的浮点数都不能精确表示
+			//解决方案：tofixed()
+            //放大十倍再缩小十倍
+			var one = 0.1,
+				tow = 0.2,
+				eight = 0.8,
+				six = 0.6;
+			console.log(tow - one == one, eight - six == tow);
+			console.log((0.2 - 0.1) != 0.1)
+			
+		</script>
+	</body>
+
+</html>

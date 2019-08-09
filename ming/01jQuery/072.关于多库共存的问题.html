@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * 一个html文件 ，可以引入多个js文件，而每个js库都有一个顶级对象
+         *   可能别的js库中，也有顶级对象是 $
+         *   此时会发生 命名相同的冲突
+         *
+         *
+         * 第一种方式： 当命名冲突的时候，  使用jQuery顶级对象
+         * 第二种方式：    让权   
+         * 
+         */
+        //在命名冲突之前，把$的权利让给别的变量
+        var my$=$.noConflict();// 把$的权利让给  my$  ,此时 $不再具有  原本的权利， 所以他可以作为其他的用法出现在后边的代码
+        //此后，jQuery的顶级对象  变成了 my$
+        var $=10;//   在引入jQuery之后，又出现了  $  
+               //$ 是一个普通的变量
+        console.log(my$('#dv'));
+
+    </script>
+    <div id="dv"></div>
+</body>
+</html>

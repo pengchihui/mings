@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制一个由六等份随机颜色扇形组成的圆</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        var w = ctx.canvas.width;
+        var h = ctx.canvas.height;
+
+        // 确定半径
+        var r = 200;
+        // 分成多少等份
+        var num = 360;
+        // 每一份的弧度
+        var angle = Math.PI * 2 / num;
+        for (var i = 0; i < num; i++) {
+            ctx.beginPath();
+            ctx.moveTo(w / 2, h / 2);
+            ctx.arc(w / 2, h / 2, r, i * angle, (i + 1) * angle);
+            ctx.fillStyle = getRandomColor();
+            ctx.fill();
+        }
+
+        function getRandomColor() {
+            // [0,1)
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+    </script>
+</body>
+</html>

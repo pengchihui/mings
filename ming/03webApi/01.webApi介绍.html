@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * web Api的概念
+     *   api:(application programming interface)---应用程序编程接口，它其实是一些预先定义好的函数，目的是为了提供应用程序与开发人员基于某软件或者硬件得以访问一组例程的能力，而无需访问源码，只要知道他能干什么。
+     *
+     *   任何一种开发语言都有自己的api
+     *   api的特征就是输入和输出(I/0)
+     *   api的使用方法  console.log()//输出
+     *
+     *
+     *   web api：
+     *   其实在浏览器内部，提供了一套操作浏览器功能和页面元素的系统函数（api）（BOM和DOM）
+     *
+     *
+     *  前面讲了：
+     *  javascript的组成：
+     *  它由三个部分组成：
+     *    ECMAScript标准----定义了javascript语法规范，ECMAScript标准，定义了一种语言的标准，与具体的实现是无关的
+     *    DOM -----文档对象模型，他是一套操作页面元素的api，可以把HTML看成是文档树，通过DOM提供的api对树上的节点进行操作。
+     *    BOM ----浏览器对象模型，他是一套操作浏览器功能的api，通过BOM可以操作浏览器窗口：  弹出框、控制浏览器跳转、获取分辨率等等
+     *       Browser Object Model
+     *
+     *
+     *   DOM：文档对象模型
+     *
+     *
+     *   文档：把HTML文件看成是一个文档，在js中万物皆对象，所以文档也可以看成是一个对象
+     *   XML文件看成一个文档对象
+     *
+     *
+     *   JSON 存储数据----xml其实也是一种存储数据的格式
+     *
+     *   HTML： 用于展示信息，展示数据的
+     *   XML：侧重于存储数据
+     *
+     *
+     *   HTML页面中所有的标签，都可以看成一个对象
+     *
+     *   页面中每个标签，都是一个元素（element）,所以每个元素都可以看成是一个对象
+     *   标签是可以嵌套的，标签中可以有标签，元素中可以嵌套元素
+     *
+     *
+     *   HTML页面都有一个根标签   HTML---也叫根元素
+     *   在根标签里边，又嵌套了很多很多的元素，里边的每一个元素都是一个对象，对象里边又包含很多对象
+     *
+     *   文档(document)：  一个页面一个文档
+     *   元素(element)：   页面中所有的标签都叫元素，他们都可以看成是对象
+     *   节点(node)：页面中所有的内容都是节点：标签，属性，文本
+     *   根：root
+     *
+     *
+     *   document->html(很多元素）-->很多节点node。。。
+     *
+     *   又文档以及文档中所有的元素组成了一个树形的结构图，也叫树状图（DOM树）
+     *
+     *
+     *   体验一下，DOM
+     *
+     *   点击操作：-----事件：就是一件事，有触发和响应、事件源
+     *       按钮被点击，弹出对话框
+     *       按钮-----事件源
+     *       点击-----事件名
+     *       被点了----触发
+     *       弹出对话框---响应
+     *
+     *
+     *
+     *
+     *
+     */
+</script>
+<!--html代码中嵌入了js代码，我们最先开始讲web标准，结构表现和行为分离，以后我们这种事件越来越多，导致html代码越来越冗长，不方便后期的修改和维护，所以单独的将js代码挑出来-->
+<input type="button" value="弹框" onclick="alert('哈哈')" />
+
+<!--第二种情况，我们代码很多的时候，把js代码放到函数里边，当点击的时候，调用函数，但是还是没有做到html和js完全分离-->
+<input type="button" value="弹框" onclick="f1()" />
+
+<!--第三种情况： 开始分离html和js-->
+<input type="button" value="开始分离代码" id="btn" />
+
+
+<script>
+        // document.getElementById("btn").onclick=function(){
+        //     alert('哈哈，我又变帅了');
+
+    function f1(){
+        //这是一个函数，函数里边可以写很多代码
+        alert('哈哈哈哈');
+
+    }
+
+    function f2(){
+        alert('开始分离代码');
+    }
+
+    //html标签里边的id属性是唯一的
+    //id就像人的身份证号码一样，不能重复，所以他是整个页面中的唯一标识
+    //首先，从文档中找到id值为btn的这个标签(元素）
+    //document.getElementById('btn');----->此时返回的就是一个元素对象
+    //根据id获取到这个标签（元素）
+    var btnObj=document.getElementById('btn');
+    //获取到这个元素之后，为元素注册时间
+    btnObj.onclick=f2;
+    
+</script>
+</body>
+</html>

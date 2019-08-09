@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        ul {
+            margin: 100px auto 0;
+            padding: 0;
+            list-style: none;
+            cursor: pointer;
+            width: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         *    jQuery中筛选选择器：
+         *
+         *    :eq(index)
+         *    :odd：奇数
+         *    :even  偶数
+         *    :lt(index)   大于
+         *    :gt(小于)   
+         *
+         *
+         *
+         * 方法：
+         *    children('选择器')    子元素（直接后代）   $(ul>li)
+         *    find('选择器')      后代 $(ul li)
+         *    parent()   父级元素
+         *
+         *      .eq(index)  按照索引查找元素
+         */
+        $(function(){
+            // console.log($('#uu>li').eq(8).text());
+            $("#third").click(function(){
+                //获取某一个li的下一个兄弟元素
+                // $(this).next().css('backgroundColor','red');//DOM里边下一个兄弟节点
+
+                //获取某个li的上一个兄弟元素
+                // $(this).prev().css('backgroundColor','green');
+
+                //某个元素下所有兄弟元素
+                // $(this).nextAll().css('backgroundColor','red');
+                //某个元素上面所有兄弟元素
+                // $(this).prevAll().css('backgroundColor','green');
+                
+                //所有的兄弟元素
+                $(this).siblings().css('backgroundColor','red');
+            });
+        });
+
+
+    </script>
+    <ul id="uu">
+        <li>list1</li>
+        <li>list2</li>
+        <li id="third">list3</li>
+        <li>list4</li>
+        <li>list5</li>
+        <li>list6</li>
+        <li>list7</li>
+        <li>list8</li>
+        <li>list9</li>
+        <li>list10</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>画一个三角形</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 画三角形
+        ctx.moveTo(100,100);
+        ctx.lineTo(200,100);
+        ctx.lineTo(200,200);
+        ctx.lineTo(100,100);
+        ctx.lineWidth = 20;
+
+        // 使用canvas 轨迹自动闭合
+        ctx.closePath();
+        // 起始点 和 lineTo的结束点 无法完全闭合  会出现 缺角 
+        // 描边
+        ctx.stroke();
+        
+        // 填充
+        // ctx.fill();
+        
+        // beginPath()   开始全新的一条路径
+        // closePath()   自动闭合路径
+        // 其实这两个api  完全没有联系
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        #box {
+            width: 350px;
+            margin: 200px auto;
+        }
+        #box #txt {
+            box-sizing: border-box;
+            width: 100%;
+            display: block;
+            line-height: 30px;
+            padding: 0;
+        }
+        #box #pop {
+            border: 1px solid red;
+            margin: 0;
+            padding: 0;
+        }
+        #box #pop li {
+            padding: 5px 0 0 5px;
+            list-style: none;
+            cursor: pointer;
+        }
+        #box #pop li:hover {
+            color: #fff;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="text" name="" id="txt" />
+<!--         <div id="pop">
+            <ul>
+                <li>dd</li>
+                <li>dd</li>
+                <li>dd</li>
+                <li>dd</li>
+            </ul>
+        </div> -->
+    </div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        var arr = ['刘德华', '范冰冰', '周杰伦', '胡歌', '董卿', '刘德华开演唱会','范冰冰偷税事件','周杰伦歌友会','胡歌拍摄伪装者','最美主持董卿'];
+
+        function myTxtEvent(e) {
+            //获取文本的内容
+            var txt=this.value;
+            //临时数组---存放符合的数据
+            var tmpArr=[];
+            // 先判断是否存在pop
+            if(my$('pop')){
+                my$('box').removeChild(my$('pop'));
+            }
+            if(this.value.length==0){
+                tmpArr=arr;
+            }else {
+                //for循环，把文本框输入的内容和数组的每个元素对比
+                for (var i = 0; i < arr.length; i++) {
+                    // console.log(txt);
+                    //判断是否从开始就出现
+                    // console.log(arr[i],txt,arr[i].indexOf(txt));
+                    if(arr[i].indexOf(txt)==0){
+                        tmpArr.push(arr[i]);//在临时数组中追加元素
+                    }
+                }
+            }
+            //先创建ul#pop
+            var popObj = document.createElement('ul')
+            popObj.id='pop';
+            my$('box').appendChild(popObj);
+            for (var i = 0; i < tmpArr.length; i++) {
+                //循环创建li
+                var liObj = document.createElement('li');
+                // 把li加到pop中
+                popObj.appendChild(liObj);
+                setInnerText(liObj,tmpArr[i]);
+            }
+            switch(e.type) {
+                case 'focus':
+                    break;
+                case 'blur':
+                    if(my$('pop')){
+                        my$('box').removeChild(my$('pop'));
+                    }
+                    break;
+                case 'keyup':
+
+                    break;
+                default:
+                    break;
+            }
+        }
+        my$('txt').onfocus = myTxtEvent;
+        my$('txt').onblur = myTxtEvent;
+        //获取文本框注册键盘抬起事件
+        my$('txt').onkeyup=myTxtEvent;
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title> 页面名称 </title>
+		<style type="text/css">
+			#box {
+				width: 306px;
+				height: 400px;
+				margin: 0 auto;
+				background: navajowhite;
+			}
+			
+			#textbox {
+				border: 3px solid #006;
+				width: 300px;
+				font-size: 40px;
+				text-align: center;
+				background: pink;
+			}
+			 input{
+				margin-top: 20px;
+				width: 70px;
+				height: 25px;
+			}
+			#list{
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="textbox">-----</div>
+			<input type="button" value="开始" onclick="startrun();" />
+			<p>获奖名单:</p>
+			<div id="list"></div>
+		</div>
+
+		<script type="text/javascript">
+			var nameArr = ["何剑龙", "何思思", "蒋征浩", "刘锴", "许丽国", "刘思", "荣誉", "罗宇谋", "付涵程", "刘湘淇", "邓怡", "赵梅桥", "康超", "彭持辉", "刘梅", "谭櫆", "名字17", "张作钰"];
+			var listnum = 1;
+			var timer, timer2;
+			function startrun() {
+				
+				if(listnum <= 0) return;
+				clearInterval(timer);
+				clearTimeout(timer2);
+				var index;
+				timer = setInterval(function() {
+					index = Math.floor(Math.random() * nameArr.length);
+					document.getElementById("textbox").innerHTML = nameArr[index];
+				}, 20);
+				timer2 = setTimeout(function() {
+					clearInterval(timer);
+					document.getElementById("list").innerHTML += nameArr[index] + "<br>";
+					nameArr.splice(index, 1);
+					listnum--;
+					timer2 = setTimeout(startrun, 1000);
+				}, 5000);
+				
+			}
+		</script>
+	</body>
+
+</html>

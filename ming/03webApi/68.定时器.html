@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload=function(){
+            /**
+             * 我们 定时器也是属于BOM里边的
+             * BOM里有两个定时器 ----计时器
+             *
+             *
+             * 第一个定时器：
+             *
+             * setInterval()
+             *
+             * 两个参数：
+             * 参数1：一个处理函数
+             * 参数2：时间----毫秒----1000毫秒=1秒
+             *
+             * 执行过程：页面加载完毕后，过了1秒执行一次函数的代码，又过了一秒  再执行函数的代码......
+             */
+            var timeId = setInterval(function() {
+                alert('hello');
+            }, 1000);
+            document.getElementById('btn').onclick = function() {
+                //点击按钮，停止定时器
+                //一个参数：需要清理的定时器的id值
+                window.clearInterval(timeId);
+            };
+        };
+        
+    </script>
+    <input type="button" value="停止" id='btn' />
+</body>
+</html>

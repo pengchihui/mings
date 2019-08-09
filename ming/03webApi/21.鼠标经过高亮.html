@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hl {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>雪花</li>
+    <li>燕京</li>
+    <li>百威</li>
+    <li>青岛</li>
+    <li>哈啤</li>
+    <li>珠江啤酒</li>
+    <li>崂山</li>
+    <li>江小白</li>
+</ul>
+<script>
+    //鼠标进入事件
+    //鼠标离开事件
+    var list=document.getElementsByTagName('li');
+    //循环遍历所有li，为它注册鼠标进入和离开事件
+    for (var i=0;i<list.length;i++){
+        list[i].onmouseover =function(){
+            this.className='hl';
+        };
+        list[i].onmouseout=function(){
+            this.className='';
+        };
+    }
+</script>
+</body>
+</html>

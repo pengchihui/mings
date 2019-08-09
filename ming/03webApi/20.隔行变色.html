@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .br {
+            background-color: red;
+        }
+        .by {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="隔行变色" id="btn"/>
+<ul id="uu">
+    <li>红旗</li>
+    <li>五菱宏光</li>
+    <li>奔驰</li>
+    <li>宝马</li>
+    <li>奥迪</li>
+    <li>奥拓</li>
+    <li>兰博基尼</li>
+    <li>吉利</li>
+</ul>
+<script src="js/common.js"></script>
+<script>
+    //奇数 为红色，偶数为黄色
+    //注册单击事件
+    my$('btn').onclick=function(){
+        //获取所有的li
+        var myLists = my$('uu').getElementsByTagName('li');
+        for (var i=0;i<myLists.length;i++){
+            /*if(i%2==0){
+                myLists[i].className='by';
+            }else {
+                myLists[i].className='br';
+            }*/
+            myLists[i].className= i%2==0?'by':'br';
+        }
+    };
+</script>
+</body>
+</html>

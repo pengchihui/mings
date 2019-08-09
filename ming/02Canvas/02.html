@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制两条平行线</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 绘制两条平行线
+        ctx.moveTo(100,100 - .5);
+        ctx.lineTo(200,100 - .5);
+
+        ctx.moveTo(100,200);
+        ctx.lineTo(200,200);
+/*        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 1;*/
+        ctx.stroke();
+
+
+        /**
+         * 关于线条的几个问题： 
+         *
+         * 1.线的默认宽度是多少？   1px
+         * 2.线的默认颜色是什么？   #000
+         *
+         *
+         * 从视觉上：
+         *    宽度2px 
+         *    颜色： 灰色
+         *
+         * 产生原因：   线条对齐的点是 像素的 刻度位置，所以会把线条分成两个 .5px的线，
+         *      屏幕最小的单位为1px,视觉上看到的是两个像素 ，颜色上是因为虚化了，所以变成了灰色
+         *
+         * 解决：  往前后  左右 移0.5像素
+         */
+    </script>
+</body>
+</html>

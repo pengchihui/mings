@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制折线图上边的点</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 1.绘制点
+        // 2.点的尺寸
+        // 3.点应该是以坐标点的中心 来绘制
+        
+        // 点坐标
+        var coordinates = {
+            x:100,
+            y:100
+        }
+
+        var dotSize = 5;
+
+        ctx.beginPath();
+        ctx.moveTo(coordinates.x - dotSize / 2, coordinates.y - dotSize / 2);
+        ctx.lineTo(coordinates.x + dotSize /2, coordinates.y - dotSize / 2);
+        ctx.lineTo(coordinates.x + dotSize /2, coordinates.y + dotSize / 2);
+        ctx.lineTo(coordinates.x - dotSize /2, coordinates.y + dotSize / 2);
+        ctx.fill();
+    </script>
+</body>
+</html>

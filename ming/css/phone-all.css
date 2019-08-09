@@ -1,0 +1,83 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+.all {
+	width: 720px;
+	height: auto;
+	margin: 0 auto;
+	font-family: "Adobe 黑体 Std";
+}
+
+.header {
+	width: 720px;
+	height: 80px;
+	background: #9f0027;
+}
+
+.header header {
+	margin: 0 auto;
+	width: 684px;
+	height: 80px;
+	line-height: 80px;
+}
+
+.header header p {
+	color: #ffffff;
+	text-align: center;
+	background: url(../images/phone/login/login_03.jpg) no-repeat left;
+	background-size: 22px 40px;
+	font-size: 36px;
+}
+
+footer{
+	position: fixed;
+	bottom: 0;
+	width: 720px;
+	min-width: 684px;
+	height:96px;
+	border-top: 1px solid #cccccc;
+	background-color: #FFFFFF;
+}
+footer nav{
+	margin: 0 auto;
+	width: 684px;
+	height: 96px;
+	
+}
+footer nav ul{
+	display: flex;
+	justify-content: space-around;
+}
+footer nav ul li{
+	padding-top:10px;
+	width:auto;
+	height: 76px;
+	text-align: center;
+}
+footer nav ul li img{
+	width:48px;
+	height: 48px;
+}
+footer nav ul li:nth-child(1) p{
+	color: #9f0028;
+}
+footer nav ul li p{
+	font-size: 24px;
+	color: #333333;
+}

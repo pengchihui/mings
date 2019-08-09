@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#btn').click(function(){
+                //$('#dv').css({'width':'400px','height':'300px'});
+                //设置div的宽高为原来的两倍
+                /*var w=$("#dv").css('width');
+                var h=$("#dv").css('height');
+                // console.log(w,h);
+                $('#dv').css('width',parseInt(w)*2+'px');
+                $('#dv').css('height',parseInt(h)*2+'px');*/
+                // $("#dv").css({'width':$("#dv").width()*2+'px'});
+                // $("#dv").css({'height':$("#dv").height()*2+'px'});
+                // 
+                
+                //width();
+                //height();  
+                //可以用来获取   还可以用来设置     操作的是 数字类型  方便计算
+                //  类似 DOM  offsetWidth  offseHeight
+                $('#dv').width($('#dv').width()*2).height($('#dv').height()*2);
+            });
+        });
+    </script>
+    <input type="button" value="设置" id="btn" />
+    <div id="dv"></div>
+</body>
+</html>

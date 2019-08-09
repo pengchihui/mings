@@ -1,0 +1,36 @@
+.ci-check-lable{
+    position: relative;
+}
+.ci-check-lable input{
+    position: absolute;
+    left: -9999px;
+}
+.ci-check-lable i {
+    position:relative;
+    display:inline-block;
+    width: 40px;
+    height: 40px;
+    outline: 0;
+    border: 1px solid #ccc;
+    border-radius:50%;
+    background: transparent;
+}
+.ci-check-lable input[type=checkbox]:checked + i {
+    border: 1px solid #00aaee;
+    background-color: #00aaee;
+}
+.ci-check-lable input[type=checkbox]:checked + i:after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin-top: -3px;
+    margin-left: -5px;
+    -webkit-transform: rotate(-53deg);
+    transform: rotate(-53deg); 
+    width: 8px;
+    height: 3px;
+    border: 1px solid #fff;
+    border-top: 0;
+    border-right: 0;
+}

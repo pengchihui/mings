@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style>
+			.self-timer {
+				width: 242px;
+				height: 42px;
+				background: pink;
+			}
+			
+			.self-timer span{
+				width: 40px;
+				height: 40px;
+				display: block;
+				float: left;
+				line-height:40px;
+				text-align: center;
+				cursor: pointer;
+				border-top: 1px solid red;
+				border-bottom: 1px solid red;
+			}
+			.self-timer span:nth-child(2) {
+				width: 120px;
+				height: 40px;
+				background: #FFFFFF;
+				color: palegreen;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="self-timer">
+			<span>开始</span><span></span><span name="1">暂停</span><span>结束</span>
+		</div>
+
+		<script>
+			/*计时器*/
+			var self = document.getElementsByClassName("self-timer")[0];
+			var a = self.children[0];
+			var b = self.children[1];
+			var c = self.children[2];
+			var d = self.children[3];
+			var hour = 0;
+			var minute = 0;
+			var second = 0;
+			
+			function ti() {
+				var aa=Math.floor(Math.random()*225+1);
+		        var bb=Math.floor(Math.random()*225+1);
+		        var cc=Math.floor(Math.random()*225+1);
+		        b.style.color="rgb("+aa+","+bb+","+cc+")";
+				second=second+1;
+				if(second == 59) {
+					minute++;
+					if(minute == 59) {
+						hour++;
+						minute=0;
+					}
+					second=0;
+				}
+				if(hour < 10 && minute < 10 && second < 10){
+					b.innerHTML ="0"+hour + ":" +"0"+ minute + ":" +"0"+second;
+				}else if(second >= 10 && minute < 10 && hour < 10){
+					b.innerHTML ="0"+hour + ":" +"0"+ minute + ":" +second;
+				}else if(second >= 10 && minute >= 10 && hour < 10){
+					b.innerHTML ="0"+hour + ":" + minute + ":" +second;
+				}else if(second >= 10 && minute >= 10 && hour >= 10){
+					b.innerHTML =hour + ":" + minute + ":" + second;
+				}
+				
+			}
+			b.innerHTML = "00:00:00";
+			var time =null;
+			/*开始*/
+			a.onclick = function() {
+			    time = setInterval("ti()", 1000);
+				b.innerHTML = "00:00:00";
+			}
+			/*暂停继续*/
+			c.onclick=function(){
+				var name=c.getAttribute("name");
+				if(name==1){
+					clearInterval(time);
+					c.setAttribute("name",0);
+				}
+				if(name==0){
+					time = setInterval("ti()", 1000);
+					c.setAttribute("name",1);
+				}
+			}
+			/*结束*/
+			d.onclick=function(){
+				clearInterval(time);
+				b.innerHTML = "00:00:00";
+				second=0;
+				minute = 0;
+				second = 0;
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * DOM页面
+         */
+        /*window.onload=function(){
+            $('#btn').click(function(){
+                console.log('哈哈');
+            });
+        };
+
+        //此时 window.onload  被后边的覆盖了，所以只执行后边
+        //DOM里边注册事件，都是把匿名函数赋值给window的onload属性
+        window.onload=function(){
+            $('#btn').click(function(){
+                console.log('呵呵');
+            });
+        };*/
+
+
+        //页面加载事件，jQuery方法 一：
+        //把BOM顶级对象转换成jQuery对象
+        $(window).load(function(){
+            console.log('今天天气好！');
+        });
+       $(window).load(function(){
+            console.log('今天天气真正好！');
+        });
+
+        // 第二种写法：
+        // 
+        /*$(document).ready(function(){
+            console.log('1');
+        });
+        $(document).ready(function(){
+            console.log('2');
+        });*/
+
+        /**
+         * 先执行 第二种，然后再执行第一种
+         * 第一种是页面完全加载完后执行
+         * 第二种是页面中的基本元素加载后 触发
+         */
+        
+
+        //jQuery中第三种  页面加载事件
+        //  这种方法 跟第二种方法是一样的，也是等页面中基本元素加载完后触发
+        /*jQuery(function(){
+            console.log('页面加载了1');
+        });
+        jQuery(function(){
+            console.log('页面加载了2');
+        });*/
+        //jQuery顶级对象 可以用$代替
+        //
+        // 最终版本
+        $(function(){
+            console.log('页面加载1111');
+        });
+        $(function(){
+            console.log('页面加载2222');
+        });
+
+
+       // jQuery中事件都是通过调用方法来实现的
+       // 此时相当于调用了两次方法
+       // 
+       // 
+       //调用两次 ，执行两次
+       //
+       //
+       //
+       //页面加载事件-----页面完全加载之后，才出发（页面中的标签、文字、图片、引入的文件都加载）
+       /*function f1(){
+
+       }
+       f1();
+       f1();*/
+    </script>
+    <input type="button" value="按钮" id="btn" />
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 2000px;
+        }
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/tianshi.gif" id="im" alt="" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //文档的鼠标移动事件
+        //事件对象    事件处理函数，如果事件触发了，函数的代码就会被执行，执行的时候，这个事件参数对象自动传入
+        //通过arguments.length,得出：事件处理函数中其实有一个参数，这个参数和事件有关系，是一个对象---->事件参数对象
+        //
+        //事件参数对象中，有一个属性 clientX和clientY  是指可视区域中的坐标
+        /*document.onmousemove=function(e){
+            // document.title=e.clientX+","+e.clientY;
+            my$('im').style.left=e.clientX-48+'px';
+            my$('im').style.top=e.clientY-40+'px';
+
+
+        };*/
+
+        //chrome 和firefox中都有这个事件参数对象，但是在IE8中是没有的
+        //IE8中使用window.event属性来代替
+        //document.onmousemove=function(e){
+            /*if(window.event){
+                 my$('im').style.left=window.event.clientX-48+'px';
+                 my$('im').style.top=window.event.clientY-40+'px';
+            }else{
+                my$('im').style.left=e.clientX-48+'px';
+                my$('im').style.top=e.clientY-40+'px';
+            }*/
+            /*my$('im').style.left=window.event?window.event.clientX-48+'px':e.clientX-48+'px';
+            my$('im').style.top=window.event?window.event.clientY-40+'px':e.clientY-40+'px';*/
+           /* e=window.event||e;
+            //可视区域的横坐标、纵坐标
+            my$('im').style.left=e.clientX-48+'px';
+            my$('im').style.top=e.clientY-40+'px';
+        };*/
+
+        //如果body的高度超过当前屏幕，就会发生错位
+        //原因是因为 可视区域的横坐标 和纵坐标  与 img定位的 x轴 y轴的值不一样
+        document.onmousemove=function(e){
+            // console.log(e);
+            e=window.event||e;
+            
+            /*my$('im').style.left=e.offsetX-48+'px';
+            my$('im').style.top=e.offsetY-40+'px';*/
+            //pageX  pageY  是相对于页面顶部的坐标
+            //在chrome和firefox中可以使用，在ie里边不支持
+            /*my$('im').style.left=e.pageX-48+'px';
+            my$('im').style.top=e.pageY-40+'px';*/
+            //可视区域的坐标 +   滚动的距离
+            my$('im').style.left=e.clientX+getScroll().left-48+'px';
+            my$('im').style.top=e.clientY+getScroll().top-40+'px';
+        };
+        //复习getScroll函数
+        function getScroll(){
+            return {
+                left:window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0,
+                top:window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop||0
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<ul>
+			<li>
+				<img src="xxx1.jpg" alt="" />
+				<h2>产品1</h2>
+				<span>￥99.99</span>
+				<input type="text" value="1" />
+				<a href="javasrcipt:;">加入购物车1</a>
+			</li>
+			<li>
+				<img src="xxx2.jpg" alt="" />
+				<h2>产品2</h2>
+				<span>￥88.88</span>
+				<input type="text" value="1" />
+				<a href="javasrcipt:;">加入购物车2</a>
+			</li>
+			<li>
+				<img src="xxx3.jpg" alt="" />
+				<h2>产品3</h2>
+				<span>￥66.66</span>
+				<input type="text" value="1" />
+				<a href="javasrcipt:;">加入购物车3</a>
+			</li>
+		</ul>
+		<script>
+			
+			var ul=document.getElementsByTagName("ul")[0];
+			var lis=ul.children
+			
+			for(var i=0;i<lis.length;i++){
+				//加入购物车的点击事件
+				lis[i].lastElementChild.onclick=function(){
+					var li=this.parentElement//读取this的父级元素
+					var pic=li.children[0].src//读取图片
+					var tit=li.children[1].innerText//标题
+					var pay=li.children[2].innerText.substr(1)//价格
+					var num=parseInt(li.children[3].value)//数量
+					var obj={pic:pic,tit:tit,pay:pay,num:num}//整合成对象数据
+					
+					//添加数据前先读取
+					var shop=localStorage.getItem("shopcar")||"[]"					
+					var shop_arr=JSON.parse(shop);//把字符串转成数组对象
+					var repeat=false//判断是否重复
+					for(var x=0;x<shop_arr.length;x++){
+						if(shop_arr[x].tit==tit){
+							repeat=true//有重复的
+							shop_arr[x].num=shop_arr[x].num+num//将重复的那一条数据数量增加
+						}
+					}					
+					repeat?"":shop_arr.push(obj)//没有重复时，则增加一整条新的数据
+					var str=JSON.stringify(shop_arr)//把数组对象转成字符串
+					localStorage.setItem("shopcar",str)					
+				}
+				//数量输入时只能输入整数数字
+				lis[i].children[3].onkeyup=function(){
+					var str=this.value;
+					var test=/\d+/ig;
+					this.value==""?this.value=1:this.value=str.match(test)
+				}
+			}
+			
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

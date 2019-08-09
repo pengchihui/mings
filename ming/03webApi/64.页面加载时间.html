@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        /**
+         * 页面加载的时候，按钮都还没出现，所以页面执行到这一步，还没有完全加载完毕
+         *
+         * 我们需要等页面加载完毕之后，再来获取这个按钮，才能获取到
+         * 
+         */
+        onload=function(){
+            document.getElementById('btn').onclick=function(){
+                console.log('哈哈');
+            };
+        };
+
+
+        //扩展的事件   页面关闭后才出发的事件
+        window.onunload=function(){
+            alert('哈哈');
+        };
+
+        //扩展事件    页面关闭前出发
+        window.onbeforeunload=function(){
+            alert('哈哈');
+        };
+    </script>
+</body>
+</html>

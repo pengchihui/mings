@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>翻页</title>
+  <style>
+    #ol1 li{
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <ol id="ol1">
+      
+    </ol>
+    <div>
+      <button class="pageChange" pageNum="0">第一页</button>
+      <button class="pageChange" pageNum="1">第二页</button>
+      <button class="pageChange" pageNum="2">第三页</button>
+    </div>
+  </div>
+  <script type="text/javascript">
+    window.onload = function () 
+    {
+      // 自定义数据 实际开发中 数据是从后台获取
+      var data = [  
+        { name: "aa", age: 10},
+        { name: "bb", age: 11},
+        { name: "cc", age: 12},
+        { name: "dd", age: 23},
+        { name: "ee", age: 50},
+        { name: "ff", age: 24},
+        { name: "gg", age: 62},
+        { name: "ii", age: 35}
+      ]; 
+ 
+      // 取前三条数据初始化页面
+      var oOl = document.getElementById('ol1');
+      var outStr = "";
+      for (var i = 0; i < 3; i++) {
+        outStr += '<li><span>' + data[i].name + '</span> <span>' + data[i].age + '</span></li>';
+      }
+      oOl.innerHTML = outStr;
+      
+      // 实现翻页功能
+      var aBtn = document.getElementsByClassName('pageChange');
+      for (var j = 0; j < aBtn.length; j++) { // 为每个页数按钮都设置点击事件
+        aBtn[j].onclick = function (event) {
+          var pageNum = parseInt(event.target.getAttribute("pageNum")); // 获取自定义属性pageNum的值 并将其转换为数字类型  释：pageNum表明当前时第几页
+          outStr = "";
+          for (var i = pageNum*3; i < pageNum*3+3; i++) { //通过页数获取data中相应段的值
+            outStr += '<li><span>' + data[i].name + '</span> <span>' + data[i].age + '</span></li>';
+          }
+          oOl.innerHTML = outStr;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

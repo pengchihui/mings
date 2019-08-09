@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+        }
+        table,
+        table td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        .mask {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.5);
+            display: none;
+        }
+        .formAdd {
+            width: 500px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            display: none;
+        }
+        .formAdd .form-add-title {
+            background-color: #eee;
+            line-height: 25px;
+            padding: 5px 10px;
+        }
+        .formAdd .form-add-title span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+            text-indent: 1.5em;
+        }
+        .formAdd .form-add-title .hideForm {
+            float: right;
+            width: 25px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .formAdd .form-item {
+            line-height: 30px;
+            height: 30px;
+            padding: 10px 30px;
+        }
+        .formAdd .form-item input {
+            box-sizing: border-box;
+            height: 30px;
+            outline: none;
+            border: 1px solid #eee;
+        }
+        .formAdd .form-submit {
+            padding: 10px 60px;
+        }
+        .formAdd .form-submit input {
+            display: block;
+            width: 50%;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //显示遮罩层和 表单
+            $('#btn').click(function(){
+                /*$('#mask').css('display','block');
+                $('#j_formAdd').css('display','block');*/
+                $('#mask').show('fast');
+                 $('#j_formAdd').fadeIn('slow');
+            });
+
+
+            //关闭对话框
+            function hideForm(){
+                $('#mask').hide('fast');
+                $('#j_formAdd').fadeOut('slow');
+            }
+            $("#j_hideForm").click(hideForm);
+
+            //添加数据
+            $('#btnAdd').click(function(){
+                //获取表单里两个文本内容
+                var j_food=$('#j_food');
+                var j_person=$('#j_person');
+
+                //创建
+                $('<tr><td>'+j_food.val()+'</td><td>'+j_person.val()+'</td><td><a href="javascript:void(0)" class="delBtn">删除</a></td></tr>').appendTo('#j_tb');
+                //创建完之后关闭表单
+                hideForm();
+                // console.log(j_person.get(0).defaultValue);
+                // console.log(j_person.prop('defaultValue'));
+                j_food.val(j_food.prop('defaultValue'));
+                j_person.val(j_person.prop('defaultValue'));
+
+                /*
+                this.defaultValue
+
+                 */
+            });
+                
+            // 页面加载完毕后，为a注册删除事件
+            // console.log($('#j_tb').find('.delBtn'));
+            // $('#j_tb').find('.delBtn').click(function(){
+            //     $(this).parent().parent().remove();
+            // });
+
+            // 事件委托
+            $('#j_tb').on('click','a.delBtn',function(){
+                console.log('aaa');
+                $(this).parent().parent().remove();
+            });
+        });
+    </script>
+<input type="button" value="添加数据" id="btn" />
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>菜名</th>
+            <th>饭店</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>红烧肉</td>
+            <td>田老师</td>
+            <td><a href="javascript:void(0)" class="delBtn">删除</a></td>
+        </tr>
+        <tr>
+            <td>西红柿鸡蛋</td>
+            <td>田老师</td>
+            <td><a href="javascript:void(0)" class="delBtn">删除</a></td>
+        </tr>
+        <tr>
+            <td>油炸榴莲</td>
+            <td>田老师</td>
+            <td><a href="javascript:void(0)" class="delBtn">删除</a></td>
+        </tr>
+        <tr>
+            <td>清蒸助教</td>
+            <td>田老师</td>
+            <td><a href="javascript:void(0)" class="delBtn">删除</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<div id="mask" class="mask"></div>
+<div id="j_formAdd" class="formAdd">
+    <div class="form-add-title">
+        <span>添加数据</span>
+        <div id="j_hideForm" class="hideForm">x</div>
+    </div>
+    <div class="form-item">
+        你要点什么菜: <input type="text" name="" id="j_food" placeholder="请输入一个菜" />
+    </div>
+    <div class="form-item">
+        TM谁点的: <input type="text" name="" id="j_person" value="小郑" />
+    </div>
+    <div class="form-submit">
+        <input type="button" value="添加数据" id="btnAdd" />
+    </div>
+</div>
+</body>
+</html>

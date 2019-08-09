@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title> 
+	</head>
+
+	<body>
+		<form action="welcome.php" method="post">
+			名字: <input type="text" name="name"> <br/>
+			密码: <input type="password" name="password"/><br/>
+			年龄: <input type="text" name="age"><br/>
+			<input type="submit" value="提交">
+		</form>
+		<script>
+              var name=document.getElementsByName("name");
+              var pass=document.getElementsByName("password");
+              var age=document.getElementsByName("age");
+              var names=/^[a-zA-Z0-9_-]{4,16}$/;
+              var passwords=/^.*  $/;
+              var ages=/^[0-9]?[0-9]?$/;
+//            var str="iFat3M";
+//            var p1 = /^.*(?=.*{6,})(?=.*).*$/;
+//            var p2=/^.*(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/;
+//            console.log(str.match(p1));
+            
+			
+		</script>
+	</body>
+
+</html>

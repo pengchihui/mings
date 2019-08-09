@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        ul {
+            list-style: none;
+            cursor: pointer;
+            width: 200px;
+            margin: 100px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('ul>li').mouseenter(function(){
+                $(this).css('backgroundColor','red');
+            }).mouseleave(function(){
+                // $(this).css('backgroundColor','');
+                $(this).parent().find('li').css('backgroundColor','');
+            }).click(function(){
+                // $(this).prevAll('li').css('backgroundColor','yellow');
+                // $(this).nextAll('li').css('backgroundColor','blue');
+
+
+                //断链：   对象调用方法后，返回的已经不是当前的这个对象了，此时在调用方法，就会出现断链
+                //如果出现断链的情况，该怎么办
+                //  在断链的地方，需要恢复断链
+                //   .end()方法，用于修复断链，恢复断链之前的状态
+                // $(this).prevAll().css('backgroundColor','yellow').end().nextAll().css('backgroundColor','blue');
+            
+                //这种情况，不推荐用链式编程
+                // 断了之后，再去修复   浪费资源
+                $(this).prevAll().css('backgroundColor','yellow')
+                $(this).nextAll().css('backgroundColor','blue');
+
+            });
+        });
+    </script>
+    <ul>
+        <li>青岛啤酒</li>
+        <li>瓦伦丁</li>
+        <li>奥丁格教士</li>
+        <li>科罗娜喜力柏龙</li>
+        <li>嘉士伯</li>
+        <li>罗斯福</li>
+        <li>粉象</li>
+        <li>爱士堡</li>
+        <li>哈尔滨蓝带</li>
+    </ul>
+</body>
+</html>

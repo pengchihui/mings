@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //绑定事件的方式：
+        //     最普通的    对象.click();  
+        //                对象.bind();
+        //                对象.delegate()
+        //                对象.on()
+        //                
+        //  解除绑定，一般来说，用什么方式绑定的事件，就最好用对应的方式去解绑
+        
+
+        /**
+         *
+         *  unbind可以用来解除事件的绑定：
+             *  unbind()用来解除 bind方法绑定的事件
+         *       unbind()也可以解绑  直接调用事件方法的方式
+         *
+         *  unbind方法中  如果不传参数   把该元素绑定的所有的事件类型都解绑
+         *  unbind方法   如果传入一个参数  事件类型    把该元素绑定的该类型的所有事件都解绑
+         *
+         *
+         *  如果要解除多个类型的事件，可以借用链式编程   
+         *    在传入的事件类型参数中，写多个事件，并用空格隔开
+         * 
+         * 
+         * 
+         */
+        
+        $(function(){
+            // 点第一个按钮  绑定事件
+            $('#btn1').click(function(){
+                $('#dv').click(function(){
+                    console.log('我是div直接调用click绑定的事件');
+                }).bind('click',function(){
+                    console.log('div被点击了');
+                }).bind('mouseenter',function(){
+                    console.log('鼠标进入了div');
+                }).bind('mouseleave',function(){
+                    console.log('鼠标离开了div');
+                });
+            });
+            // 点第二个按钮解绑事件
+            $('#btn2').click(function(){
+                // $('#dv').unbind('click').unbind('mouseenter');//unbind  用来解除事件的绑定
+                $('#dv').unbind('click mouseenter');//unbind  用来解除事件的绑定
+            });
+            
+        });
+        
+    </script>
+    <input type="button" value="绑定" id="btn1" />
+    <input type="button" value="解绑" id="btn2" />
+    <div id="dv"></div>
+</body>
+</html>

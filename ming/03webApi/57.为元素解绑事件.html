@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn" />
+    <input type="button" value="干掉第一个按钮的事件" id="btn2" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //1.对象.on事件名称=事件处理函数-------------最先开始的绑定事件
+        /*my$('btn').onclick=function(){
+            console.log('我真帅！');
+        };
+
+        my$('btn2').onclick=function(){
+            //解绑第一个按钮的事件
+            my$('btn').onclick=null;
+        };*/
+
+        //2.通过对象.addEventListener添加事件监听
+        function f1() {
+            console.log('第一个');
+        }
+        function f2() {
+            console.log('第二个');
+        }
+        /*my$('btn').addEventListener('click', f1, false);
+        my$('btn').addEventListener('click', f2, false);
+        //点击第2个按钮，把第一个按钮的第一个点击事件解绑
+        my$('btn2').onclick = function() {
+            my$('btn').removeEventListener('click',f1, false);
+        };*/
+
+        /**
+         * 同样的道理，以上方法，ie8不兼容
+         */
+        
+
+        //3.通过attachEvent添加的事件监听
+        /*my$('btn').attachEvent('onclick',f1);
+        my$('btn').attachEvent('onclick',f2);
+        my$('btn2').onclick=function(){
+            my$('btn').detachEvent('onclick',f2);
+        };*/
+
+        addEventListener(my$('btn'),'click',function(){
+            console.log(1);
+        });
+        addEventListener(my$('btn'),'click',f1);
+        my$('btn2').onclick=function(){removeEventListener(my$('btn'),'click',f1)};
+    </script>
+</body>
+</html>

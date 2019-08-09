@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮" id="btn" />
+<script>
+    //点击按钮，修改当前按钮属性
+
+    // 在某个元素的事件中，自己的事件中this就是指当前这个元素对象
+
+
+
+    var btnObj=document.getElementById('btn');
+    btnObj.onclick=function(){
+        this.value='我就是这个按钮，谁点我，我就咬你';
+        this.type='text';
+        this.id='btn2';
+    };
+</script>
+<script>
+    //点击图片修改自身的宽高
+</script>
+<img src="" alt="" />
+</body>
+</html>

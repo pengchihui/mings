@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			const poisonIndex = Math.round(Math.random() * 1000) // 随机生产毒药编号
+
+			function getPoison() {
+				var mixsGroupRule = [] // 混合规则：第1位是1，第2位是1，第3位是1...第10位是1
+				var mixsGroup = [] // 根据混合规则，计算出混合组合
+
+				for(var i = 0; i < 10; i++) {
+					mixsGroupRule.push(Math.pow(2, i))
+					mixsGroup.push([])
+				}
+
+				for(var liquidIndex = 1; liquidIndex <= 1000; liquidIndex++) {
+					mixsGroupRule.forEach(function(rule, index) {
+						(function(liquidIndex, index) {
+							if(!!(rule & liquidIndex)) {
+								mixsGroup[10 - index - 1].push(liquidIndex)
+							}
+						})(liquidIndex, index)
+					})
+				}
+
+				var mouseStatus = mixsGroup.map(each => {
+					return isDead(each)
+				})
+
+				var resBinaryStr = mouseStatus.map(each => {
+					return each ? 1 : 0
+				}).join('')
+
+				var resIndex = parseInt(resBinaryStr, 2)
+
+				return resIndex
+			}
+
+			console.log(`毒药序号：${poisonIndex}`)
+			console.log(`算出的毒药序号: ${getPoison()}`)
+
+			// 老鼠吃了水后的状态
+			function isDead(mixs) {
+				return mixs.indexOf(poisonIndex) !== -1
+			}
+		</script>
+	</body>
+
+</html>

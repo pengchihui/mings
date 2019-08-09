@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            /* box-sizing: border-box; */
+            width: 200px;
+            height: 210px;
+            border: 20px solid red;
+            border-left-width: 40px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dv"></div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        /**
+         * offset系列：  获取元素的宽、高、left、top值  offsetParent
+         *    offsetLeft:元素距离左边位置的值
+         *    offsetTop:元素距离上面位置的值
+         *    offsetWidth: 元素的宽（带边框）
+         *    offsetHeight:元素的高
+         *    offsetParent:获取父级元素
+         *
+         * scroll系列：   滚动出去的值
+         *     scrollLeft:向左滚动出去的距离
+         *     scrollTop:向上滚动出去的距离
+         *     scrollWidth:元素中内容的实际宽度（如果内容很少、或者没有内容，就是元素自身的宽），不带边框
+         *     scrollHeight:元素中内容的实际高度
+         *
+         * client系列：  可视区域
+         *     clientWidth: 可视区域的宽 ，不带边框
+         *     clientHeight: 可视区域的高，同样不边框
+         *     clientLeft:左边的边框的宽度   内容距离边的宽度
+         *     clientTop:上边的边框的宽度
+         */
+        /*console.log(my$('dv').offsetLeft);
+        console.log(my$('dv').offsetTop);
+        console.log(my$('dv').offsetParent);*/
+        console.log(my$('dv').clientWidth);
+        console.log(my$('dv').clientHeight);
+        console.log(my$('dv').clientLeft);
+        console.log(my$('dv').clientTop);
+
+    </script>
+</body>
+</html>

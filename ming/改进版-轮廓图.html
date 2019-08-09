@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				margin: 0 auto;
+				height: 400px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			ul {
+				position: absolute;
+				width: 1000%;
+				height: 400px;
+				/*background: yellowgreen;*/
+			}
+			
+			ul li {
+				list-style: none;
+				width: 10%;
+				height: 400px;
+				float: left;
+			}
+			
+			button {
+				position: absolute;
+				top: 45%;
+				cursor: pointer;
+				font-size: 40px;
+				left: 0;
+			}
+			
+			button:nth-of-type(2) {
+				right: 0px;
+				left: auto;
+			}
+			
+			#btn {
+				position: absolute;
+				bottom: 10px;
+			}
+			
+			#btn a {
+				display: block;
+				float: left;
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border-radius: 50%;
+				margin: 0 10px;
+			}
+			
+			#btn>.on {
+				background: yellow;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" style="width: 500px;">
+			<ul style="left: 0%;">
+				<li style="background: blanchedalmond;"></li>
+				<li style="background: mistyrose;"></li>
+				<li style="background: pink;"></li>
+			</ul>
+			<button>&lt;</button>
+			<button>&gt;</button>
+			<div id="btn">
+
+			</div>
+		</div>
+		<script>
+			var box = document.getElementById("box");
+			var ul = box.children[0];
+			var li = ul.children;
+			var turn_l = box.children[1];
+			var turn_r = box.children[2];
+			var btn = document.getElementById("btn");
+
+			/*圆圈初始化样式*/
+			for(var i = 0; i < li.length; i++) {
+				li[i].index = i;
+				var a = document.createElement("a");
+				a.index = i;
+				btn.appendChild(a);
+			}
+			btn.children[0].className = "on";
+			btn.style.left = (box.clientWidth / 2) - (btn.clientWidth / 2) + "px";
+
+			function move(val) {
+				var x = parseInt(ul.style.left); /*0% -100% -200%*/
+				/*0 1 2*/
+				var pro_mave = setInterval(function() {
+					if(x == -val * 100) {
+						clearInterval(pro_mave);
+					} else if(val- (x / -100) > 0) {
+						ul.style.left = (--x) + "%";
+					} else {
+						ul.style.left = (++x) + "%";
+					}
+				}, 10);
+
+				for(var m = 0; m < ba.length; m++) {
+					ba[m].className = "";
+				}
+				ba[val].className = "on";
+			}
+			var ba = btn.children;
+
+			/*圆圈移动*/
+			for(var i = 0; i < ba.length; i++) {
+				ba[i].onclick = function() {
+					move(this.index)
+				}
+			}
+			/*左边*/
+			var on = 0;
+			turn_l.onclick = function() {
+				move(on <= 0 ? on = 0 : --on)
+			}
+			/*右边*/
+			turn_r.onclick = function() {
+				move(on >= 2 ? on = 2 : ++on)
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * 包装集：   在jQuery中，都是通过原生的javascript的方式 来获取对象
+         *       获取对象后，把很多的DOM对象进行包装或者 封装，然后变成了一个jQuery的对象
+         *
+         *
+         * 每个jQuery对象 都是一个包装集，要想从这个集合中获取DOM对象---->jQuery对象转换成DOM对象
+         *        jQuery[0]
+         *        jQuery.get(0)
+         *
+         * 把包装集看成是一个集合     既然他是集合的话，那么会不会有长度
+         */
+        $(function(){
+            $('#btn').click(function(){
+                //判断页面中有没有 id 为  dv的div
+                // console.log($('#dv'));
+                //在jQuery中判断这个元素是否存在，就是通过包装集的length属性来测试
+                if($('#dv').length!=0){
+                    console.log('存在');
+                }else{
+                    console.log('不存在');
+                }
+            });
+        });
+    </script>
+    <input type="button" value="按钮" id="btn" />
+    <!-- <div id="dv"></div> -->
+</body>
+</html>

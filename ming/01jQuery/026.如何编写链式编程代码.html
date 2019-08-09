@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //所谓的链式编程：
+            //
+            //   对象 能不停的调用方法
+            //  对象.方法().方法().方法().......
+            //  
+            //  如何能一直不停调用方法：
+            //      满足以下条件：
+            //         对象调用方法，如果返回值还是当前的这个对象，那么就可以继续调用方法
+            //          如果返回值不是当前对象，那么这种情况叫断链，不能继续往下调用
+            //          
+            //          
+            //  在jQuery中，一般情况下，如果这个对象调用的方法，这个方法的意思是 设置  ，那么返回值  几乎都是当前的对象，那么就可以继续链式编程
+            
+
+            $('#btn').click(function(){
+                // console.log($(this).val());//返回  它是设置还是获取？
+                //此时后边不能再接方法
+                // console.log($(this).val('哈哈'));//设置
+                // $(this).val('哈哈').css('backgroundColor','red').css('width','100px');
+
+
+                console.log($(this).css('backgroundColor',''));
+
+
+                // .text();-----获取
+                // html('哈哈');//设置
+            });
+        });
+    </script>
+    <input type="button" value="按钮" id="btn" />
+</body>
+</html>

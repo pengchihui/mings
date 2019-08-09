@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>体验canvas</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+            /*有一个默认的宽度 300 * 150*/
+            /* width: 800px;
+            height: 600px; */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        // 1. 准备画布
+        // 2. 准备绘图的工具
+           //  绘图工具由javascript提供
+        var myCanvas = document.querySelector('#myCanvas');
+        // console.log(myCanvas);
+        // 获取上下文   理解成为一个绘图工具箱
+        var ctx = myCanvas.getContext('2d');
+        // web gl    游戏开发  3d
+
+        // 3. 利用绘图的工具进行绘画
+         // 移动画笔
+        ctx.moveTo(100,100);
+        // 4.绘制直线   (轨迹、路径)
+        ctx.lineTo(200,100);
+        // 5.描边路径
+        ctx.stroke();
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制完整饼图</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var PieChart = function(ctx) {
+            // 绘图工具
+            this.ctx = ctx || document.querySelector('canvas').getContext('2d');
+
+            // 画布的中心
+            this.canvasWidth = this.ctx.canvas.width;
+            this.canvasHeight = this.ctx.canvas.height;
+
+            // 饼图的圆心
+            this.x0 = this.canvasWidth / 2 + 50;
+            this.y0 = this.canvasHeight / 2;
+
+            // 饼图的半径
+            this.r = 150;
+
+            // 伸出去的长度
+            this.outLine = 20;
+
+            // 关于描述出去的一些数据
+            this.space = 15;
+            this.rect = {
+                width: 30,
+                height: 16,
+                margin: 8
+            };
+
+        }
+
+        PieChart.prototype.init = function(data) {
+            // console.log(data);
+            // 画饼
+            this.drawPie(data);
+        };
+        PieChart.prototype.drawPie = function(data) {
+            // console.log(this.transformData(data));
+            var myData = this.transformData(data);
+            var startAngle = 0;
+            myData.forEach(function(item, i) {
+                endAngle = item.angle + startAngle;
+                this.ctx.beginPath();
+                this.ctx.moveTo(this.x0, this.y0);
+                this.ctx.arc(this.x0, this.y0, this.r, startAngle, endAngle);
+                var color = this.ctx.fillStyle = this.getRandomColor();
+                this.ctx.fill();
+                // console.log(item);
+                // 画文字
+                this.drawText(startAngle, item.angle, item.title, color);
+                // 画描述
+                this.drawDescription(i, item.title + ':' +item.count + '人,占比:'+item.percent, color);
+                startAngle = endAngle;
+            }.bind(this));
+
+        };
+        PieChart.prototype.drawText = function(startAngle, angle, text, color) {
+            // console.log(text);
+            // 1.  确定伸出去的线 ，是通过圆心点，以及 伸出去的那个点
+            // 2. 伸出去的点坐标  （才能画）
+            // 3. 固定 伸出去的线的长度  outLine =  20
+            // 4. 计算这个点的坐标
+            // 5. 根据角度和斜边的关系（利用三角函数）
+            //   5.1  使用弧度
+            //   5.2  斜边 =  半径 + 伸出去长度
+            //   5.3  outX =  Math.cos(angel) * (r + outLine) 
+            //   5.3  outY =  Math.sin(angel) * (r + outLine) 
+            var edge = this.r + this.outLine;
+
+            var edgeX = Math.cos(startAngle + angle / 2) * edge;
+            var edgeY = Math.sin(startAngle + angle / 2) * edge;
+
+            // 计算坐标
+            var outX = this.x0 + edgeX;
+            var outY = this.y0 + edgeY;
+
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.x0, this.y0);
+            this.ctx.lineTo(outX, outY);
+            this.ctx.strokeStyle = color;
+            this.ctx.stroke();
+
+            // 绘制文字 以及 下划线
+            this.ctx.moveTo(outX, outY);
+            this.ctx.font = '12px Microsoft Yahei';
+            this.ctx.textBaseline = 'bottom';
+            // this.ctx.textAlign = 'left';
+            if (outX > this.x0) {
+                // 文字向右
+                this.ctx.lineTo(outX + this.ctx.measureText(text).width, outY)
+                this.ctx.textAlign = 'left';
+                // console.log(outX,this.x0,text);
+            } else if (outX < this.x0) {
+                this.ctx.lineTo(outX - this.ctx.measureText(text).width, outY)
+                this.ctx.textAlign = 'right';
+            }
+            this.ctx.fillText(text, outX, outY);
+            this.ctx.stroke();
+        }
+        PieChart.prototype.transformData = function(data) {
+            // 求和
+            var total = 0;
+            data.forEach(function(item, i) {
+                total += item.count;
+            });
+            // 在当前的数据中，转换成弧度，百分比算出来
+            data.forEach(function(item, i) {
+                var percent = item.count / total;
+                item.percent = (percent * 100).toFixed(2) + '%';
+                // console.log(percent,item.percent);
+                var angle = percent * 2 * Math.PI;
+                item.angle = angle;
+            });
+            return data;
+        }
+
+        PieChart.prototype.drawDescription = function(index, text, color) {
+            // 绘制 说明区域
+            // 矩形的大小
+            // 距离上和左边的间距
+            // 矩形与矩形之间的间距
+
+            this.ctx.fillRect(this.space, this.space + index * (this.rect.height + this.rect.margin), this.rect.width, this.rect.height);
+
+            // 绘制文字
+            console.log(text,index,color);
+            this.ctx.fillStyle = color;
+            this.ctx.textAlign = 'left';
+            this.ctx.textBaseline = 'middle';
+            this.ctx.font = '14px Microsoft Yahei';
+            console.log(this.space + this.rect.width + this.rect.margin);
+            this.ctx.fillText(text, this.space + this.rect.width + this.rect.margin, this.space + this.rect.height / 2 + index * (this.rect.height + this.rect.margin));
+            // this.ctx.fillText(text, 0, 0);
+            // this.space + this.rect.width + this.margin, this.space + this.rect.height + index * (this.rect.height + this.rect.margin
+
+        }
+
+        PieChart.prototype.getRandomColor = function() {
+            // [0,1)
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        // 虚拟数据
+        var data = [{
+            title: '15-20岁',
+            count: 6
+        }, {
+            title: '20-25岁',
+            count: 50
+        }, {
+            title: '25-30岁',
+            count: 32
+        }, {
+            title: '35-40岁',
+            count: 8
+        }, {
+            title: '40岁以上',
+            count: 4
+        }];
+
+        var pieChart = new PieChart();
+        pieChart.init(data);
+    </script>
+</body>
+</html>

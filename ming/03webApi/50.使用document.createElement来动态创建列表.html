@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="创建列表" id="btn" />
+    <div id="dv"></div>
+
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    /**
+     * 使用document.createElement来动态创建列表
+     */
+     // 定义一个数组来存储列表项的值
+     /*var kungfu = ['降龙十八掌','黯然销魂掌','九阴白骨爪','如来神掌','化骨绵掌'];
+
+     //点击按钮动态创建列表，把列表添加到div中
+     my$('btn').onclick=function(){
+        //先创建ul，把ul加入到父级元素中
+        var ulObj = document.createElement('ul');
+        my$('dv').appendChild(ulObj);
+        //动态创建li，并加到ul中
+        for (var i = 0; i < kungfu.length; i++) {
+            var liObj =document.createElement('li');
+            //设置li里边的文字内容
+            setInnerText(liObj,kungfu[i]);
+            //添加到父级元素
+            ulObj.appendChild(liObj);
+            //为li添加鼠标进入以及离开事件
+            liObj.onmouseover= mouseoverHandle;
+            liObj.onmouseout= mouseoutHandle;
+        }
+     };
+     function mouseoverHandle(){
+        this.style.backgroundColor='red';
+     };
+     function mouseoutHandle(){
+        this.style.backgroundColor='';
+     };*/
+
+     
+     // 使用document.createElement来动态创建列表
+     var kungfu = ['降龙十八掌','黯然销魂掌','九阴白骨爪','如来神掌','化骨绵掌'];
+     //注册事件
+     my$('btn').onclick=function(){
+        // 创建ul
+        var ulObj = document.createElement('ul');
+        my$('dv').appendChild(ulObj);
+
+        //动态的去创建li，把创建的li添加到ul中
+        for (var i = 0; i < kungfu.length; i++) {
+            //创建li
+            var liObj = document.createElement('li');
+            //设置li中的内容
+            setInnerText(liObj,kungfu[i]);
+            ulObj.appendChild(liObj);
+            //为每一个li注册事件
+            liObj.onmouseover=mouseoverHandle;
+            liObj.onmouseout=mouseoutHandle;
+        }
+     };
+     function mouseoverHandle(){
+        this.style.backgroundColor='red';
+     }
+     function mouseoutHandle(){
+        this.style.backgroundColor='';
+     }
+</script>
+</body>
+</html>

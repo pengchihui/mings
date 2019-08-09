@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: middle;
+        }
+        .box {
+            width: 322px;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+        .box span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 20px;
+            /* background-color: pink; */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="hd" id="headPart">
+            <img src="./images/t.jpg" alt="" />
+        </div>
+        <div class="bd" id="bottomPart">
+            <img src="./images/b.jpg" alt="" />
+        </div>
+        <span id="closeBtn"></span>
+    </div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        my$('closeBtn').onclick=function(){
+            animation(my$('bottomPart'),{'height':0},function(){
+                animation(my$('box'),{'width':0});
+            });
+        }
+    </script>
+</body>
+</html>

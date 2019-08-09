@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="创建列表" id="btn" />
+<div id="dv">
+    
+</div>
+
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    /*my$('btn').onclick = function(){
+        my$('dv').innerHTML='<ul><li>杨过</li><li>小龙女</li><li>郭靖</li></ul>'
+    };*/
+    /**
+     * 动态创建列表
+     */
+    
+    var names = ['杨过', '郭靖', '张无忌', '张三丰', '乔峰'];
+    my$('btn').onclick = function() {
+        var str = "<ul style='cursor:pointer;'>";
+        //根据循环创建对应个数的li
+        for (var i = 0; i < names.length; i++) {
+            str += '<li>' + names[i] + '</li>';
+        }
+        str += "</ul>";
+        my$('dv').innerHTML = str;
+        //代码执行到这里的时候，li已经有了
+        //此时我们是不是可以获取li，添加鼠标进入和鼠标离开事件
+        var list = my$('dv').getElementsByTagName('li');
+        for (var i = 0; i < list.length; i++) {
+            //鼠标进入事件
+            list[i].onmouseover = function() {
+                this.style.backgroundColor = "yellow";
+            };
+            //鼠标离开事件
+            list[i].onmouseout = function() {
+                this.style.backgroundColor = '';
+            };
+        }
+    };
+</script>
+</body>
+</html>

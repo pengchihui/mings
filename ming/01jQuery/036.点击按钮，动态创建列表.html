@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 600px;
+            border: 1px dashed skyblue;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //点击按钮
+            $('#btn').click(function(){
+                //先创建然后再加入
+                // 创建ul加入到div
+                var ulObj=$('<ul style="cursor: pointer;"></ul>');
+                $('#dv').append(ulObj);
+                // 创建li加入到ul
+                $('<li>降龙十八掌</li><li>六脉神剑</li><li>葵花宝典</li><li>辟邪剑谱</li><li>打狗棒法</li>').appendTo(ulObj).mouseenter(function(event) {
+                        $(this).css('backgroundColor','red');
+                }).mouseleave(function(event) {
+                        $(this).css('backgroundColor','');
+                }).click(function(){
+                    $(this).css({
+                        'color':'pink',
+                        'fontSize':'20px',
+                        'fontFamily':'站酷高端黑'
+                    })
+                });
+            });
+        });
+    </script>
+    <input type="button" value="创建" id="btn" />
+    <div id="dv"></div>
+</body>
+</html>

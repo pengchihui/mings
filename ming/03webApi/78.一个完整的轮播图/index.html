@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,
+        ol {
+            list-style: none;
+        }
+        .box {
+            width: 500px;
+            height: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+        .box .in {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .box .in .pics {
+            width: 600%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .in .pics li {
+            float: left;
+        }
+        .box .in .squares {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .in .squares li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .in .squares li.current {
+            background-color: #db192a;
+            color: #fff;
+        }
+        .box .arr {
+            display: none;
+        }
+        .box .arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,.3);
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+        }
+        .box .arr span.arr-l {
+            left: 5px;
+        }
+        .box .arr span.arr-r {
+            right: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="in">
+            <ul class="pics">
+                <li><a href="#"><img src="./images/1.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="./images/2.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="./images/3.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="./images/4.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="./images/5.jpg" alt="" /></a></li>
+            </ul>
+            <ol class="squares"></ol>
+        </div>
+        <div class="arr" id="arr">
+            <span id="arr_l" class="arr-l">&lt;</span>
+            <span id="arr_r" class="arr-r">&gt;</span>
+        </divr
+    </div>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript">
+        //获取所有的元素对象
+        //获取最外层box
+        var box = my$('box');
+        //获取in
+        var myIn = box.children[0];
+        //相框的宽度
+        var imgWidth = myIn.offsetWidth;
+        //获取ul----pics
+        var pics = myIn.children[0];
+        //获取pics里边所有的li
+        var list = pics.children;
+        //获取ul----squares
+        var squares = myIn.children[1];
+        //获取焦点div
+        var arr = my$('arr');
+        //全局变量index
+        var index = 0;
+
+        //创建小方块
+        for (var i = 0; i < list.length; i++) {
+            //创建li标签放到,squares里边
+            var liObj = document.createElement('li');
+            squares.appendChild(liObj);
+            setInnerText(liObj, i + 1);
+            //在squares里边的li上添加index属性
+            liObj.setAttribute('index', i);
+            //添加鼠标onmousover事件
+            liObj.onmouseover = function() {
+                //拍他
+                for (var j = 0; j < squares.children.length; j++) {
+                    squares.children[j].removeAttribute('class');
+                }
+                // 设置当前鼠标进来的li的背景颜色
+                this.className = 'current';
+                //获取鼠标进入的li的索引值
+                index = this.getAttribute('index');
+                //移动ul
+                move(pics, -index * imgWidth);
+            };
+        }
+        //页面渲染完毕，默认的是第一张，所以创建的square里边的第一个li
+        //设置squares里第一个li的背景颜色
+        squares.children[0].className = "current";
+
+        // 克隆pics里边的第一个li，并追加到pics最后
+        pics.appendChild(pics.children[0].cloneNode(true));
+
+        //设置自动播放
+        var timeId=setInterval(clickHandle,3000);
+
+        // 鼠标进入box的时候，显示左右焦点
+        box.onmouseover = function() {
+            arr.style.display = 'block';
+            //清除定时器
+            clearInterval(timeId);
+        };
+        //鼠标离开box，隐藏左右焦点
+        box.onmouseout = function() {
+            arr.style.display = 'none';
+            //重新定义定时器
+            timeId=setInterval(clickHandle,3000);
+        };
+
+        //焦点右边按钮
+        my$('arr_r').onclick = clickHandle;
+        //焦点左边按钮
+        my$('arr_l').onclick = function() {
+            //如果index的值是0，恰巧list的个数，如果再按一下，会显示第6张图片，而用户会认为这是第一张
+            //所以此时，如果再点，用户应该看到第5张
+            if (index == 0) {
+                //此时应从第1张图，跳转到第5张图
+                index = list.length-1; //先设置index=5
+                // 然后pics的left值设置到最后一张
+                pics.style.left = -index*imgWidth +'px';
+            }
+            //设置index+1,然后移动ul
+            index--;
+            move(pics, -index * imgWidth);
+            // 正常情况先干掉所有squares的背景颜色
+            for (var i = 0; i < squares.children.length; i++) {
+                squares.children[i].removeAttribute('class');
+            }
+            squares.children[index].className = "current";
+        };
+        function clickHandle() {
+            //如果index的值是5，恰巧list的个数，如果再按一下，会显示第6张图片，而用户会认为这是第一张
+            //所以此时，如果再点，用户应该看到第二张
+            if (index == list.length - 1) {
+                //此时应从第6张图，跳转到第1张图
+                index = 0; //先设置index=0
+                // 然后pics的left值设置为0
+                pics.style.left = 0;
+            }
+            //设置index+1,然后移动ul
+            index++;
+            move(pics, -index * imgWidth);
+            if (index == list.length - 1) {
+                //先把第五个squares的背景颜色干掉，然后第一个按钮的颜色设置上
+                squares.children[squares.children.length - 1].removeAttribute('class');
+                squares.children[0].className = "current";
+            } else {
+                //正常情况先干掉所有squares的背景颜色
+                for (var i = 0; i < squares.children.length; i++) {
+                    squares.children[i].removeAttribute('class');
+                }
+                squares.children[index].className = "current";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 2000px;
+        }
+        img {
+            position: absolute;
+            border: 1px solid red;
+            margin-left: 100px;
+            margin-top: -100px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/tianshi.gif" id="im" alt="" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        /**
+         * 图片跟着鼠标飞，可以在任何浏览器中都兼容
+         * 1. window.event和时间参数对象e是需要兼容
+         * 2. clienX和clientY单独使用的兼容代码
+         * 3. scrollLeft和scrollTop的兼容代码
+         * 4. pageX,pageY 与 clientX+scrollLeft,clientY+scrollTop
+         */
+        
+
+
+
+        //之前我们封装代码，都是封装成一个函数
+        //我们可不可以把代码封装到一个对象中
+        //定义一个对象
+        var evt={
+            /*my$:function(id){
+                return document.getELementById(id);
+            },*/
+            //window.event和事件参数对象的兼容
+            getEvt:function(e){
+                return window.event||e;
+            },
+            //可视区域横坐标兼容代码
+            getClientX:function(e){
+                return this.getEvt().clientX;
+            },
+            //可视区域纵坐标兼容代码
+            getClientY:function(e){
+                return this.getEvt().clientY;
+            },
+            //页面向左滚出去的距离
+            getScrollLeft:function(){
+                return window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0;
+            },
+            //页面向上滚出去的距离
+            getScrollTop:function(){
+                return window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop||0;
+            },
+            //相对于页面的横坐标(pageX或者是clientX+scrollLeft)
+            getPageX:function(e){
+                return this.getEvt(e).pageX?this.getEvt(e).pageX:this.getClientX(e)+this.getScrollLeft();
+            },
+            //相对于页面的纵坐标（pageY或者是clientY+scrollTop）
+            getPageY:function(e){
+                return this.getEvt(e).pageY?this.getEvt(e).pageY:this.getClientY(e)+this.getScrollTop();
+            }
+        };
+
+        document.onmousemove=function(e){
+            my$('im').style.left=evt.getPageX()+'px';
+            my$('im').style.top=evt.getPageY()+'px';
+
+        };
+        //
+        //一个对象中调用一个方法的同时，可以调用另一个方法
+        //在对象的方法中调用另一个方法
+        //
+        /*var obj={
+            sayHi:function(){
+                console.log('早上好！');
+                this.eat();
+            },
+            eat:function(){
+                console.log('饭好了，起床吃饭');
+            }
+        };
+        obj.sayHi();*/
+    </script>
+</body>
+</html>

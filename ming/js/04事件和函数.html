@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			img{ width: 300px;}
+		</style>
+		
+		<script>
+			alert(1111)
+			asd()//调用asd()函数，让它里面代码执行（在哪里调用就在哪里执行）
+			alert(2222)
+			
+			//js函数：通过function关键字去告诉浏览，这一段代码被承包，别人不能用
+			//格式:function 函数名(){代码段}
+			//只有通过调用，才能使用函数里面的代码     具体格式:  函数名()
+			//注意：调用时一定要带括号，不带括号就表示函数本身的代码，而带上括号就是执行里面的代码段
+			//函数名和变量名命名规则一样(函数即变量)
+			
+			function asd(){
+				alert("用户已存在");	
+				console.log(5555)
+				return 123;//return是函数返回值，碰到return后，函数将会停止，里面的代码将不会继续执行下去
+				console.log(6666)
+			}
+			
+			//函数即变量
+			var a=asd;
+			a();
+			
+			
+			var b=function(){
+				console.log(123456798);
+			}
+			b();
+			
+			
+			var c=function(){
+				return 6
+			}
+			var d=c();
+			console.log(d+5)
+			
+			
+			
+			//事件：指网页交互过程中，响应用户操作而产生的一些反馈程序（js特效）
+			//事件包括： 
+			//由什么东西产生的（按钮，表单，滚动条，图片....）  ==   this   
+			//怎么产生的（点击，经过，滑动、拖拽、触屏...）              
+			//发生了什么（弹框出来，文字变色，盒子隐藏展开...） 
+			//this关键字，值当前绑定这个事件的元素
+			
+			
+			
+			//练习:
+			//输入框文字消失效果     例：https://weibo.com/
+			//购物车数量的加减
+			//弹出框的效果
+			//图片路径的修改...
+			//图片的切换....
+		</script>
+		
+		
+	</head>
+	<body>
+		<!--在html中绑定js事件-->
+		<button onclick="add()">点击</button>
+		
+		
+		<!--在js中绑定事件-->
+		<img id="pic" src="../images/a1_10.jpg" style="width: 200px;">
+		
+		<script>
+			var pic=document.getElementById("pic");
+			
+			//绑定事件：
+			var num=0
+			function add(){
+				console.log(num)
+				num=num+1	
+				console.log(pic.style.width);//读取行内样式中的宽度值
+				//隐藏和展开图片
+				if(pic.style.display=="none"){
+					pic.style.display="block"
+				}else{
+					pic.style.display="none"
+				}
+			}
+			
+			
+			
+			
+			
+			//点击事件    ondbclick双击
+			pic.onclick=function(){
+				pic.src="../images/a1_12.jpg"
+				document.documentElement.style.background="red"
+			}
+			
+			pic.onmouseleave=function(){
+				console.log("离开时触发")
+			}
+			
+			window.onload=function(){
+				console.log("页面加载完毕后触发")
+			}
+			
+			window.onresize=function(){
+				console.log("窗口尺寸发生变化时触发")
+			}
+			
+			window.onscroll=function(){
+				console.log("窗口滚动条发生变化时触发")
+			}
+			
+			
+			//onblur
+			//onfocus
+			//焦点的获取和失去事件
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

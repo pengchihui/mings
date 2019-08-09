@@ -1,0 +1,306 @@
+.container{
+	width: 720px;
+	height: 160px;
+	background: #FFFFFF;
+}
+.container .on{
+	margin: 0 auto;
+	margin-top: 36px;
+	width: 684px;
+	height:124px;
+}
+
+.container .on p{
+	font-size: 24px;
+	color: #666666;
+	
+}
+.container .on p:nth-of-type(1){
+	background: url(../images/phone/order/order_03-07.jpg) no-repeat right;
+	background-size:8px 16px;
+}
+.container .on p span{
+	color: #333333;
+}
+.order{
+	width: 720px;
+	height: auto;
+	background: #FFFFFF;
+}
+
+
+.order>ul>li{
+	width: 720px;
+	height: 183px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.order>ul>li .on{
+	width: 684px;
+	height: 183px;
+	margin: 0 auto;
+}
+.order>ul>li .left{
+	float: left;
+	width: 224px;
+	height: 183px;
+}
+.order>ul>li .left img{
+	margin-left: 50px;
+	margin-top: 44px;
+	width: 110px;
+	height: 110px;
+}
+.order>ul>li .right{
+	padding-top: 30px;
+	float: left;
+	width: 460px;
+	height: 153px;
+	position: relative;
+}
+.order>ul>li .right h3{
+	line-height: 28px;
+	font-size: 28px;
+	color: #333333;
+}
+.order>ul>li .right div{
+	position: absolute;
+	bottom: 10px;
+}
+.order>ul>li .right div p{
+	width: 460px;
+	height: 24px;
+	padding-bottom: 5px;
+	color: #cc0033;
+	font-size: 24px;
+	line-height: 24px;
+}
+.order>ul>li .right div p b{
+	float: right;
+	color: #999999;
+}
+.order>ul>li .right div>label::before{
+	content: "";
+	width: 23px;
+	height: 23px;
+	border: 1px solid #cc0033;
+    background:#FFFFFF ;
+    display: block;
+    float: left;
+    margin-right: 10px;
+   
+}
+.order>ul>li .right div>label{
+	 color: #cc0033;
+	 font-size: 24px;
+	 line-height:24px ;
+}
+.center{
+	width: 720px;
+	height: 79px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.cenin{
+	margin: 0 auto;
+	width: 684px;
+	height: 79px;
+	font-size:30px ;
+	color: #333333;
+	line-height: 79px;
+	position: relative;
+}
+.cenin div{
+	position: absolute;
+	right: 0px;
+	top: 20px;
+	width: 139px;
+	height: 39px;
+	border: 1px solid #999999;
+}
+.cenin div a{
+	color: #000000;
+	float: left;
+	display: block;
+	width: 39px;
+	height:39px;
+	text-align: center;
+	line-height: 39px;
+	font-size: 24px;
+}
+.cenin div input{
+	float: left;
+	height: 39px;
+	width:58px;
+	text-align: center;
+	font-size: 24px;
+	background: #FFFFFF;
+	border-left:1px solid #999999 ;
+	border-right:1px solid #999999 ;
+}
+.jk{
+	width: 684px;
+	height: auto;
+	margin: 0 auto;
+	padding-bottom: 20px;
+	
+}
+
+.jk p{
+	padding-top: 20px;
+	font-size:28px;
+	color: #333333;
+}
+
+#cheack{
+	margin-top: 20px;
+	width: 684px;
+	height: 40px;
+	background: #f4f3f3;
+	border-radius: 10px;
+	color: #999999;
+	font-size: 24px;
+	padding-left: 20px;
+	padding-top: 12px;
+	outline: none;
+	border: none;
+	resize: none;
+	overflow:hidden;
+}
+.box{
+	width: 720px;
+	height: 20px;
+	background: #f5f5f5;
+	border-top:1px solid #cccccc ;
+	border-bottom:1px solid #cccccc ;
+}
+.nav-content{
+	width: 720px;
+	height: 180px;
+	
+}
+.kl{
+	width: 720px;
+	height: 59px;
+	border-bottom:1px solid #cccccc ;
+}
+.kl div{
+	margin: 0 auto;
+	width: 684px;
+	height: 59px;
+	
+}
+.kl div span{
+	color: #333333;
+	font-size: 28px;
+	line-height:59px ;
+}
+.kl div span:nth-of-type(2){
+	float: right;
+	padding-right:25px;
+	background: url(../images/phone/order/order_03-07.jpg) no-repeat right center;
+	background-size:8px 16px;
+}
+.kl:nth-child(2) div{
+	position: relative;
+}
+.kl:nth-child(2) .kei{
+	width: 80px;
+	height: 40px;
+	position: absolute;
+	right: 0px;
+	top: 10.5px;
+}
+
+.kei div:nth-child(1){
+	width: 76px;
+	height: 36px;
+	border:2px solid #dddddd;
+	background: #9f0028;
+	border-radius: 25px;
+}
+
+.kei div:nth-child(2){
+	width: 36px;
+	height: 36px;
+	background:#ffffff;
+	border:2px solid #dddddd;
+	border-radius:50%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.postage{
+	width: 720px;
+	height: 30px;
+	border-bottom:1px solid #cccccc ;
+	background: #f5f5f5;
+}
+.amount{
+	width: 720px;
+	height: 100px;
+	background: #ffffff;
+	display: flex;
+	flex-wrap: wrap;
+    align-content: space-around;
+    border-bottom:1px solid #cccccc ;
+}
+.amount p{
+	margin: 0 auto;
+	width: 684px;
+	font-size: 28px;
+	line-height: 28px;
+}
+.amount p span:nth-child(2){
+	float: right;
+	color: #cc0033;
+}
+footer{
+	width: 720px;
+	height: auto;
+	padding-top: 64px;
+	padding-bottom: 98px;
+	background: #f5f5f5;
+}
+.footer{
+	width: 720px;
+	height: 76px;
+	background: #ffffff;
+	font-size: 30px;
+	line-height: 76px;
+}
+
+.footer span:nth-child(1){
+	margin-left: 100px;
+}
+.footer span:nth-child(2){
+	color: #cc0033;
+}
+.footer button{display: inline;
+	border: none;
+	width: 200px;
+	height: 76px;
+	background: #9f0028;
+	float: right;
+	font-size: 30px;
+	color:#ffffff ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

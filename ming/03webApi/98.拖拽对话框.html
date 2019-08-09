@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft Yahei",sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        .login-head {
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+        .login-bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.3);
+            display: none;
+        }
+
+        .login {
+            width: 512px;
+            height: 230px;
+            position: absolute;
+            border: 1px solid #ebebeb;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            /* margin: -116px 0 0 -257px; */
+            z-index: 999;
+            background-color: #fff;
+            box-shadow: 0 0 15px #ddd;
+            border-radius: 5px;
+            padding-bottom: 30px;
+            display: none;
+        }
+        .login .login-title {
+            position: relative;
+            text-align: center;
+            line-height: 40px;
+            padding-top: 20px;
+            font-size: 18px;
+            cursor: move;
+            user-select: none;
+        }
+        .login .login-title span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            background-color: #fff;
+            border: 1px solid #ebebeb;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+        .login .login-input-content {
+            margin-top: 20px;
+        }
+        .login-input-content .login-input {
+            margin-bottom: 20px;
+            overflow: hidden;
+            *zoom: 1;
+        }
+        .login-input label {
+            float: left;
+            width: 90px;
+            text-align: right;
+            line-height: 34px;
+            font-size: 14px;
+            padding-right: 10px;
+        }
+        .login-input .input-list {
+            float: left;
+            box-sizing: border-box;
+            line-height: 32px;
+            border: 1px solid #eee;
+            outline: none;
+            width: 350px;
+            padding-left: 10px;
+        }
+        .login .loginBtn {
+            width: 50%;
+            line-height: 40px;
+            font-size: 14px;
+            text-align: center;
+            border: 1px solid #ebebeb;
+            border-radius: 4px;
+            margin: 0 auto;
+        }
+        .login a {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-head"><a href="javascript:void(0);" id="link">点击，弹出登录框</a></div>
+    <!-- 登录框 -->
+    <div id="login" class="login">
+        <div class="login-title" id="loginTitle">会员登录
+            <span><a href="javascript:void(0);" id="closeBtn">关闭</a></span>
+        </div>
+        <div class="login-input-content">
+            <div class="login-input">
+                <label for="username">用户名：</label>
+                <input type="text" name="username" id="username" class="input-list" placeholder="请输入用户名" />
+            </div>
+            <div class="login-input">
+                <label for="password">登录密码：</label>
+                <input type="text" name="password" id="password" class="input-list" placeholder="请输入登录密码"/>
+            </div>
+        </div>
+        <div id="loginBtn" class="loginBtn">
+            <a href="javascript:void(0);" id="loginSubmit">会员登录</a>
+        </div>
+    </div>
+    <!-- 遮罩层 -->
+    <div id="bg" class="login-bg"></div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //获取超级链接，注册鼠标点击事件，显示登录框和遮罩层
+        my$('link').onclick = function() {
+            my$('login').style.display = "block";
+            my$('bg').style.display = "block";
+        };
+        //获取关闭按钮，注册点击事件，隐藏登录框和遮罩层
+        my$('closeBtn').onclick = function() {
+            my$('login').style.display = "none";
+            my$('bg').style.display = "none";
+        };
+        //按下鼠标，移动鼠标，移动登录框
+        my$('loginTitle').onmousedown = function(e) {
+            //获取此时可视区域的横坐标 纵坐标
+            var spaceX = evt.getClientX(e) - my$('login').offsetLeft;
+            var spaceY = evt.getClientY(e) - my$('login').offsetTop;
+            document.onmousemove = function(e) {
+                //新的可视区域横坐标
+                // console.log(evt.getClientX(),evt.getClientY());
+                // var x = evt.getClientX(e) - spaceX + 257;
+                // var y = evt.getClientY(e) - spaceY + 116;
+                var x = evt.getClientX(e) - spaceX;
+                var y = evt.getClientY(e) - spaceY;
+                my$('login').style.left = x + 'px';
+                my$('login').style.top = y + 'px';
+            };
+        };
+        //松开鼠标
+        document.onmouseup = function() {
+            document.onmousemove = null; //当鼠标抬起来的时候，把鼠标移动事件干掉
+        };
+
+        /**
+         *   先确定 鼠标 距离  元素的左上角定点位置的横坐标 以及纵坐标
+         *   clientx-offsetX===spaceX
+         *   clientY-offsetY===spaceY
+         *
+         *
+         *   鼠标移动过后，获得clientX2,clientY2
+         *    clientX2-spaceX===新位置的定点横坐标
+         *    clientY2-spaceY===新位置的定点横坐标
+         */
+    </script>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        /**
+         * 点击超级链接，阻止跳转
+         */
+       /* my$('link').onclick=function(e){
+            // return false;
+            // e.preventDefault();//阻止浏览器默认事件  
+            //ie8下没有事件参数对象，所以不支持这种方法
+            //阻止超级链接跳转，用到的方法，是return false;
+            //
+            //点击超级链接，弹出登录框，点击页面任何位置，关闭登录框
+            //
+            my$('login').style.display="block";
+            console.log('显示');
+
+            // 阻止事件冒泡   return false 不能阻止事件冒泡
+            // e.stopPropagation();
+            // window.event.cancelBubble=true;
+        };
+        document.onclick=function(){
+            //此处出现事件冒泡了。
+            my$('login').style.display="none";
+            console.log('隐藏');
+        };*/
+    </script>
+</body>
+</html>

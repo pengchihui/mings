@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			ul li,ol {list-style: none;}
+			a{text-decoration: none;}
+			.product {
+				margin: 0 auto;
+				height: 912px;
+				min-width: 1300px;
+				background: url(../view/images/indprobg.jpg) 0 0 no-repeat;
+			}
+			
+			.pro-h {
+				position: absolute;
+				left: 50%;
+				-webkit-transform: translate(-50%, 0);
+				-ms-transform: translate(-50%, 0);
+				-o-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);
+				top: 50px;
+				width: 363px;
+				height: 120px;
+				background: url(../view/images/pro-h.png) 0 0 no-repeat;
+			}
+			
+			.pro-nav {
+				
+				position: absolute;
+				top: 180px;
+				left: 0;
+			}
+			
+			.pro-nav li {
+				float: left;
+				width: 108px;
+				height: 16px;
+				margin-right: 2px;
+				border-top: 9px solid transparent;
+				border-bottom: 9px solid transparent;
+				position: relative;
+			}
+			
+			.pro-nav li:nth-last-child(1) {}
+			
+			.pro-nav li.active {
+				background-color: #e1cca3;
+				border-top: 9px solid #e1cca3;
+				border-bottom: 9px solid #e1cca3;
+			}
+			
+			.pro-nav li.active a {
+				color: #000;
+			}
+			
+			.pro-nav li a {
+				color: #e1cca3;
+				display: block;
+				width: 100%;
+				text-align: center;
+			}
+			
+			.shu {
+				position: absolute;
+				top: 0;
+				width: 2px;
+				height: 16px;
+				right: -2px;
+				background-color: #fff;
+			}
+			
+			.pro-line {
+				width: 100%;
+				height: 1px;
+				background-color: #e1cca3;
+				position: absolute;
+				top: 214px;
+			}
+			
+			.pro-more {
+				width: 85px;
+				height: 15px;
+				position: absolute;
+				top: 194px;
+				right: 0;
+			}
+			
+			.sige {
+				position: absolute;
+				display: block;
+				height: 15px;
+				width: 15px;
+				background: url(../view/images/sige.png) center center no-repeat;
+			}
+			
+			.pro-more a {
+				position: absolute;
+				display: block;
+				color: #e1cca3;
+				right: 20px;
+			}
+			
+			.pro-area {
+				width: 1300px;
+				position: absolute;
+				top: 47px;
+				display: none;
+			}
+			
+			.pro-nav .active .pro-area {
+				display: block;
+			}
+			
+			.pro-area li {
+				width: 310px;
+				height: 310px;
+				float: left;
+				margin-right: 20px;
+				-webkit-transition: all .5s ease;
+				-o-transition: all .5s ease;
+				transition: all .5s ease;
+			}
+			
+			.pro-area li:nth-child(4n) {
+				margin-right: 0;
+			}
+			
+			.pro-area img {
+				width: 310px;
+				height: 310px;
+			}
+			
+			.zhezhao {
+				display: none;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				line-height: 310px;
+				position: absolute;
+				top: 0;
+				font-size: 14px;
+				background-color: rgba(225, 204, 163, .5);
+				color: #fff;
+			}
+			
+			.pro-area li:hover a .zhezhao {
+				display: block;
+			}
+			
+			.pro-area li:hover {
+				-webkit-transform: translate(0, -7px);
+				-ms-transform: translate(0, -7px);
+				-o-transform: translate(0, -7px);
+				transform: translate(0, -7px);
+			}
+			
+			.pro-nav>li:nth-child(2) .pro-area {
+				left: -110px;
+			}
+			
+			.pro-nav>li:nth-child(3) .pro-area {
+				left: -220px;
+			}
+			
+			.pro-nav>li:nth-child(4) .pro-area {
+				left: -330px;
+			}
+			
+			.pro-nav>li:nth-child(5) .pro-area {
+				left: -440px;
+			}
+			
+			.pro-nav>li:nth-child(6) .pro-area {
+				left: -550px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--产品中心-->
+		<div class="product">
+			<div class="w">
+				<div class="pro-h"></div>
+				<ul class="pro-nav clearfix">
+					<li class="">
+						<a href="javascript:;">豪华墙板系列</a>
+						<div class="shu"></div>
+						<div class="pro-area">
+							<ul class="clearfix">
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/385.jpg" alt="">
+										<div class="zhezhao">护墙板 4</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/457.jpg" alt="">
+										<div class="zhezhao">护墙板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/458.jpg" alt="">
+										<div class="zhezhao">护墙板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/459.jpg" alt="">
+										<div class="zhezhao">护墙板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/460.jpg" alt="">
+										<div class="zhezhao">护墙板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/461.jpg" alt="">
+										<div class="zhezhao">护墙板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/462.jpg" alt="">
+										<div class="zhezhao">护墙板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/466.jpg" alt="">
+										<div class="zhezhao">护墙板</div>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="">
+						<a href="javascript:;">锦鑫壁纸系列</a>
+						<div class="shu"></div>
+						<div class="pro-area">
+							<ul class="clearfix">
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/456.jpg" alt="">
+										<div class="zhezhao">墙纸</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/455.jpg" alt="">
+										<div class="zhezhao">墙纸</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/454.jpg" alt="">
+										<div class="zhezhao">墙纸</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/453.jpg" alt="">
+										<div class="zhezhao">墙纸</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/452.jpg" alt="">
+										<div class="zhezhao">墙纸</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/451.jpg" alt="">
+										<div class="zhezhao">墙布刺绣</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/450.jpg" alt="">
+										<div class="zhezhao">墙布刺绣</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/449.jpg" alt="">
+										<div class="zhezhao">墙布刺绣</div>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="">
+						<a href="javascript:;">高档门系列</a>
+						<div class="shu"></div>
+						<div class="pro-area">
+							<ul class="clearfix">
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/372.jpg" alt="">
+										<div class="zhezhao">门 6</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/370.jpg" alt="">
+										<div class="zhezhao">门 8</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/369.jpg" alt="">
+										<div class="zhezhao">门 7</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/367.jpg" alt="">
+										<div class="zhezhao">门 12</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/366.jpg" alt="">
+										<div class="zhezhao">门 11</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/365.jpg" alt="">
+										<div class="zhezhao">门 10</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/364.jpg" alt="">
+										<div class="zhezhao">门 9</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/360.jpg" alt="">
+										<div class="zhezhao">门 5</div>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="active">
+						<a href="javascript:;">豪华地板系列</a>
+						<div class="shu"></div>
+						<div class="pro-area">
+							<ul class="clearfix">
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/422.jpg" alt="">
+										<div class="zhezhao">强化地板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/421.jpg" alt="">
+										<div class="zhezhao">强化地板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/420.jpg" alt="">
+										<div class="zhezhao">强化地板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/419.jpg" alt="">
+										<div class="zhezhao">强化地板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/418.jpg" alt="">
+										<div class="zhezhao">强化地板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/417.jpg" alt="">
+										<div class="zhezhao">强化地板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/416.jpg" alt="">
+										<div class="zhezhao">强化地板</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/415.jpg" alt="">
+										<div class="zhezhao">强化地板</div>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="">
+						<a href="javascript:;">整体衣柜系列</a>
+						<div class="shu"></div>
+						<div class="pro-area">
+							<ul class="clearfix">
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/409.jpg" alt="">
+										<div class="zhezhao">整体衣柜</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/408.jpg" alt="">
+										<div class="zhezhao">整体衣柜</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/407.jpg" alt="">
+										<div class="zhezhao">整体衣柜</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/406.jpg" alt="">
+										<div class="zhezhao">整体衣柜</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/405.jpg" alt="">
+										<div class="zhezhao">整体衣柜</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/404.jpg" alt="">
+										<div class="zhezhao">整体衣柜</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/403.jpg" alt="">
+										<div class="zhezhao">整体衣柜</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/402.jpg" alt="">
+										<div class="zhezhao">整体衣柜</div>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+
+					<li class="">
+						<a href="javascript:;">锦鑫其他系列</a>
+						<div class="shu"></div>
+						<div class="pro-area">
+							<ul class="clearfix">
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/468.jpg" alt="">
+										<div class="zhezhao">12</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/467.jpg" alt="">
+										<div class="zhezhao">11</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/228.jpg" alt="">
+										<div class="zhezhao">10</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/227.jpg" alt="">
+										<div class="zhezhao">9</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/226.jpg" alt="">
+										<div class="zhezhao">7</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/225.jpg" alt="">
+										<div class="zhezhao">6</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/224.jpg" alt="">
+										<div class="zhezhao">5</div>
+
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;">
+										<img src="http://www.ynqwzz.cn/uploadfiles/image/201904/223.jpg" alt="">
+										<div class="zhezhao">4</div>
+
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<div class="pro-more"><span class="sige"></span>
+					<a href="javascript:;">更多产品</a>
+				</div>
+				<div class="pro-line"></div>
+			</div>
+		</div>
+		<script>
+			$(function() {
+				$(".pro-nav>li").mouseenter(function(event) {
+					//   操作  ul  tab-item
+					$(this).addClass('active').siblings('li').removeClass('active');
+					//   操作products 下边的main
+					//此处需要索引
+					// var index=$(this).index();
+					// $('.products>.main').eq(index).addClass('selected').siblings('.main').removeClass('selected');
+				});
+			});
+		</script>
+	</body>
+
+</html>

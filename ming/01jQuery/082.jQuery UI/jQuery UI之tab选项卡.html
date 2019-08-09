@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="jquery-ui.min.css" />
+    <style type="text/css">
+        #dialog-link {
+            padding: .4em 1em .4em 20px;
+            text-decoration: none;
+            position: relative;
+        }
+        #dialog-link span.ui-icon {
+            margin: 0 5px 0 0;
+            position: absolute;
+            left: .2em;
+            top: 50%;
+            margin-top: -8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tabs -->
+    <h2 class="demoHeaders">查看新闻动态</h2>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">公司新闻</a></li>
+            <li><a href="#tabs-2">行业动态</a></li>
+            <li><a href="#tabs-3">国际新闻</a></li>
+            <li><a href="#tabs-4">新加的一个tab</a></li>
+        </ul>
+        <div id="tabs-1">
+            新闻列表
+        </div>
+        <div id="tabs-2">
+            行业内的一些动态
+        </div>
+        <div id="tabs-3">
+            国际上一些新闻
+        </div>
+        <div id="tabs-4">
+            新加的描述
+        </div>
+    </div>
+
+    <h2 class="demoHeaders">登录框</h2>
+    <p>
+        <button id="dialog-link" class="ui-button ui-corner-all ui-widget">
+            <span class="ui-icon ui-icon-newwin"></span>点我登录！
+        </button>
+    </p>
+    <!-- ui-dialog -->
+    <div id="dialog" title="欢迎登录.....">
+        <p>请输入账号:<input type="text" name="" id="" /></p>
+        <p>请输入密码:<input type="password" name="" id="" /></p>
+        <p><input type="checkbox" name="" id="remember" /><label for="remember">记住密码</label></p>
+    </div>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $( "#tabs" ).tabs();
+            $( "#dialog" ).dialog({
+                autoOpen: false,
+                width: 400,
+                buttons: [
+                    {
+                        text: "登录",
+                        click: function() {
+                            $( this ).dialog( "close" );
+                        }
+                    },
+                    {
+                        text: "取消",
+                        click: function() {
+                            $( this ).dialog( "close" );
+                        }
+                    }
+                ]
+            });
+            // Link to open the dialog
+            $( "#dialog-link" ).click(function( event ) {
+                $( "#dialog" ).dialog( "open" );
+                event.preventDefault();
+            });
+        })
+    </script>
+</body>
+</html>

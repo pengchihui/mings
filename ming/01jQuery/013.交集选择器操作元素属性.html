@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        .cls {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#btn').click(function(){
+                $('p.cls').css('backgroundColor','red');
+            });
+        });
+    </script>
+    <input type="button" value="显示效果" id="btn" />
+    <p class="cls">我就是一个p</p>
+    <p>我是第二个p</p>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <span class="cls">2018年，是我国改革开放40周年。40年来，改革开放，春风化雨，改变了中国，影响并惠及了世界，这40年是中华民族伟大复兴史上浓墨重彩的40年。
+面对这个举世瞩目、影响深远的伟大实践，中国网财经联袂今日头条共同邀请中国著名经济学家共同记录这个伟大时代。</span>
+</body>
+</html>

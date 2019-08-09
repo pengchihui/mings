@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title><style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box {
+				height: 300px;
+				background: #eee;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#box>ul {
+				width: 1000%;
+				height: 300px;
+				position: absolute;
+			}
+			
+			#box>ul>li {
+				width: 10%;
+				list-style: none;
+				float: left;
+				height: 300px;
+			}
+			
+			#box>button {
+				position: absolute;
+				padding: 10px;
+				top: 120px;
+				right: 0;
+				cursor: pointer;
+			}
+			
+			#box>button:first-of-type {
+				left: 0;
+				right: auto;
+			}
+			
+			#box>.btn {
+				position: absolute;
+				bottom: 10px;
+			}
+			
+			#box>.btn>a {
+				display: block;
+				float: left;
+				width: 20px;
+				height: 20px;
+				background: #fff;
+				border-radius: 50%;
+				margin: 0 10px;
+			}
+			#box>.btn>.on{
+				background: yellow;
+			}
+		</style>
+		<script src="jquery-1.7.2.js"></script>
+	</head>
+	<body>
+		
+		<div id="box" style=" width: 500px;">
+			<ul style="left: 0%;">
+				<li style="background: red;">1</li>
+				<li style="background: green;">2</li>
+				<li style="background: blue;">3</li>
+			</ul>
+			<button>&lt;</button>
+			<button>&gt;</button>
+			<div class="btn">
+				
+			</div>
+		</div>
+		<script>
+			
+			$("ul li").each(function(){
+				$(".btn").append("<a></a>")
+			})
+			$(".btn").css("left",$("#box").width()/2-$(".btn").width()/2+"px");
+			var first=$("ul li:first").clone();
+			var last=$("ul li:last").clone();
+			$("ul").append(first).prepend(last).css("left","-100%");
+			
+		var bool=true;	
+		function move(val){	
+			$("ul").stop();
+			$("ul").animate({left:-val-1+"00%"},1000,function(){;
+				if(val==3){;
+					$("ul").css("left","-100%");
+				}
+				bool=true;
+			})
+			$(".btn a").removeClass("on");
+			$(".btn a").eq(val==3?dan=0:val).addClass("on");
+		}
+		
+			
+		$(".btn a:first").addClass("on");
+		var dan=0;
+		$(".btn a").click(function(){
+			var num=$(this).index();
+			dan=num;
+			bool?move(dan):""
+			bool=false;
+		})
+		$("div button").eq(0).click(function(){
+			if(bool){				
+				dan=dan+1;
+				move(dan);
+			}
+			bool=false;
+		})
+		$("div button").eq(1).click(function(){
+			if(bool){				
+				dan=dan-1;
+				move(dan);
+			}
+			bool=false;
+		})
+	
+		</script>
+	</body>
+</html>

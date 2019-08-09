@@ -1,0 +1,112 @@
+@import "../css/mi.css";
+$asd:red;
+$bg:left;
+$color:#000;
+div {
+    color: $asd;
+}
+
+.#{$asd} {
+    font-size: 20px;
+    border-#{$bg}: 1px solid $asd;
+    width: 480/720*100rem;
+    background: $color;
+}
+
+li {
+    color: red;
+    a {
+        color: blue;
+        &:hover {
+            color: green
+        }
+        &:active {
+            color: yellow
+        }
+    }
+}
+
+.main {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+nav {
+    @extend .main;
+    height: 200px
+}
+
+footer {
+    @extend .main
+}
+
+@mixin qwe {
+    background: green;
+    color: blue;
+}
+
+.box {
+    @include qwe;
+    font-size: 30px;
+}
+
+@mixin mouse($val1, $val2, $val3) {
+    a {
+        color: $val1;
+        &:hover {
+            color: $val2
+        }
+        &:active {
+            color: $val3
+        }
+    }
+}
+
+nav li {
+    @include mouse(red, green, blue)
+}
+
+.new li {
+    @include mouse(#666, red, blue)
+}
+
+@if 1+5==2 {
+    p {
+        color: red
+    }
+}
+@else {
+    p {
+        color: green;
+    }
+}
+
+@for $i from 0 to 4 {
+    .banner#{$i} {
+        background: url(../images/a1_1#{$i*2}.jpg) no-repeat;
+    }
+}
+
+$x:5;
+@while $x>0 {
+    .list {
+        font-size: 50-$x px;
+    }
+    $x:$x - 1;
+}
+
+@each $member in a,e,f,c {
+    .#{$member} {
+        background-image: url("/image/#{$member}.jpg");
+    }
+}
+
+@function screen($m){
+    @return $m/720*100 rem
+}
+.box{
+    width:screen(720)
+}.box{
+    width:screen(375)
+}
+

@@ -1,0 +1,130 @@
+@import url(../css/mi.css);
+div {
+  color: red;
+}
+
+.red {
+  font-size: 20px;
+  border-left: 1px solid red;
+  width: 66.66667rem;
+  background: #000;
+}
+
+li {
+  color: red;
+}
+
+li a {
+  color: blue;
+}
+
+li a:hover {
+  color: green;
+}
+
+li a:active {
+  color: yellow;
+}
+
+.main, nav, footer {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+nav {
+  height: 200px;
+}
+
+.box {
+  background: green;
+  color: blue;
+  font-size: 30px;
+}
+
+nav li a {
+  color: red;
+}
+
+nav li a:hover {
+  color: green;
+}
+
+nav li a:active {
+  color: blue;
+}
+
+.new li a {
+  color: #666;
+}
+
+.new li a:hover {
+  color: red;
+}
+
+.new li a:active {
+  color: blue;
+}
+
+p {
+  color: green;
+}
+
+.banner0 {
+  background: url(../images/a1_10.jpg) no-repeat;
+}
+
+.banner1 {
+  background: url(../images/a1_12.jpg) no-repeat;
+}
+
+.banner2 {
+  background: url(../images/a1_14.jpg) no-repeat;
+}
+
+.banner3 {
+  background: url(../images/a1_16.jpg) no-repeat;
+}
+
+.list {
+  font-size: 45 px;
+}
+
+.list {
+  font-size: 46 px;
+}
+
+.list {
+  font-size: 47 px;
+}
+
+.list {
+  font-size: 48 px;
+}
+
+.list {
+  font-size: 49 px;
+}
+
+.a {
+  background-image: url("/image/a.jpg");
+}
+
+.e {
+  background-image: url("/image/e.jpg");
+}
+
+.f {
+  background-image: url("/image/f.jpg");
+}
+
+.c {
+  background-image: url("/image/c.jpg");
+}
+
+.box {
+  width: 100 rem;
+}
+
+.box {
+  width: 52.08333 rem;
+}

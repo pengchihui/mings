@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--禁止用户缩放-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta charset="UTF-8">
+		<title>注册页面</title>
+		<link rel="stylesheet" href="css/phonoe-register.css" />
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="header">
+				<header>
+					<p>注册</p>
+				</header>
+			</div>
+			<section class="top-img"> </section>
+			<form action="" method="post">
+				<section class="container">
+					<div class="in"><span>用户名:</span><input type="text" name="username" value="klklkl" /></div>
+					<div class="in"><span>输入密码:</span><input type="password" name="up1" value="12345l" /></div>
+					<div class="in"><span>确认密码:</span><input type="password" name="up2" value="12345k" /></div>
+					<div class="in"><span>手机号码:</span><input type="text" name="userphone" value="13456789201" /></div>
+					<div class="on">
+						<div class="left"><span>验证码:</span><input type="text" /></div>
+						<div class="right">
+							<a href="javascript:;">获取验证码</a>
+						</div>
+					</div>
+				</section>
+				<section class="xu">
+					<input id="kei" type="checkbox" style="display:none;" />
+					<label class="kei" for="kei"></label>
+					<label class="span" for="kei">同意以下协议并注册</label>
+				</section>
+				<section class="message" style="display: none;">
+					<span></span>
+				</section>
+				<section class="look">
+					<input type="button" value="登录" />
+					<input type="button" value="注册" />
+				</section>
+			</form>
+			<footer>
+				<div>
+					<span><a href ="#">已经有账号?</a></span>
+					<span><a href="#">&nbsp;马上登入！</a></span>
+				</div>
+			</footer>
+		</div>
+	</body>
+	<script src="js-phone/phone-register.js"></script>
+
+</html>

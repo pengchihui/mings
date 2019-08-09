@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{ display: none;}
+		</style>
+	</head>
+	<body>
+		
+		<button>0</button>
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<div style="display: block;">1111</div>
+		<div>2222</div>
+		<div>3333</div>
+		<div>4444</div>
+		
+		<script>
+			var btn=document.getElementsByTagName("button");
+			var box=document.getElementsByTagName("div");
+			
+			//通过循环为按钮添加点击事件
+			for(var i=0;i<btn.length;i++){
+				//设置按钮的排序
+				btn[i].asd=i
+				//按钮点击事件
+				btn[i].onclick=function(){
+					//通过循环让所有div全部隐藏
+					for(var x=0;x<box.length;x++){
+						box[x].style.display="none"
+					}
+					//找到对应按钮顺序的div，把它显示出来
+					box[this.asd].style.display="block";					
+				}
+			}
+			
+			
+			
+			
+//			btn[0].onclick=function(){
+//				box[0].style.display="block"
+//				box[1].style.display="none"
+//				box[2].style.display="none"	
+//			}
+//			btn[1].onclick=function(){
+//				box[0].style.display="none"
+//				box[1].style.display="block"
+//				box[2].style.display="none"	
+//			}
+//			btn[2].onclick=function(){
+//				box[0].style.display="none"
+//				box[1].style.display="none"
+//				box[2].style.display="block"	
+//			}
+			
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

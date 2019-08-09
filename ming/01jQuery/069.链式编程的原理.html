@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         *    链式编程：    
+         *         对象调用方法，如果返回的还是该对象，那么久可以继续调用这个对象的方法
+         *         
+         */
+        // $('#btn').click().mousedown();
+        //   原理是  它返回的还是当前的对象
+        $(function(){
+            function Person(age){
+                this.aget=age;
+                this.sayHi=function(){
+                    console.log('哈喽！');
+                    return this;
+                };
+                this.eat=function(){
+                    console.log('吃了吗？');
+                    return this;
+                };
+                this.val=function(txt){
+                    if(txt){
+                        console.log('设置'+txt);
+                        return this;
+                    }else{
+                        console.log('这里写获取的代码');
+                        return '获取回来的值';
+                    }
+                };
+            }
+
+            //实例对象
+            var per = new Person(10);
+            // per.sayHi();
+            // per.eat();
+            // jQuery中      方法()不传参数   获取这个值  返回获取到的值   如果传参数   设置  --->返回当前的对象
+            // val()
+
+            per.sayHi().eat().sayHi().eat().eat().val('我是中国人').val();
+        });
+    </script>
+</body>
+</html>

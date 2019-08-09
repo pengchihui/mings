@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #dv1 {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            position: relative;
+            /* left: 20px; */
+        }
+        #dv2 {
+            width: 100px;
+            height: 50px;
+            background-color: green;
+            position: absolute;
+            left: 40px;
+            margin-left: 20px;
+        }
+
+        #btn {
+            position: absolute;
+            top: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dv1">
+        <div id="dv2"></div>
+    </div>
+    <input type="button" value="显示效果" id="btn" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        /**
+         *  关于偏移量
+         *  offsetLeft
+         *
+         * 第一种情况：
+         *    没有脱离文档流
+         *        offsetLeft=  父级元素的左margin+父级元素的左padding+父级元素左border+自身的左margin
+         *    使用position:relative的情况   会产生bug
+         *
+         * 第二种情况
+         *     脱离文档流   他只是参照与父级元素（position:relative）
+         *       offset= 自己的left+自己的左margin
+         */
+        my$('btn').onclick=function(){
+            console.log(my$('dv2').offsetLeft);
+        };
+    </script>
+</body>
+</html>

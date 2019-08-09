@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			//函数形参和实参
+			function asd(x){//括号里面的参数是形参，形式上的参数，并不参与运算的
+				console.log(x);//形参就是在函数运行过程中占个位置，给后面调用时的实参使用
+			}
+			asd(8989);////括号里面的参数是实参，实际上参与运算的东西
+			
+			
+			
+		function tea(chaye){	
+			document.write("烧水<br>");
+			document.write("放"+chaye+"茶叶<br>");
+			document.write("冲水<br>");
+			return 666
+		}
+		
+		tea("红茶");
+		tea("黑茶");
+		tea();
+		tea("");
+		
+		
+		function s(x,y){
+			return x*y
+		}
+		var a=s(4,3);
+		
+		
+		
+		
+		function num(val){
+			val=='+'?a++:"";
+			val=='-'?a--:"";
+		}
+			
+		
+		//作用域（使用范围）和局部变量（只能小部分范围才能使用的变量）
+		
+		//全局变量（能在所有范围里面使用的变量）
+		var b=6;
+		function add(){
+			b=3;//全局变量
+//			var b=3;//局部变量（只在当前作用域生效，即用即消）
+			b=b+1;
+			console.log("函数里面的"+b)
+		}
+		add();
+		console.log("函数外面的"+b)
+		
+		
+		
+		
+		
+		var c=8;
+		//函数运行时会先进行预读检索关键字var、function...
+		//预读了关键字var c，知道了c是局部变量,就不会去外面找,但因为只是预读,并没有真正开始运行,所以这个时候的变量c我还不知是啥值
+		function test(){
+			c=5;
+			var c=c+1;
+			console.log(c)
+		}
+		test();
+		console.log(c);
+		
+		
+		
+		//自运行匿名行数
+		(function(){
+			console.log("1234165789")
+			var dfg=789;
+		})()
+		
+		!function(){
+			console.log("1234165789")
+			var dfg=789;
+		}()
+		//console.log(d);调用不了函数里面的局部变量	
+		
+		
+		
+		
+		
+		//函数闭包(让我们能在外面使用到里面的局部变量) （局部变量将记录在内存中，销毁不掉，要少用）		
+		function open(){
+			var m=100;
+			return function(){
+				return m=m*m;
+			}
+		}
+		var n=open();	
+		//上面代码才是一个完整的闭包过程
+		
+		
+		document.write(n()+"<br>");
+		document.write(n()+"<br>");
+		document.write(n()+"<br>");
+		document.write(n()+"<br>");
+		
+		
+//		
+//		function arg(){
+//			console.log(arguments);//输出实参数组
+//		}
+//		
+//		arg("a",123,true);
+
+
+	//递归函数
+	function fire(val){
+		if(val==1){return 1}
+		return val*fire(val-1)
+	}
+	fire(5);
+		
+		
+			
+		</script>
+		
+		<script>
+			//全局变量（能在所有范围里面使用的变量）
+			console.log(b);
+			//console.log(d);调用不了函数里面的局部变量
+			tea("6666");
+		</script>
+		
+		<button onclick="num('-')">-</button>		
+		<button onclick="num('+')">+</button>
+		
+	</body>
+</html>

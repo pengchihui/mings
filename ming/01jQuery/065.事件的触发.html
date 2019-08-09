@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * 事件绑定：
+         *
+         * 如何来触发：
+         *    1. 用户主动触发
+         *    2. 浏览器调用
+         *          1.当事件方法 不传参数的时候，就是调用 该元素所绑定的该事件
+         *          2.trigger    触发器
+         *          3.triggerHandler     这种方式是可以触发事件的，但是 它无法触发 浏览器的默认行为
+         *       
+         */
+        $(function() {
+            $('#txt').focus(function() {
+                console.log('获取焦点事件触发');
+                $(this).next().text('已经获取到焦点');
+            });
+            $('#btn').click(function() {
+                //$('#txt').focus();//  调用文本框获取焦点的事件
+                // $('#txt').trigger('focus');//触发 指定类型的事件
+                $('#txt').triggerHandler('focus');
+            });
+        });
+    </script>
+    <input type="button" value="触发文本框获取焦点" id="btn" />
+    <input type="text" name="" id="txt" /><span id="sp"></span>
+</body>
+</html>

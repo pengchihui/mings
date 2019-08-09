@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>体验曲线的绘制</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+
+        //  1.体验曲线的绘制
+        //  2.线是由点构成
+        //  3.曲线其实是通过数学公式来话
+        //  4.如何在canvas里边通过公式来绘图
+        
+        //  公式1：  y = 2x;
+        //  公式2：  y = x / 2;
+        //  
+        //  公式3：  y = x * x;
+        //  
+        //  公式4：  y = sin(x);  正弦函数
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        for (var i = 0; i < 600; i++) {
+            var x = i;
+            // var y = .5 * x + 100;
+            // var y =  Math.pow(x / 2 - 100,2);
+            var y =  100*Math.sin(x/5) + 100;
+            ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+    </script>
+</body>
+</html>

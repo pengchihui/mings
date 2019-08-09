@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //点击
+            $('#btn').click(function(){
+                //jQuery里边有两个选择器
+                //odd   奇数0-----显示的时候是偶数
+                //even   偶数-----显示的时候奇数
+                //
+                $('#uu>li:odd').css('backgroundColor','yellow');
+                $('#uu>li:even').css('backgroundColor','red');
+            });
+            console.log($('#uu>li:odd'));
+        });
+    </script>
+    <input type="button" value="隔行变色" id="btn" />
+    <ul id="uu">
+        <li>我是列表项1</li>
+        <li>我是列表项2</li>
+        <li>我是列表项3</li>
+        <li>我是列表项4</li>
+        <li>我是列表项5</li>
+        <li>我是列表项6</li>
+        <li>我是列表项7</li>
+        <li>我是列表项8</li>
+        <li>我是列表项9</li>
+        <li>我是列表项10</li>
+    </ul>
+</body>
+</html>

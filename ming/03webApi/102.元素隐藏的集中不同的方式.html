@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="显示效果" id="btn" />
+    <div id="dv"></div>
+    哈哈
+    <script type="text/javascript">
+        document.getElementById('btn').onclick=function(){
+            //隐藏div
+            // document.getElementById('dv').style.display='none';//不占位
+            // document.getElementById('dv').style.visibility='hidden';//占位
+            // document.getElementById('dv').style.opacity=0;//占位
+            document.getElementById('dv').style.height=0;//占位
+            document.getElementById('dv').style.borderWidth=0;
+            
+            
+
+        };
+    </script>
+</body>
+</html>

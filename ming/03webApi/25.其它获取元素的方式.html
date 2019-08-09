@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn" />
+<div class="cls">这里是一个div标签</div>
+<div class="cls">这里是一个222div标签</div>
+<span class="cls">这里是一个span标签</span>
+<p class="cls">这里是一个p标签</p>
+
+<script src="js/common.js"></script>
+<script>
+//根据选择器的方式获取元素    返回一个对象
+    var btnObj = document.querySelector('#btn');
+    var clsObj = document.querySelector('.cls');
+    console.log(btnObj,clsObj);
+
+    var clsObjs=document.querySelectorAll('.cls');
+    console.log(clsObjs);
+</script>
+</body>
+</html>

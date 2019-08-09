@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .cls {
+            width: 200px;
+            height: 300px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="设置样式" id="btn" />
+<div id="dv"></div>
+<script src="js/common.js"></script>
+<script>
+    //点击按钮，修改div的宽高和背景
+    my$('btn').onclick=function(){
+        var dv=my$('dv');
+        dv.style.width='200px';
+        dv.style.height="300px";
+        dv.style.backgroundColor="deeppink";
+    };
+    //凡是CSS中这个属性是多个单词的写法   border-color   background-image
+    //在js代码中DOM操作的时候，把-去掉，然后后边的单词首字母大写即可，遵循驼峰命名法
+    /*my$('btn').onclick=function(){
+        var dv=my$('dv');
+        dv.style="width:200px;height:300px;background-color: deeppink;";
+    };*/
+    my$('btn').onclick=function(){
+        //class是系统的关键字
+        //在JS代码中，操作DOM时，设置元素的类样式，不能用class关键字，应该使用className
+        my$('dv').className='cls';
+
+    };
+</script>
+</body>
+</html>

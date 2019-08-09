@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+    /**
+     * 总结绑定事件两种方式的区别:
+     *
+     *   相同点：    都可以为元素添加事件监听器
+     *   不同点：
+     *       1.方法名不一样
+     *       2.参数的个数不一样，
+     *           addEventListener有三个参数
+     *           attachEvent有两个参数
+     *       3. addEventListener 火狐、谷歌、IE11以上支持,ie8以下不支持
+     *          attachEvent   谷歌、火狐都不支持，IE11也不支持，ie6-10支持
+     *       4. addEventListener 事件类型中 没有on
+     *          attachEvent   事件类型必须带on
+     *       5. this不同
+     *           addEventListener 中this指的是绑定事件的对象
+     *           attachEvent中this指的是window对象
+     *
+     * 
+     */
+
+    //为任意元素绑定任意事件
+    //所以我们需要的参数
+    //任意元素
+    //任意事件类型
+    //事件处理函数
+    /**
+     * [添加事件监听兼容代码]
+     * @param {[Dom]}   ele  [dom对象]
+     * @param {[type]}   type [事件类型]
+     * @param {Function} fn   [事件处理函数]
+     */
+/*    function addEventListener(ele,type,fn){
+        //该判断浏览器是否支持这个方法
+        if(ele.addEventListener){
+            ele.addEventListener(type, fn, false);
+        }else if(ele.attachEvent){
+            ele.attachEvent('on'+type,fn);
+        }else {
+            ele['on'+type]=fn;
+        }
+    }
+
+    addEventListener(my$('btn'),'click',function(){
+        console.log('啊啊啊1');
+    });
+    addEventListener(my$('btn'),'click',function(){
+        console.log('啊啊啊2');
+    });
+    addEventListener(my$('btn'),'click',function(){
+        console.log('啊啊啊3');
+    });
+    addEventListener(my$('btn'),'click',function(){
+        console.log('啊啊啊4');
+    });
+*/
+
+/*my$('btn').addEventListener('click', function(){
+    console.log(this);
+}, false);*/
+
+
+my$('btn').attachEvent('onclick',function(){
+    console.log(this);
+});
+
+    // console.log(my$('btn')['on'+'click']);
+
+/*    function Person(name) {
+        this.name=name;
+        this.sayHi=function(){
+            console.log('您好');
+        };
+    }
+
+    var per=new Person('小明');
+    //判断这个对象里边有没有某个属性
+    console.log(per.sayHi);*/
+    </script>
+</body>
+</html>

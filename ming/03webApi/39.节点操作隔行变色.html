@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="uu">
+    <li>第1行</li>
+    <li>第2行</li>
+    <li>第3行</li>
+    <li>第4行</li>
+    <li>第5行</li>
+    <li>第6行</li>
+    <li>第7行</li>
+    <li>第8行</li>
+</ul>
+<script src="js/common.js"></script>
+<script>
+    //隔行变色
+    //获取ul下所有的子节点
+    var nodes = my$('uu').childNodes;//所有子节点
+    console.log(nodes);
+    var count=0;//记录到底有多少个li
+
+    for (var i=0;i<nodes.length;i++){
+        //判断这个节点是是不是li标签
+        if(nodes[i].nodeType==1 && nodes[i].nodeName=='LI'){
+            nodes[i].style.backgroundColor= count%2==0?'red':'yellow';
+            count++;
+        }
+        // nodes[i].style.backgroundColor=i%2==0?'red':'yellow';
+    }
+</script>
+</body>
+</html>

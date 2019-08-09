@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style>
+			.box {
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: relative;
+			}
+			
+			#kai,
+			#wei {
+				background: pink;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				position: absolute;
+				right: 0px;
+				bottom: 0px;
+			}
+			
+			#sui {
+				margin-top: 20px;
+				background: pink;
+				height: 50px;
+				width: 50px;
+				line-height: 50px;
+				text-align: center;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="box">
+			<div id="kai"></div>
+		</div>
+		<div class="box">
+			<div id="wei"></div>
+		</div>
+		<div id="sui"></div>
+		<script>
+			window.onload = function() {
+				//随机颜色   //随机位置 
+				var bak = document.getElementsByClassName("box");
+				var kai = document.getElementById("kai");
+
+				function asd() {
+					bak[0].style.backgroundColor = rgb();
+					kai.style.top = jj(0, 180);
+					kai.style.left = jj(0, 180);
+					kai.style.background = rgb();
+				}
+				//随机颜色
+				function rgb() {
+					var r = Math.floor(Math.random() * 256); //0<= <256
+					var g = Math.floor(Math.random() * 256);
+					var b = Math.floor(Math.random() * 256);
+					return "rgb(" + r + "," + g + "," + b + ")";
+				}
+				//边界控制
+				function jj(min, max) {
+					var num = Math.floor(Math.random() * (max + 1 - min) + min);
+					return num + "px";
+				}
+				var time = setInterval(asd, 100);
+				var stop = function() {
+					clearInterval(time);
+				}
+				//随机输出数组单元（每次不重复）
+				var sui = document.getElementById("sui");
+				var arry = [12, 15, 36, 11, 36, 14, 25, 44, 36, 33, 35, 14, 29, 12, 17];
+				sui.onclick = function() {
+					var random = parseInt(Math.random() * arry.length);
+					var num = arry[random];
+					sui.innerHTML = num;
+					//console.log(arry.length)
+					arry.splice(random, 1); //删除
+					if(arry.length == 0) {
+						sui.innerHTML = "完了";
+					}
+				}
+
+				//字符串首字母大写 hello tim my name is xxx
+				var str = "hello tim my name is xxx";
+				var arr = str.split(" ");
+				var arry2 = [];
+				for(var i = 0; i < arr.length; i++) {
+					arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+				}
+				str = arr.join(' ')
+				//          console.log(str);
+
+				//sort()同时也是一个高阶函数，里面可以放一个比较函数：arr.sort(compareFunction(a,b))
+				//不定义排序规则的sort使用案例
+				function sortNumber(a, b) {
+					return a - b; //a-b 小到大 b-a大到小
+				}
+
+				var j = [5, 2, 3, 7, 9, 1, 154, 454, 16, 3476, 484, 78, 11.12];
+				//          console.log("排序："+j.sort(sortNumber));
+
+				/*方向键移动盒子*/
+
+				var a = b = c = d = e = false;
+				document.onkeydown = function(event) {
+					var wei = document.getElementById("wei");
+					var event = event || window.event;
+					var keycode = event.keyCode || event.which || event.charCode;
+					switch(keycode) {
+						case 37:
+							a = true
+							break;
+						case 38:
+							b = true
+							break;
+						case 39:
+							c = true
+							break;
+						case 40:
+							d = true
+							break;
+						case 88:
+							e = true
+							break;
+						default:
+
+							break;
+					}
+				}
+				document.onkeyup = function(event) {
+					var event = event || window.event;
+					var keycode = event.keyCode || event.which || event.charCode;
+					switch(keycode) {
+						case 37:
+							a = false
+							break;
+						case 38:
+							b = false
+							break;
+						case 39:
+							c = false
+							break;
+						case 40:
+							d = false
+							break;
+						case 88:
+							e = false
+							break;
+						default:
+
+							break;
+					}
+
+				}
+				setInterval(function() {
+					if(a) {
+						wei.style.left = (wei.offsetLeft > 0 ? wei.offsetLeft - 1 : "") + "px"
+					}
+					if(b) {
+						wei.style.top = (wei.offsetTop > 0 ? wei.offsetTop - 1 : "") + "px"
+					}
+					if(c) {
+						wei.style.left = (wei.offsetLeft < 180 ? wei.offsetLeft + 1 : "") + "px"
+					}
+					if(d) {
+						wei.style.top = (wei.offsetTop < 180 ? wei.offsetTop + 1 : "") + "px"
+					}
+				}, 5)
+
+			}
+		</script>
+
+	</body>
+
+</html>

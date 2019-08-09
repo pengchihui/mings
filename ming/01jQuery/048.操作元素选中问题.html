@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * 点击按钮
+         *
+         *
+         * .prop()方法   它也是用来获取元素属性值的
+         *  对于 radio、checkbox  设置checked属性的时候，推荐使用
+         *
+         * .prop('checked')返回 true或者false
+         * .prop('checked',true)   设置
+         *
+         *
+         * 它与attr()区别：
+         *   1.  attr是从页面搜索属性的值，所以页面中必须明确定义了该元素的属性，才能获取值，否者是  undefined 
+         *       获取的过程式从页面中去查找
+         *       attr('checked'),如果没有设置checked属性，那么返回的是undefined
+         *   2.prop  它是从属性对象中去获取，属性对象中有多少属性，他就能获取到多少值，不需要再页面中显示定义
+         *       .prop('checked')   返回 false
+         *        如果用prop()去获取自定义属性，属性对象中是没有这个属性的，所以会返回 undefined
+         *
+         *   3.   attr获取的是 页面中设置的初始值，除非通过attr重新去设置，否者这个值不会改变
+         *        prop获取的是动态的值，所以，当 checkbox选中的时候，返回true,不选中返回false
+         *
+         *
+         * 总结：
+         *     对于html本身自带的属性，用prop，能够快速准确
+         *     对于自定义属性，使用attr方法
+         * 
+         */
+         $(function(){
+            $("#btn").click(function(){
+                // $('#ck3').attr('checked',true);   不适合  不推荐用这个方法
+                console.log($('#ck3').prop('checked'));//直接返回的是 true或者false
+            });
+         });
+    </script>
+    <input type="button" value="选中\不选中" id="btn" />
+    <input type="checkbox" name="play" id="ck1" value="1" />吃饭<br />
+    <input type="checkbox" name="play" id="ck2" value="2" />睡觉<br />
+    <input type="checkbox" name="play" id="ck3" value="3" />打豆豆<br />
+    <input type="checkbox" name="play" id="ck4" value="4" />打篮球
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 600px;
+            border: 1px dashed orange;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            /**
+             * js的内置对象  Array   Object   Date Math   RegExp
+             * 浏览器对象：     window
+             * DOM对象： 通过DOM方式获取的对象  document
+             * jQuery对象：  是通过jQuery方式获取的对象
+             *
+             */
+
+            var arr = ['尼古拉斯赵四','刘德华','刘若英','刘涛','成龙','李连杰','王宝强','孙红雷'];
+
+            //点击按钮
+            $('#btn').click(function(){
+                //首先创建一对ul,加入到div
+                var ulObj=$('<ul></ul>').appendTo($('#dv'));
+                //创建li  加入到ul
+                for (var i = 0; i < arr.length; i++) {
+                    $('<li>'+arr[i]+'</li>').appendTo(ulObj);
+                }
+            });
+        });
+    </script>
+    <input type="button" value="创建" id="btn" />
+    <div id="dv"></div>
+</body>
+</html>

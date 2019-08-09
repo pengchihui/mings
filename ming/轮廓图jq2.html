@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			ol li {
+				list-style: none;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.box {
+				width: 800px;
+				height: 400px;
+				margin: 0 auto;
+				position: relative;
+				background: Thistle;
+			}
+			
+			li {
+				position: absolute;
+				width: 200px;
+				height: 100px;
+				top: 200px;
+				left: 300px
+			}
+			
+			li:nth-child(1) {
+				background: green;
+			}
+			
+			li:nth-child(2) {
+				background: red;
+			}
+			
+			li:nth-child(3) {
+				background: blue
+			}
+			
+			li:nth-child(4) {
+				background: brown
+			}
+			
+			li:nth-child(5) {
+				background: yellow;
+			}
+			
+			button {
+				position: absolute;
+				width: 50px;
+				height: 80px;
+				background: #90EE90;
+				font-size: 50px;
+				top: 160px;
+				border: none;
+				outline: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<button style="left: 0;">&lt;</button>
+			<button style="right: 0;">&gt;</button>
+		</div>
+		<script>
+			var arr = [{
+					top: "200px",
+					left: "300px",
+					opacity: 1,
+					zIndex: 3
+				},
+				{
+					top: "150px",
+					left: "450px",
+					opacity: .75,
+					zIndex: 2
+				},
+				{
+					top: "100px",
+					left: "400px",
+					opacity: .5,
+					zIndex: 1
+				},
+				{
+					top: "100px",
+					left: "200px",
+					opacity: .5,
+					zIndex: 1
+				},
+				{
+					top: "150px",
+					left: "150px",
+					opacity: .75,
+					zIndex: 2
+				},
+			]
+
+			/*初始化*/
+			for(var i = 0; i < arr.length; i++) {
+				$("li").eq(i).css(arr[i]);
+				$("li").get(i).index = i;
+				//				console.log($("li").eq(i).index())
+			}
+			kg = true;
+
+			function turn_left() {
+				kg = false;
+				for(var i = 0; i < arr.length; i++) { /*每执行一次就完成循环*/
+					var de = $("li").get(i).index;
+					$("li").get(i).index = (de == 4 ? 0 : de + 1); /*没执行一次，下标加1，并执行下标序号的样式*/
+					$("li").eq(i).animate(arr[$("li").get(i).index], 500, function() {
+						kg = true
+					}); /*通过0.5秒来完成这个过程*/
+				}
+			}
+
+			function turn_right() {
+				kg = false;
+				for(var i = 0; i < arr.length; i++) {
+					var de = $("li").get(i).index;
+					$("li").get(i).index = (de == 0 ? 4 : de - 1);
+					$("li").eq(i).animate(arr[$("li").get(i).index], 500, function() {
+						kg = true
+					})
+				}
+			}
+			
+			
+			$("button").click(function() {
+				if($(this).index() == 2 && kg == true) {
+					turn_right();
+				} else if($(this).index() == 1 && kg == true) {
+					turn_left();
+				}
+			})
+			var time = setInterval("turn_left()", 1000);
+			$(".box").mouseenter(function(){
+				clearInterval(time);
+			})
+           $(".box").mouseleave(function(){
+             	time=setInterval("turn_left()", 1000);
+           })
+		</script>
+
+	</body>

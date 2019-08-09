@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{ margin: 0; padding: 0;}
+		</style>
+	</head>
+	<body>
+		<input type="text" />
+		<button>测试</button>
+		<script>
+			//正则表达式
+			var str="aaaaaa Hello Wo[rH]el\\wlold!\n_1你一发&的发生好2.3!@$@^%^*&";
+			
+			var test=new RegExp("h","ig");//这是正则表达式
+			
+			//正则的简写：
+			var test1=/h/ig
+			
+			var test2=/[^0-9]/ig
+			
+			var test3=/Hello (Tom|World)!/ig
+			
+			var test4=/[0-9A-z_]/ig  //查找数字0-9，字母a-z，以及下划线_
+			
+			var test5=/\W/ig  //  \w  ==  [0-9a-z_]   \W == [^0-9a-z_]
+			
+			var test6=/./ig   
+			
+			var test7=/\bHello\b/ig
+			
+			var test8=/\n/ig
+			
+			var test9=/[\u4e00-\u9FA5]/ig //  一~龥
+			
+			//转义字符
+			var test10=/\./ig
+			var test11=/\\w/ig //字符串里面也要转义
+			var test12=/\[rH\]/ig
+			
+			
+			//量词
+			var test13=/a+/ig   //  a+ == a{1,}   a* == a{0,}   a? == a{0,1}
+			
+			var test14=/^a.*!$/igm
+			
+			var test15=/^a.*\n.*&$/ig
+			
+			var test16=/.(?= )/ig
+			
+			var a=test16.test(str);//用正则检测字符串，结果是布尔值
+			var b=str.match(test16);//用字符串匹配正则，结果是数组
+			
+			console.log(a)
+			console.log("我要看的效果:\n"+b)
+			
+			document.write(12345+"\n"+6789)
+			
+			//邮箱检测：3123@qq.com  asfdfa@163.com   ret@yyuu.com
+			
+			var btn=document.querySelector("button")
+			var inp=document.querySelector("input")
+			var test17=/[0-9a-z]+@\w+\.(com|cn|net)/ig
+			var src=/^\/img(\/.*)*$/ig
+			btn.onclick=function(){
+				console.log(src.test(inp.value))
+				src.lastIndex=0
+			}
+			var phone=/^(139|158|147)\d{8}$/ig
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

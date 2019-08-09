@@ -1,0 +1,54 @@
+div {
+	cursor: pointer;
+}
+
+.first {
+	color: #666;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #e6e6e6;
+	padding: 5px 9px;
+	font-size: 12px;
+}
+
+#number {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.num {
+	color: #666;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #e6e6e6;
+	padding: 5px 9px;
+	font-size: 12px;
+	margin-right: 6px;
+}
+
+.current {
+	color: #3e89fa;
+	font-size: 12px;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 30px;
+	padding: 5px 9px;
+}
+
+#inp {
+	height: 23px;
+	width: 32px;
+}
+
+.jump {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 12px;
+}
+
+.l_jump {
+	display: inline-block;
+	vertical-align: top;
+	padding: 5px 9px;
+	border: 1px solid #e6e6e6;
+}

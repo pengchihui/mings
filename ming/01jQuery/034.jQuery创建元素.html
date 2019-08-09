@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 500px;
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //点击按钮在div中创建一个超级链接
+        $(function(){
+            //点击按钮
+            $('#btn').click(function(){
+                //创建一个元素
+                var obj=$('<a href="http://www.baidu.com/">百度</a>');//jQuery
+                //追加到父级   被动的添加     需要找到父级元素，然后添加子元素
+                // $('#dv').append(obj);
+
+                //主动添加   直接追加到父级元素
+                obj.appendTo($('#dv'));
+
+            });
+        });
+    </script>
+    <input type="button" value="添加" id="btn" />
+    <div id="dv"></div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Docudddment</title>
+
+</head>
+<body>
+<input type="button" value="创建表格" id="btn" />
+<div id="dv">
+    
+</div>
+
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    /**
+     * 点击按钮创建一个表格
+     */
+    var arr = [{
+        name: '百度',
+        href: 'http://www.baidu.com'
+    }, {
+        name: '谷歌',
+        href: 'http://www.google.com'
+    }, {
+        name: '优酷',
+        href: 'http://www.youku.com'
+    }, {
+        name: '土豆',
+        href: 'http://www.tudou.com'
+    }];
+
+    //点击按钮创建表格
+/*    my$('btn').onclick = function() {
+        //创建table标签，并加入到div中
+        var tableObj = document.createElement('table');
+        tableObj.border = '1';
+        tableObj.cellPadding = "0";
+        tableObj.cellSpacing = "0";
+        my$('dv').appendChild(tableObj);
+        for (var i = 0; i < arr.length; i++) {
+            var _tmp = arr[i];
+            var trObj = document.createElement('tr');
+            tableObj.appendChild(trObj);
+            //每一列中都有两个字段
+            var td1 = document.createElement('td');
+            trObj.appendChild(td1);
+            setInnerText(td1, _tmp.name);
+            var td2 = document.createElement('td');
+            trObj.appendChild(td2);
+            var tda = document.createElement('a');
+            tda.href = _tmp.href;
+            setInnerText(tda, _tmp.href);
+            td2.appendChild(tda);
+        }
+    };*/
+    // 获取按钮注册事件
+    my$('btn').onclick=function(){
+        // 先创建table
+        var tableObj = document.createElement('table');
+        tableObj.border='1';
+        tableObj.cellPadding = '0';
+        tableObj.cellSpacing='0';
+        my$('dv').appendChild(tableObj);
+        for (var i = 0; i < arr.length; i++) {
+            var trObj = document.createElement('tr');
+            for ( tdContent in arr[i]) {
+                var tdObj = document.createElement('td');
+                if(tdContent == 'href'){
+                    var aObj = document.createElement('a');
+                    // aObj.href=arr[i][tdContent];
+                    setInnerText(aObj,aObj.href=arr[i][tdContent]);
+                    tdObj.appendChild(aObj);
+                }else{
+                    setInnerText(tdObj,arr[i][tdContent]);
+                }
+                trObj.appendChild(tdObj);
+            }
+            tableObj.appendChild(trObj);
+        }
+
+    };
+</script>
+</body>
+</html>

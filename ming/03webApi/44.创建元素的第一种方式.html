@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="设置一个p标签" id="btn" />
+    我们都很帅
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    /**
+     * 创建元素的第一种方式：
+     *   document.write('标签代码以及内容');
+     *
+     */
+    // document.write('<div>这是一个div标签</div>');
+    /*my$('btn').onclick = function(){
+        document.write('<p>这是一个p标签</p>');
+    };*/
+    document.write('<p>这是一个p标签</p>');
+
+    /**
+     * 用document.write()创建元素，缺陷：
+     *     如果页面加载完毕后，此时通过这种方式创建元素，页面上所有的内容都会被覆盖
+     *     如果页面正在加载，document.write()会追加到最后。
+     */
+</script>
+</body>
+</html>

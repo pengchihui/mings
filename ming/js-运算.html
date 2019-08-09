@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+		
+		-->
+		
+		<input type="button" value="login" />
+		<script>
+			/*
+			 练习：
+				计算58/69/32平均数
+				输出下面效果：
+				小明  男
+				18
+				两个变量s1="红",s2="蓝",不改变值得情况下，交换输出它们的结果
+			 * */
+			var avg=(58+69+32)/3;
+			/*alert("平均值:"+avg)*/
+			document.write("小明"+"&nbsp;"+"男"+"<br>"+18+"岁")
+			var s1="红",s2="蓝";
+			console.log("s1="+s1+"&nbsp;"+"s2="+s2);
+			var s3=s2;
+		        s1=s2;
+		        s2=s3;
+			console.log("s1="+s1+"&nbsp;"+"s2="+s2);
+			
+		</script>
+		
+		<script>
+					//练习：
+//			1·判断一个变量
+//			是否等于1,等于则输出"今天星期一";
+//			是否等于2,等于则输出"今天星期二";
+//			...
+//			是否等于7,等于则输出"今天星期天";
+//			如果都不等于,则输出"没有这个星期";
+//			
+//			2.判断一个变量是否是3/5/3和5的倍数	
+//			3.判断一个正数是否小于10?
+
+
+            var day=3;
+            if(day>7||day<1){
+            	console.log("没有这个星期");
+            }else{
+            	 var bool=Number.isInteger(day);
+            	 if(bool){
+		            	if(day==1){
+		             	    console.log("今天星期一");
+		                }
+		             	if(day==2){
+		             		console.log("今天星期二");
+		             	}
+		             	if(day==3){
+		             		console.log("今天星期三");
+		             	}
+		             	if(day==4){
+		             		console.log("今天星期四");
+		             	}
+		             	if(day==5){
+		             		console.log("今天星期五");
+		             	}
+		             	if(day==6){
+		             		console.log("今天星期六");
+		             	}
+		             	if(day==7){
+		             		console.log("今天星期天");
+		             	}
+            	 }else{
+            	 	console.log("没有这个星期");
+            	 }
+            	 	
+            }
+          
+             
+             
+             var num=8;
+             if(num%3==0&&num%5==0){
+             	console.log("3与5的倍数");
+             }else{
+             	 if(num%5==0){
+             	 	console.log("5的倍数");
+             	 }
+             	 if(num%3==0){
+             	 	console.log("3的倍数");
+             	 }
+             	 if(num%3!=0||num%5!=0){
+             	 	 console.log("不是3或者5的倍数");
+             	 }
+             	
+             }
+             
+            var k=9.5;
+            if(k>0&&k<10){
+            		console.log("数在0到10之间的正数");
+            }else{
+            	if(k>10){
+            		console.log("数在9以上")
+            	}
+            	if(k<0){
+            		console.log("数在1以下")
+            	}
+            }
+            
+			//			  兔子递归   1 1 2 3 5 8 11 
+
+			function f(n) {
+				if(n == 1 || n == 2) {
+					return 1;
+				} else {
+					return f(n - 1) + f(n - 2)
+				}
+			}
+			document.write("兔子：" + f(10));
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

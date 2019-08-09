@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		 <style>
+		 	html{
+		 		font-size: 50px;
+		 	}
+		 </style>
+		<script>
+			window.onload=function(){
+				document.getElementById("box").style.background="red";	
+				var lis=document.getElementsByTagName("li")//通过标签名字查找（结果是数组）
+				//lis[3].style.background="red";
+				var tests=document.getElementsByClassName("test")//通过class名字来查找（结果是数组）
+				//tests[0].style.background="red";//[test]
+				
+				
+				
+				//通过循环，给每一个li标记都添加的点击事件	
+				for(var i=0;i<lis.length;i++){
+					lis[i].onclick=function(){
+						
+//console.log(i)//函数只有调用的时候才会执行，当你点击调用时，循环已经执行完毕，i已经自增了
+console.log(this.innerHTML)//this关键字会指向你当前操作的容器,innerHTML表示它里面的代码
+//通过循环将所有li标记的背景清除
+for(var i=0;i<lis.length;i++){
+	lis[i].style.background="none"
+}
+//给当前操作的这一个加上背景红色
+this.style.background="red";
+
+					}
+				}
+				
+				
+				
+				
+			}
+			
+			//数组：多个变量的集合（通过索引值去调取）
+			//数组的创建
+			var arr1=[1,"你",true];
+			var arr2=new Array(2,"好",false);
+			var arr3=[];
+			arr3[3]="hello";
+			// [undefined,undefined,undefined,"hello"]
+			
+			
+			
+			var arr4=[3];//[3]
+			var arr5=new Array(3);
+			//这里只有一个数字时，表示数组的长度
+			//[undefined,undefined,undefined]
+
+			
+			console.log(["top","right","bottom","left"][2]);
+			
+			var arr6=[["hello",["a","b"]],2,function(){return 666}];
+			console.log(arr6[0][1][0])//二维和多维数组
+			console.log(arr6[2]())//执行数组里面的函数
+			
+			
+			
+			
+			//数组单元的引用，通过索引值去调取   格式  数组名[索引值]
+			//索引值从零开始，0表示第一个 1表示第二个....length-1表示最后一个
+			console.log(arr1[1]);
+			
+			
+			
+			//数组的长度：即数组里面有多少个东西，可通过   数组名.length  动态读取数组长度
+			console.log(arr1.length)
+			
+			
+			
+			//数组的遍历
+			for(var i=0;i<arr1.length;i++){
+				document.write(arr1[i]+"<br>");
+			}
+			
+			
+			//数组的冒泡排序：从大到小重新排序
+			var a=[5,2,3,7,9,1];
+			//得到结果[3,4,43,463,742,982]
+			
+		for(var x=0;x<a.length;x++){
+			for(var i=0;i<a.length;i++){
+				if(a[i]>a[i+1]){
+					var c;
+					c=a[i];
+					a[i]=a[i+1]
+					a[i+1]=c
+				}
+			}
+		}
+			console.log(a)
+			
+			
+	window.onresize=function(){
+	    document.documentElement.style.fontSize=document.documentElement.clientWidth/720*100+"px"
+	}
+			
+		</script>
+	</head>
+	<body>	
+		<div id="box">666</div>
+		<ul>
+			<li class="test">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</body>
+</html>

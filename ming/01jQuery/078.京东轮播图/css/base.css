@@ -1,0 +1,516 @@
+/* 版心 */
+.w {
+    width: 1190px;
+    margin: auto;
+}
+.w .style-red {
+    color: #f10215;
+}
+.fr {
+    float: right;
+}
+.fl {
+    float: left;
+}
+
+i {
+    font-style: normal;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+body {
+    font-family: 'Microsoft Yahei',sans-serif;
+    height: 1000px;
+    background-color: #f0f3ef;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    margin: 0;
+}
+input {
+    outline: none;
+    border: 0;
+    padding: 0;
+}
+button {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+dl,
+dd {
+    margin: 0;
+}
+@font-face {font-family: "iconfont";
+  src: url('../fonts/iconfont.eot?t=1528702600714'); /* IE9*/
+  src: url('../fonts/iconfont.eot?t=1528702600714#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/iconfont.woff?t=1528702600714') format('woff'),
+  url('../fonts/iconfont.ttf?t=1528702600714') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../fonts/iconfont.svg?t=1528702600714#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+img {
+    vertical-align: middle;
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+/*京东的头部*/
+.J_event {
+    background-color: #0065e7;
+}
+.J_event a {
+    display: block;
+    height: 80px;
+    position: relative;
+    z-index: 30;
+    background: url(../images/top.jpg) no-repeat top center;
+}
+.J_event a span {
+    position: absolute;
+    height: 100%;
+    width: 180px;
+    background: url(../images/618.png) no-repeat left center;
+}
+.J_event a i {
+    position: absolute;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    text-align: center;
+    line-height: 20px;
+    color: rgba(255,255,255,.4);
+    background-color: rgba(0,0,0,.4);
+}
+/*京东顶部结束*/
+
+/*快捷导航*/
+.shorcut {
+    line-height: 30px;
+    background-color: #e3e4e5;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+}
+.shorcut a {
+    color: #999;
+}
+.shorcut a:hover {
+    color: #e33333;
+}
+
+.shorcut .pos {
+    padding-left: 209px;
+    height: 30px;
+    color: #999;
+}
+.shorcut .pos i {
+    font-size: 14px;
+    color: #e10215;
+}
+
+.shorcut .fr li {
+    float: left;
+    
+}
+.shorcut .fr li.spacer {
+    width: 1px;
+    height: 10px;
+    background-color: #ccc;
+    margin: 10px 5px 0;
+}
+
+.shorcut .link-login,
+.shorcut .link-regist {
+    margin-right: 5px;
+}
+
+.shorcut .fr .dt {
+    padding: 0 8px;
+}
+.shorcut .fr .cw-icon {
+    /*padding-right: 20px;*/
+    position: relative;
+    line-height: 31px;
+}
+/* .shorcut .fr .cw-icon i {
+    position: absolute;
+    color: #999;
+    width: 12px;
+    text-align: center;
+    line-height: 12px;
+    right: 5px;
+    top: 10px;
+} */
+.shorcut .fr .cw-icon i {
+    position: relative;
+    top: 4px;
+    color: #999;
+}
+.shorcut .mobile_text {
+    width: 60px;
+}
+.shorcut .mobile {
+    position: relative;
+}
+.shorcut .mobile .erweima {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    padding: 3px;
+    border: 1px solid #cfcfcf;
+    background: url(../images/mobile_qrcode.png) no-repeat center center;
+    top: 32px;
+    left: -4px;
+}
+.shorcut .mobile .erweima:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 0 5px 5px;
+    border-style: solid;
+    border-color:  transparent transparent #f6f6f6 transparent;
+    top: -5px; 
+    left: 29px;
+}
+
+/* 京东搜索区域开始 */
+.head .w {
+    position: relative;
+    height: 140px;
+}
+
+.head .logo {
+    width: 190px;
+    height: 170px;
+    border: 1px solid #ededed;
+    box-shadow: 0 -12px 10px rgba(0,0,0,.2);
+    position: absolute;
+    top: -31px;
+    left: 0;
+}
+.head .logo h1 {
+    width: 100%;
+    height: 100%;
+}
+.head .logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    background: url(../images/sprite.head.png) no-repeat 0 0;
+}
+
+/* 搜索框 */
+.head .search {
+    padding-top: 25px;
+}
+
+.head .search .form {
+    width: 550px;
+    margin: 0 auto;
+    background-color: pink;
+    position: relative;
+}
+.head .form input {
+    float: left;
+    width: 451px;
+    height: 27px;
+    font-size: 14px;
+    color: #989898;
+    padding:4px 44px 4px 5px;
+
+}
+.head .form button {
+    float: left;
+    width: 50px;
+    height: 35px;
+    background-color: #f10215;
+    color: #fff;
+    font-size: 20px;
+    line-height: 35px;
+}
+.head .form .camera {
+    position: absolute;
+    width: 20px;
+    font-size: 18px;
+    color: #6f6d6e;
+    line-height: 20px;
+    text-align: center;
+    right: 62px;
+    top: 8px;
+    cursor: pointer;
+}
+.head .form .camera:hover {
+    color: #f10215;
+}
+/* 购物车开始 */
+.head .shopcar {
+    position: absolute;
+    right: 99px;
+    top: 25px;
+    background-color: #fff;
+    width: 188px;
+    line-height: 33px;
+    border: 1px solid #e3e4e5;
+    text-align: center;
+}
+.head .shopcar .car {
+    color: #f10214;
+    vertical-align: middle;
+    font-size: 18px;
+    margin-right: 3px;
+}
+.head .shopcar a {
+    color: #f10214;
+    font-size: 12px;
+}
+.head .shopcar .shopping-count {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #f10214;
+    color: #fff;
+    font-size: 12px;
+    line-height: 14px;
+    top: 5px;
+    right: 34px;
+}
+/*搜索热词*/
+.head .hotword {
+    width: 550px;
+    margin: 0 auto;
+    line-height: 32px;
+    font-size: 12px;
+}
+.head .hotword a {
+    float: left;
+    color: #999;
+    margin-right: 10px;
+}
+.head .hotword a:hover,
+.head .hotword .style-red {
+    color: #f10215;
+}
+/*头部广告*/
+.head .navAd {
+    width: 190px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    background: url(../images/head-ad.gif) no-repeat top center;
+}
+
+/* 导航 */
+.head .navitems {
+    width: 790px;
+    margin: 7px auto 0;
+
+}
+.head .navitems ul,
+.head .navitems ul li,
+.head .navitems .spacer {
+    float: left;
+}
+.head .navitems ul li {
+    padding: 0 10px 0 20px;
+    font-size: 14px;
+    line-height: 40px;
+}
+.head .navitems a {
+    color: #333;
+}
+.head .navitems a:hover {
+    color: #c81623;
+}
+.head .navitems .spacer {
+    width: 1px;
+    height: 10px;
+    background-color: #ccc;
+    margin-left: 10px;
+    margin-top: 15px;
+
+}
+/*京东底部---服务footer-service*/
+.footer .footer-service {
+    padding: 30px 0;
+}
+.footer .service-list li{
+    float: left;
+    width: 245px;
+    padding: 0 26px;
+    line-height: 42px;
+}
+.footer .service-list li h5,
+.footer .service-list li p {
+    float: left;
+    
+}
+.footer .service-list li h5 {
+    width: 36px;
+    margin-right: 9px;
+    text-indent: -9999em;
+    overflow: hidden;
+    background: url(../images/sprite.footer.png) no-repeat 0 -192px;
+}
+.footer .service-list li:nth-child(2) h5 {
+    background-position: -41px -192px;
+}
+.footer .service-list li:nth-child(3) h5 {
+    background-position: -82px -192px;
+}
+.footer .service-list li:nth-child(4) h5 {
+    background-position: -123px -192px;
+}
+.footer .service-list li p {
+    font-size: 18px;
+    color: #444;
+    font-weight: bold;
+    
+}
+/*底部帮助模块*/
+.footer .footer-help {
+    border-top: 1px solid #dedede;
+    padding: 20px 0;
+    line-height: 22px;
+}
+
+.footer .footer-help dl.help-nav {
+    float: left;
+    width: 198px;
+    height: 160px;
+}
+.footer .footer-help dl.help-cover {
+    float: right;
+    width: 200px;
+    padding-bottom: 38px;
+    background: url(../images/sprite.footer.png) no-repeat -3px 0;
+}
+
+.footer .footer-help dl dt {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+.footer .footer-help dl dd {
+    font-size: 12px;
+
+}
+.footer .footer-help a {
+    color: #666;
+}
+.footer .footer-help a:hover {
+    color: #c81623;
+}
+.footer dl.help-cover dt {
+    text-align: center;
+    margin-bottom: 8px;
+}
+.footer dl.help-cover dd {
+    line-height: 22px;
+    color: #666;
+    padding: 0 16px 0 10px;
+}
+.footer dl.help-cover .help-cover-more {
+    text-align: right;
+    line-height: 16px;
+}
+
+/*copyright*/
+.footer .footer-copyright {
+    border-top: 1px solid #e1e1e1;
+}
+.footer .copyright-links {
+    font-size: 12px;
+    line-height: 22px;
+    color: #666;
+    text-align: center;
+    
+}
+.footer .copyright-links .links1 {
+    padding: 14px 0 10px;
+}
+.footer .copyright-links .links2 a,
+.footer .copyright-links .links2 span {
+    color: #999;
+}
+.footer .copyright-links a {
+    color: #666;
+}
+.footer .copyright-links a:hover {
+    color: #c81623;
+}
+.footer .copyright-links span.split {
+    margin: 0 10px;
+}
+.footer .copyright_auth a {
+    float: left;
+    width: 103px;
+    height: 32px;
+    margin-right: 6px;
+    background: url(../images/sprite.footer.png) no-repeat 0 0;
+}
+.footer .copyright_auth {
+    width: 648px;
+    margin: 33px auto 0;
+}
+.footer .copyright_auth a.jingying {
+    background-position: -205px -148px;
+}
+.footer .copyright_auth a.kexin {
+    background-position: -205px -111px;
+}
+.footer .copyright_auth a.wangjing {
+    background-position: -205px -74px;
+}
+.footer .copyright_auth a.chengxin {
+    background-position: -205px -37px;
+}
+.footer .copyright_auth a.jubao {
+    background-position: -205px 0;
+}
+.footer .copyright_auth a.jbapp {
+    background-position: 0 -155px;
+    margin-right: 0;
+}

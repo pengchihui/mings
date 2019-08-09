@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+<input type="button" value="演示效果" id="btn" />
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    //为一个元素绑定不同的事件，指向相同的事件处理函数
+    //我要为btn注册不同的事件
+    my$('btn').onclick=f1;
+    my$('btn').onmouseover=f1;
+    my$('btn').onmouseout=f1;
+
+    function f1(e){
+        // console.log(e);
+        switch(e.type) {
+            case 'click':
+                alert('房产证写你的名字');
+                break;
+            case 'mouseover':
+                this.style.backgroundColor="red";
+                break;
+            case 'mouseout':
+                this.style.backgroundColor="";
+                break;
+        }
+    }
+</script>
+</body>
+</html>

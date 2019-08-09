@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			//内置对象函数：
+			//console.log()
+			//Number()
+			//parseInt()
+			//console.log(String(123)+1);
+			//console.log(confirm("待取消按钮的弹框"));
+			
+//			if(confirm("确定删除")){
+//				console.log("已经删除")
+//			}else{
+//				console.log("不删除")
+//			}
+ 			//console.log(typeof("读取数据类型"))
+ 			
+ 			var a=5;
+ 			var b=3;
+ 			console.log("a+b")//a+b
+ 			console.log(eval("a+b"))//按格式执行代码   8
+ 			eval("console.log(a+b)")
+ 			
+ 			
+ 			
+ 			//字符串相关：
+ 			var str="Hello World!";
+ 			console.log(str.length);
+ 			console.log(str.indexOf("or"));
+ 			console.log("substr"+str.substr(2,4))
+ 			console.log("substring"+str.substring(2,2))
+ 			console.log(str.toUpperCase())
+ 			console.log(str.toLowerCase())
+ 			
+ 			console.log(str.replace("World","Tim"));
+ 			
+ 			console.log(str.split("o"))//用括号里面的参数来分割字符串，形成数组
+ 			
+ 			
+ 			var user="name=123&pass=456";
+ 			var arr=user.split("&")
+ 			
+ 			
+ 			
+ 			//数组相关：
+ 			var arr1=["a","b","c"]
+ 			var arr2=[1,2,3]
+ 			var arr3=arr1.concat(arr2)
+ 			console.log(arr3.join("/"))
+ 			
+ 			console.log(arr3.unshift(true));
+ 			console.log(arr3.shift())
+ 			
+ 			var a=[5,2,3,7,9,1];
+ 			a.sort()
+ 			a.reverse();
+ 			console.log(a)
+ 			
+ 			
+ 			console.log(arr3)
+ 			console.log(arr3.slice(3,-1))//复制数组片段
+ 			
+ 			
+ 			console.log(arr3.splice(-3,1))
+ 			console.log("哦豁酒红呢"+arr3)
+ 			
+ 			
+ 			
+ 			//数学Math 
+ 			
+ 			var num=3.5415926;
+ 			console.log(Math.round(num));
+ 			console.log("向上取整"+Math.ceil(num));
+ 			
+			console.log(Math.max(8,6,3));
+			console.log(Math.min(eval(a.join())));
+			
+			console.log(Math.pow(10,-43))
+			
+			console.log(Math.random());// 0<=?<1
+			//随机5-10之间的整数
+			console.log(Math.floor(Math.random()*5+5))//0*5+5<=?<1*5+5
+			
+			//随机颜色 位置
+			
+			
+			
+			
+			//日期date
+			var time=new Date();
+			
+			time.setHours(time.getHours()+2)//设置小时时间，为当前时间的24小时后
+			
+			
+			
+			console.log(time.getFullYear())
+			console.log(time.getMonth()+1)//月份从0开始，0表示1月...
+			console.log(time.getDate())
+			console.log(time.getHours())
+			console.log(time.getMinutes())
+			console.log(time.getSeconds())
+			console.log(time.getMilliseconds())
+			console.log(time.getDay())
+			
+			console.log(time.getFullYear()+"/"+(time.getMonth()+1)+"/"+time.getDate())
+			
+			
+			
+			
+			
+			
+			//练习:
+			//随机颜色  随机位置 
+			//随机输出数组单元（每次不重复）
+			var food=[1,2,3,4]
+			//字符串首字母大写 hello tim my name is xxx
+			
+		</script>
+		<style>
+			div{
+				background: rgba(0,255,255,0.5);
+				position: relative;
+			}
+		</style>
+		<div style="left: 200px;top: 20px;"></div>
+		
+		
+	</body>
+</html>

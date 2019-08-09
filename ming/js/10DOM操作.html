@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		// 65.mp3 83.mp3 68.mp3
+		<audio src="1.mp3"></audio>
+		<button>停止</button>
+		<div></div>
+		<button>添加</button>
+		<button>修改</button>
+		<button>删除</button>
+		<ul class="test">
+			<li>111</li>
+			<li>2<b>666</b><i>4444</i>22</li>
+			<li>333</li>
+		</ul>
+
+		<script>
+			var mp3 = document.getElementsByTagName("audio");
+			var div = document.getElementsByTagName("div");
+			var btn = document.getElementsByTagName("button");
+			document.onkeydown = function(event) {
+				var e = event || window.event
+				var key = e.keyCode || e.which || e.charcode
+				mp3[0].src = key + ".mp3"
+			}
+			//练习：简单计算器功能
+			//四个方向键移动某个容器
+
+			//每隔1000ms执行一次fn
+			//setInterval(fn,1000)
+
+			function asd() {
+				var today = new Date()
+				div[0].innerHTML = today.getMinutes() + ":" + today.getSeconds()
+			}
+
+			var time = setInterval("asd()", 1000)
+			asd()
+
+			btn[0].onclick = function() {
+				clearInterval(time) //停止循环执行time
+			}
+
+			//-------------------------------------DOM操作
+			//document object model   文档对象模型（在内存里面的）
+			//dom它是一种树向结构
+			//操作节点：增删改查
+
+			//查
+			//document.getElementById("")//唯一的
+			//var ul=document.getElementsByClassName("test")[0]//结果是数组
+			//document.getElementsByTagName("")//结果是数组
+			//document.getElementsByName("")//结果是数组    <input name="">
+
+			var obj = document.querySelector(".test li:nth-child(2)") //查找到第一个符合该选择器的元素
+			var objall = document.querySelectorAll(".test li")
+			obj.parentElement //父级元素节点
+			obj.parentNode //父级节点
+			obj.children //所有子级元素节点（结果是数组）
+			obj.childNodes //所有子级节点（结果是数组）
+			obj.firstChild//第一个子节点
+			obj.firstElementChildChild//第一个元素子节点
+			obj.lastChild//最后一个子节点
+			obj.lastElementChild//最后一个元素子节点
+			obj.nextElementSibling //同辈的下一个元素节点
+			obj.nextSibling //同辈的下一个节点(文本也可能是它的下一个节点)
+			obj.previousElementSibling //同辈的上一个元素节点
+			obj.previousSibling //同辈的上一个节点(文本也可能是它的下一个节点)
+			
+			//parentElement和parentNode的区别
+			document.documentElement//html元素节点
+			document.documentElement.parentElement//null
+			document.documentElement.parentNode//document
+			
+			
+			
+			
+			//加
+			var num=1;
+			btn[1].onclick=function(){
+				var li=document.createElement("li");//创建一个li的元素节点
+				var txt=document.createTextNode("hello"+(num++));//创建一个文本节点
+				li.style.background="red"
+				var index=document.createAttribute("index");//创建属性节点
+				index.value=num//为属性设置值
+				li.setAttributeNode(index)//把属性绑定到li上面
+				li.appendChild(txt)//把文本扔到li里面
+				obj.parentElement.appendChild(li);//把li扔到ul里面去
+			}
+			
+			//改			
+			//a.replaceChild(b,c)   在a里面用b替换掉c
+			//注意b和c一定要是节点，然后用已存在的节点b去替换c，那么已存在的b将会消失
+			//不想已存在的b消失，就要用克隆节点cloneNode(true)   布尔值正确为深克隆（里面内容也会一起克隆）
+			btn[2].onclick=function(){	
+				var zxc=obj.nextElementSibling.cloneNode(true)
+				obj.parentElement.replaceChild(zxc,obj)
+			}
+			
+			
+			
+			
+			//删	
+			//a.removeChild(b)      在a里面删除b
+			//注意b一定要是节点
+			btn[3].onclick=function(){
+				obj.parentElement.removeChild(obj.parentElement.children[])
+			}
+			
+		</script>
+	</body>
+
+</html>

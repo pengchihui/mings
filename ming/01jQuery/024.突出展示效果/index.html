@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            background-color: #000;
+        }
+        img {
+            vertical-align: middle;
+        }
+        .wrap {
+            width: 630px;
+            height: 394px;
+            padding: 10px 0 0 10px;
+            margin: 100px auto 0;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+        .wrap ul {
+            overflow: hidden;
+        }
+        .wrap li {
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //parent();   找到当前元素的父级元素
+        //find(); 查找元素
+        //
+        //
+        //加载事件
+        $(function(){
+            $('.wrap>ul>li').mouseenter(function(event) {
+                $(this).parent().find('li').css('opacity','.4');
+                $(this).css('opacity','1');
+            });
+            $('.wrap').mouseleave(function(event) {
+                $(this).find('li').css('opacity','1');
+            });
+        });
+    </script>
+    <div class="wrap">
+        <ul>
+            <li><a href="javascript:void(0)"><img src="images/01.jpg" alt="" /></a></li>
+            <li><a href="javascript:void(0)"><img src="images/02.jpg" alt="" /></a></li>
+            <li><a href="javascript:void(0)"><img src="images/03.jpg" alt="" /></a></li>
+            <li><a href="javascript:void(0)"><img src="images/04.jpg" alt="" /></a></li>
+            <li><a href="javascript:void(0)"><img src="images/05.jpg" alt="" /></a></li>
+            <li><a href="javascript:void(0)"><img src="images/06.jpg" alt="" /></a></li>
+        </ul>
+    </div>
+</body>
+</html>

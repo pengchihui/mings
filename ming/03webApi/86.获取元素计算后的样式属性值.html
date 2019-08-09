@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="移动到400" id="btn1" />
+    <input type="button" value="移动到800" id="btn2" />
+    <div id="dv"></div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        // console.log(my$('dv').offsetLeft);
+        //获取任意一个元素的任意一个样式属性值
+        my$('btn1').onclick=function(){
+            // console.log(window.getComputedStyle(my$('dv'), null).left);
+            // console.log(my$('dv').currentStyle.left);
+            console.log(getStyle(this,'height'));
+        }
+/*        function getStyle(ele,attr){
+            //判断浏览器是否支持这个方法
+            if(window.getComputedStyle){
+                return window.getComputedStyle(ele,null)[attr];
+            }else{
+                return ele.currentStyle[attr];
+            }
+        }*/
+        function getStyle(ele,attr){
+            //判断浏览器是否支持这个方法
+           return window.getComputedStyle?window.getComputedStyle(ele, null)[attr]:ele.currentStyle[attr];
+        }
+        // var obj={
+        //     sayHi: function(){
+        //         console.log('哈哈');
+        //     }
+        // }
+    </script>
+</body>
+</html>

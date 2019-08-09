@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="uu">
+    <li>第1行</li>
+    <li>第2行</li>
+    <li>第3行</li>
+    <li>第4行</li>
+    <li id="l5">第5行</li>
+    <li>第6行</li>
+    <li>第7行</li>
+    <li>第8行</li>
+</ul>
+<script src="js/common.js"></script>
+<script>
+    /**
+     * 第一个节点和第一个元素的获取代码在ie8可能不被支持
+     *
+     * element.firstChild ====>第一个子节点---在chrome和 firefox中
+     * element.firstChild=====在ie8中，是获取到第一个子元素
+     *
+     * element.firstElementChild====>第一个子元素---chrome和firefox中，在ie8中是undefined
+     *
+     */
+    function getFirstElementChild(element){
+        //如何这个元素支持 firstElementChild====>   一定不是ie8
+        //此时我要获取第一个元素，是不是直接使用firstElementChild就行了。
+        if(element.firstElementChild){//true---->说明支持，如果返回undefined 则是false 说明不支持
+            return element.firstElementChild;
+        }else {
+            //return element.firstChild;//此时是ie8
+            //有没有这么一种情况，我的浏览器不是ie8，但是也不支持firstElementChild ,同时，firstChild返回的第一个节点是文本几点
+            var node=element.firstChild;//第一个节点
+            //如何去找到这个元素节点
+            while(node && node.nodeType !=1 ){
+                //进来证明是文本节点
+                node=node.nexSibling;
+            }
+            return node;
+        }
+    }
+
+    function getLastElementChild(element){
+        if(element.lastElementChild){
+            return element.lastElementChild;
+        }else {
+            var node = element.lastChild;
+            while (node&&node.nodeType!=1){
+                node= node.previousSibling;
+            }
+            return node;
+        }
+    }
+
+    function getPreviousSibling(element){
+        if(element.previousElementSibling){
+            return element.previousElementSibling;
+        }else {
+            var node = element.previousSibling;
+            while(node&&node.nodeType!=1){
+                node = node.previousSibling;
+            }
+            return node
+        }
+    }
+
+    function getNextSibling(element){
+        if(element.nextElementSibling){
+            return element.nextElementSibling;
+        }else{
+            var node =element.nextSibling;
+            while(node&&node.nodeType!=1){
+                node = node.nextSibling;
+            }
+            return node;
+        }
+    }
+
+    console.log(getFirstElementChild(my$('uu')).innerText);
+    console.log(getLastElementChild(my$('uu')).innerText);
+    console.log(getPreviousSibling(my$('l5')).innerText);
+    console.log(getNextSibling(my$('l5')).innerText);
+
+
+</script>
+</body>
+</html>

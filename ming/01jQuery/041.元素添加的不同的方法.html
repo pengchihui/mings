@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //点击按钮创建一个按钮
+            $('#btn').click(function(){
+                //prepend()\prependTo()  把创建的元素直接插入父级元素中第一个子元素之前
+                // $('#dv').prepend($('<input type="button" value="按钮" />'));
+                // prependTo()
+                // $('<input type="button" value="按钮" />').prependTo($('#dv'));
+                
+
+                //把创建的元素加到元素的后边，成为该元素的下一个兄弟元素   +
+                // $('#dv').after('<input type="button" value="按钮" />');
+
+                //把创建的元素加到元素的前面，成为该元素的上一个兄弟元素
+                $('#dv').before('<input type="button" value="按钮" />');
+            });
+        });
+    </script>
+    <input type="button" value="创建" id="btn" />
+    <div id="dv">
+        <p>这是一个p</p>
+    </div>
+    <span>这是一个span</span>
+</body>
+</html>

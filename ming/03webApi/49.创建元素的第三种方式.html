@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+
+</head>
+<body>
+
+<input type="button" value="创建一个p" id="btn" />
+<div id="dv"></div>
+
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    /**
+     *  第三种方式创建元素
+     *  document.createElement('标签的名字');它会返回一个对象
+     *  再把这个对象，追加到父级元素
+     * 
+     */
+    
+/*    my$('btn').onclick =function(){
+        var pObj = document.createElement('p');
+        setInnerText(pObj,'这是我用document.createElement创建的p标签');
+        //把创建好的对象，追加到父级元素中
+        my$('dv').appendChild(pObj);
+    };*/
+    document.getElementById('btn').onclick=function(){
+        // 1.创建一个p标签
+        var pObj = document.createElement('p');
+        setInnerText(pObj,'我创建的一个p标签');
+        // console.log(pObj);
+        // 2.把创建好的标签追加到父级元素
+            // 先要获取到父级元素
+        var div = document.getElementById('dv');
+            // 把创建好的标签追加到父级元素
+        div.appendChild(pObj);
+    };
+
+
+</script>
+</body>
+</html>

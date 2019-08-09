@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="dv" class="" name="" style="bagckground-color: #ccc;">
+    <span>这个是div中的第一个span</span>
+    <p>这是div中的第一个p标签</p>
+    <ul id="uu">
+        <li>乔峰</li>
+        <li>段誉</li>
+        <li id="three">虚竹</li>
+        <li>慕容复</li>
+    </ul>
+</div>
+<script src="js/common.js"></script>
+<script>
+//ul
+    var ulObj =my$('uu');
+    //父级节点
+    console.log(ulObj.parentNode);
+    //父级元素
+    console.log(ulObj.parentElement);
+    //子节点---集合
+    console.log(ulObj.childNodes);
+    //子元素----集合
+    console.log(ulObj.children);
+
+    console.log("=======================");
+
+    //第一个子节点
+    console.log(ulObj.firstChild);//第一个子节点----但是在ie8中，他是第一个子元素
+    //第一个子元素
+    console.log(ulObj.firstElementChild);//ie8不支持
+
+    // 最后一个
+    console.log(ulObj.lastChild);
+    console.log(ulObj.lastElementChild);
+
+    console.log('=============================');
+
+    var mouObj = my$('three');
+    //某一个元素的前一个兄弟节点
+    console.log(mouObj.previousSibling);
+    //前一个兄弟元素
+    console.log(mouObj.previousElementSibling);
+
+    //后一个
+    console.log(mouObj.nextSibling);
+    console.log(mouObj.nextElementSibling);
+
+
+/**
+ * 总结：
+ *
+ *      凡是获取节点的代码，在chrome和firefox中，得到的都是  -----node
+ *      凡是获取元素的代码，在chorme和firefox中，得到的都是  ---元素对象---element
+ *      从子节点和兄弟节点开始，凡是获取节点的代码，在ie8中得到的，都是元素，
+ *          而获取元素的相关代码，在ie8中得到的都是undefined(获取元素的代码，ie8不支持)
+ *
+ */
+</script>
+</body>
+</html>

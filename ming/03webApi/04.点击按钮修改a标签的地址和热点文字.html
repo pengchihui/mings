@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" id="btn" value="显示效果" />
+<a href="http://www.baidu.com" id="ak">百度</a>
+<script>
+    //案例，点击按钮修改a标签地址和热点文字
+    //先获取按钮对象，注册事件添加事件函数
+    document.getElementById('btn').onclick=function(){
+        //获取a标签对象，病分别设置href属性和里边内容
+        document.getElementById('ak').innerText='跳转京东';
+        document.getElementById('ak').href='http://www.jd.com';
+    };
+
+</script>
+<script>
+    /***
+     * 练习：
+     *
+     *
+     * 1.点击按钮修改图片的alt 和title属性
+     *
+     * 2.按钮修改按钮的value属性
+     *
+     * 3.点击按钮修改图片自身的宽高
+     *
+     */
+
+</script>
+</body>
+</html>

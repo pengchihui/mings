@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>从黑到白的渐变矩形</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        //从黑到白的一个矩形
+        
+        ctx.beginPath();
+        ctx.moveTo(100,100);
+        ctx.lineTo(355,100);
+        ctx.lineWidth = 50;
+        ctx.strokeStyle = '#000';
+        ctx.stroke();
+
+
+        //   首先明白 线   是由点构成
+        for (var i = 0; i < 255; i++) {
+            ctx.beginPath();
+            ctx.moveTo(100 + i - 1,200);
+            ctx.lineTo(100 + i,200);
+            ctx.strokeStyle = `rgb(${i},${i},${i})`;
+            ctx.stroke();
+        }
+
+
+    </script>
+</body>
+</html>

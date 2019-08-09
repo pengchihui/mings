@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>123</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<style>
+			.on {
+				background: red;
+				border: 3px solid #000;
+				padding-bottom: 20px;
+				margin-bottom: 20px;
+			}
+			
+			#box {
+				height: 100px;
+				overflow-x: scroll;
+				overflow-y: scroll;
+				margin-top: 20px;
+			}
+			
+			#box b {
+				background: green;
+				position: absolute;
+				top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<a href="12BOM操作.html">66666</a>
+		<div class="asd">6<b>777</b><br><br><br><br><br><br><br><br><br><br><br>66</div>
+		<img src="../images/a1_10.jpg" title="666" alt="777" />
+		<script>
+			//
+			document.documentElement //html
+			document.body //body
+			document.title
+			var box = document.getElementsByTagName("div")[0]
+			box.className = "on"
+			box.id = "box"
+			box.nextElementSibling.title = "nikan"
+			box.clientHeight //height+padding   不包括滚动条和边框
+			box.offsetHeight //height+padding+border  包括滚动条和边框
+			box.scrollTop //读取对象的滚动位置偏移量(你得有滚动条)
+			box.offsetTop //读取对象移动后的偏移量(当前这个对象和它【父级元素或绝对定位参照物】之间的一个偏移量)
+
+			var b = box.getElementsByTagName("b")[0];
+			var c = box.nextElementSibling
+			box.contains(b) //判断box里面是否有b标记这个节点
+		</script>
+
+		<div class="box">
+			<span id="wei" style=" left: 140px; top: 380px;"></span>
+		</div>
+		<div class="bg"></div>
+		<style>
+			.box {
+				width: 300px;
+				height: 400px;
+				background: #E0E0E0;
+				border: 4px solid #f00;
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				margin-left: -154px;
+				margin-top: -204px;
+				z-index: 1;
+				overflow: hidden;
+			}
+			
+			.bg {
+				background: #000;
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				opacity: 0.5;
+			}
+			
+			.box>div {
+				width: 20px;
+				height: 20px;
+				position: absolute;
+			}
+			
+			.box>span {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				background: green;
+			}
+			
+			.box>b {
+				width: 4px;
+				height: 4px;
+				background: red;
+				position: absolute;
+			}
+		</style>
+		<script>
+			var game = document.querySelector(".box");
+
+			//随机颜色
+			function rgb() {
+				var r = Math.floor(Math.random() * 256); //0<= <256
+				var g = Math.floor(Math.random() * 256);
+				var b = Math.floor(Math.random() * 256);
+				return "rgb(" + r + "," + g + "," + b + ")"
+			}
+
+			//随机位置
+			function test(val1, val2) {
+				var num = Math.floor(Math.random() * (val2 - val1 + 1) + val1)
+				return num + "px"
+			}
+
+			//创建敌方飞机
+			function di() {
+				var div = document.createElement("div")
+				div.style.background = rgb();
+				div.style.left = test(0, 280)
+				div.style.top = test(-20, -20)
+				game.appendChild(div);
+				//每创建一部，就往下落
+				setInterval(function() {
+					div.style.top = div.offsetTop + 1 + "px"
+					if(div.offsetTop > 400) {
+						game.contains(div)?game.removeChild(div):""
+					}
+				}, 1)
+
+			}
+
+			//每隔一秒，一部飞机出现
+			di()
+			var time = 0;
+			var dj = setInterval(function() {
+				time = time + 1
+				if(time % 10 == 0) {
+					di()
+				}
+			}, 100)
+
+			//页面切出去，停止出现敌机
+			window.onblur = function() {
+				clearInterval(dj)
+			}
+			//页面切回来，再次出现敌机
+			window.onfocus = function() {
+				dj = setInterval(function() {
+					time = time + 1
+					if(time % 10 == 0) {
+						di()
+					}
+				}, 100)
+			}
+
+			var a = b = c = d = e = false;
+			var wei = document.getElementById("wei");
+			document.onkeydown = function(event) {
+				var event = event || window.event;
+				var keycode = event.keyCode || event.which || event.charCode;
+				if(keycode == 37) {
+					a = true
+				}
+				if(keycode == 38) {
+					b = true
+				}
+				if(keycode == 39) {
+					c = true
+				}
+				if(keycode == 40) {
+					d = true
+				}
+				if(keycode == 88) {
+					e = true
+				}
+			}
+			document.onkeyup = function(event) {
+				var event = event || window.event;
+				var keycode = event.keyCode || event.which || event.charCode;
+				if(keycode == 37) {
+					a = false
+				}
+				if(keycode == 38) {
+					b = false
+				}
+				if(keycode == 39) {
+					c = false
+				}
+				if(keycode == 40) {
+					d = false
+				}
+				if(keycode == 88) {
+					e = false
+				}
+			}
+			setInterval(function() {
+					if(a) {
+						wei.style.left = (wei.offsetLeft > 0 ? wei.offsetLeft - 1 : "") + "px"
+					}
+					if(b) {
+						wei.style.top = (wei.offsetTop > 0 ? wei.offsetTop - 1 : "") + "px"
+					}
+					if(c) {
+						wei.style.left = (wei.offsetLeft < 280 ? wei.offsetLeft + 1 : "") + "px"
+					}
+					if(d) {
+						wei.style.top = (wei.offsetTop < 380 ? wei.offsetTop + 1 : "") + "px"
+					}
+				}, 5)
+			//子弹创建
+			setInterval(function() {
+				if(e){
+					var b = document.createElement("b")				
+					b.style.left = wei.offsetLeft+8+"px"
+					b.style.top = wei.offsetTop-5+"px"
+					game.appendChild(b);
+					setInterval(function() {
+						b.style.top = b.offsetTop - 1 + "px"
+						diji=game.getElementsByTagName("div")
+						for(var i=0;i<diji.length;i++){
+							var x=diji[i].offsetLeft
+							var y=diji[i].offsetTop
+							
+							
+if(x<b.offsetLeft&&b.offsetLeft<x+20&&y<b.offsetTop&&b.offsetTop<y+20){
+	console.log("碰撞了");
+	game.removeChild(b)
+	game.removeChild(diji[i])
+}
+						}
+						if(b.offsetTop < -4) {
+							game.removeChild(b)
+						}
+					}, 1)
+				}
+			}, 100)
+			
+			//碰撞检测
+			
+			
+			
+			
+			
+			
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="txt" value="请输入搜索内容" />
+<script src="js/common.js"></script>
+<script>
+    //获取文本框
+    //注册获取焦点事件
+    my$('txt').onfocus=function(){
+        if(this.value== this.defaultValue){
+            this.value='';//情况文本框
+            this.style.color='black';//字体颜色变黑
+        }
+    };
+
+    //注册失去焦点事件
+    my$('txt').onblur=function(){
+        if(this.value==''){
+            this.value=this.defaultValue;//如果没有输入内容，则变成默认value
+            this.style.color='gray';
+        }
+    };
+</script>
+</body>
+</html>

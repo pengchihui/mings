@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>根据数据绘制饼图</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        var w = ctx.canvas.width;
+        var h = ctx.canvas.height;
+        var r = 150;
+
+        // 1.准备数据
+        var data = [ 5,55,20,30,90 ];
+
+        // 2.数据需要转换成弧度
+        // 3. 要转换成弧度应该先求和
+        var sum= 0;
+        data.forEach( function(item, i) {
+            // statements
+            sum+=item;
+        });
+        // console.log(sum);
+        
+        // 4. 每一份的比例 * 2 *Math.PI
+        var startAngle = 0;
+        data.forEach(function(item,i){
+            endAngle = (item/sum)* 2 * Math.PI + startAngle;
+            ctx.beginPath();
+            ctx.moveTo(w/2,h/2);
+            ctx.arc(w/2,h/2,r,startAngle,endAngle);
+            ctx.fillStyle = getRandomColor();
+            ctx.fill();
+
+            startAngle = endAngle;
+        });
+
+        function getRandomColor() {
+            // [0,1)
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+    </script>
+</body>
+</html>

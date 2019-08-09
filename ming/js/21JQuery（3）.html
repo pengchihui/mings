@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.7.2.js"></script>
+		<style>
+			div{ background: red;}
+			textarea{ resize: none;}
+			.on{ background: red;}
+		</style>
+		<script>
+			
+
+$(document).ready(function(){
+  // 在这里写你的代码...
+  			$("div li").eq(2).one("click", function(){
+				console.log($(this).is("li"))
+				$("button").click()
+				console.log($("div li").map(function(){
+					return $(this).text()
+				}))
+				//$("form:first").submit();
+			})
+  			$("button").on("click", function(){
+  				if($(this).hasClass("on")){
+  					$(this).removeClass("on")
+  				}else{
+  					$(this).addClass("on")
+  				}
+				console.log(456)
+			})
+  			$("button").dblclick(function(){
+  				console.log(789)
+  			})
+  			$("input[type='text']").select( function() {
+  				// 这里可以写些验证代码
+  				console.log(this.value)
+  				$("body").children("div").css("background","green")
+  				$("li").closest("ul").css("fontSize","30px")
+  				//$("li").find("span")
+  				//$("li").find("img").attr("src")
+			});
+			
+			
+			
+			var box=document.querySelector("div")
+//			box.onmouseout=function(){
+//				console.log(11111)//子元素也会触发
+//			}
+			box.onmouseleave=function(){
+				console.log(11111)//子元素不会触发
+			}
+			
+			
+			
+		
+			$("button").appendTo($("div"))
+			
+			
+			//$("p").wrapAll("<div></div>");
+			$("p").wrapInner("<b></b>");
+			$("p").remove(".hello");
+			
+});
+		</script>
+	</head>
+	<body>
+		<p class="hello">Hello</p> how are <p>you?</p>
+		<div>
+			<ul>
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+			</ul>
+		</div>
+		<button>dianji</button>
+		<input type="text" />
+		<textarea name="" rows="" cols=""></textarea>
+		<p>123456789</p>
+		<p>123456789</p>
+		<p>123456789</p>
+		<p>123456789</p>
+	</body>
+</html>

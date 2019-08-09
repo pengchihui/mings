@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        .wrap {
+            overflow: hidden;
+        }
+        select {
+            width: 200px;
+            height: 100px;
+            float: left;
+        }
+        .btns {
+            width: 50px;
+            height: 100px;
+            float: left;
+        }
+        .btns input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //入口函数
+        $(function(){
+            $('#toAllRight').click(function(){
+                $(this).parent().next().append($(this).parent().prev().children('option'));
+            });
+           $('#toAllLeft').click(function(){
+                $(this).parent().prev().append($(this).parent().next().children('option'));
+            });
+           $('#toRight').click(function(){
+                $(this).parent().next().append($(this).parent().prev().children('option:selected'));
+           });
+           $('#toLeft').click(function(){
+                $(this).parent().prev().append($(this).parent().next().children('option:selected'));
+           });
+        });
+    </script>
+    <div class="wrap">
+        <select multiple="multiple" id="se1" class="se1">
+            <option value="">添加</option>
+            <option value="">删除</option>
+            <option value="">修改</option>
+            <option value="">查询</option>
+            <option value="">打印</option>
+        </select>
+        <div class="btns">
+            <input type="button" value=">" id="toRight" />
+            <input type="button" value="<" id="toLeft" />
+            <input type="button" value=">>" id="toAllRight"/>
+            <input type="button" value="<<" id="toAllLeft"/>
+        </div>
+        <select multiple="multiple" id="se2">
+        </select>
+    </div>
+</body>
+</html>

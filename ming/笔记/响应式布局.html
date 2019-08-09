@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			html{
+				overflow-x: hidden;
+				font-size: 100px; /* 1rem==100px*/
+			}
+			body{
+				font-size: 20px;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul{
+				margin: 0 auto;
+				width: 8.8rem;
+				background: grey;
+				overflow: hidden;
+			}
+			
+			li {
+				list-style: none;
+				width: 2rem;
+				height: 2rem;
+				background: red;
+				margin: 0 0.1rem;
+				float: left;
+				font-size: .5rem;
+			}
+			
+			/*当媒体屏幕小于最大宽度880时,应用里面css变幻布局效果*/
+			@media screen and (max-width:880px ) {
+				html{ font-size: 80px; background: palegreen;}/* 1rem==80px*/
+				li:nth-child(4){display: none;}
+				
+			}
+			@media screen and (max-width:770px ) {
+				html{ font-size:60px ; background: antiquewhite;}/* 1rem==60px*/
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+		</ul>
+
+	</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="移动到400"id="btn1" />
+    <input type="button" value="移动到800" id="btn2" />
+    <div id="dv"></div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        /**
+         * 上一个案例遗留的问题：
+         * 1. 移动到800之后，点400  移动不回来
+         * 2. 当step不能被距离所整除的时候
+         * 3.多次点击，生成多个定时器，导致越来越快
+         * 
+         */
+        
+        //点击第一个按钮移动到400
+        my$('btn1').onclick =function(){
+            move(my$('dv'),400);
+        };
+
+        //点击第二个按钮移动到800
+        my$('btn2').onclick=function(){
+            move(my$('dv'),800);
+        };
+
+        /**
+         * [移动函数]
+         * @param  {[type]} ele    [当前操作对象]
+         * @param  {[type]} target [移动到目标位置]
+         * @return {[type]}        [无返回值]
+         */
+        function move(ele, target) {
+            //进入函数的时候，先清理定时器
+            clearInterval(ele.timeId);
+            //使用定时器重复动作
+            ele.timeId = setInterval(function() {
+                //先获取当位置
+                var current = ele.offsetLeft; //这个是数字类型,不带单位
+                //div每次移动多少像素----每一步step
+                var step = 10;
+                step = current < target ? step : -step;
+                //每一次移动后的距离
+                current += step;
+                if (Math.abs(target - current) > Math.abs(step)) {
+                    ele.style.left = current + 'px';
+                } else {
+                    clearInterval(ele.timeId);
+                    ele.style.left = target + 'px';
+                }
+            }, 20);
+        }
+    </script>
+</body>
+</html>

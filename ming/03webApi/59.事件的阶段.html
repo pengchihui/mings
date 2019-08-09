@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        #dv1 {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+        }
+        #dv2 {
+            width: 250px;
+            height: 150px;
+            background-color: yellow;
+        }
+        #dv3 {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="dv1">
+    <div id="dv2">
+        <div id="dv3">小偷</div>
+    </div>
+</div>
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    /**
+     * 事件有三个阶段：
+     *
+     * 1.事件捕获阶段     从外到内
+     * 2.事件目标阶段-----当前的目标
+     * 3.事件冒泡阶段     从里到外
+     *
+     *
+     * 为元素绑定事件
+     * addEventListener('没有on的事件类型',事件处理函数,控制事件阶段的)
+     *
+     * 事件有三个阶段：
+     * 通过e.eventPhase这个属性，可以知道当前事件处于什么阶段，
+     * 如果这个属性值是
+     * 1-----捕获阶段
+     * 2-----目标阶段
+     * 3-----冒泡
+     *
+     * 一般情况，都默认的是冒泡阶段，很少用到捕获阶段
+     *
+     *
+     * 总结：
+     * 伪元素绑定事件：
+     *     addEventListener('没有on的事件类型',事件处理函数（可以传递一个事件处理对象）,控制事件阶段)
+     *
+     * 事件在触发的过程中，可能会出现事件冒泡，为了阻止冒泡--->
+     * e.stopPropagation();//阻止事件冒泡，火狐的标准---火狐、谷歌、ie9以上
+     * window.event.cancleBubble=true；//ie的标准，阻止事件冒泡，事件处理对象e在ie8中是不存在，所有用window.event对象来代替
+     */
+    
+    var objs = [my$('dv3'), my$('dv2'), my$('dv1')];
+    objs.forEach(function(ele){
+        //为每个对象绑定事件
+        ele.addEventListener('click',function(e){
+            console.log(this.id,e.eventPhase);
+        },false);
+    });
+</script>
+</body>
+</html>

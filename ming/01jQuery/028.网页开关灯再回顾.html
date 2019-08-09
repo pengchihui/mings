@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        .cls {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#btn').click(function(){
+                //判断这个元素是否应用了某个类样式
+                /*if($('body').hasClass('cls')){
+                    $('body').removeClass('cls');
+                }else{
+                    $('body').addClass('cls');
+                }*/
+
+                //toggleClass   切换类样式    首先判断它是否存在，如果存在就移除，如果不存在就添加上
+                $('body').toggleClass('cls');
+            });
+        });
+    </script>
+    <input type="button" value="关灯" id="btn" />
+</body>
+</html>

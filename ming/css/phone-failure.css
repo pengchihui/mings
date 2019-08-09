@@ -1,0 +1,86 @@
+.container{
+	width: 720px;
+	height: auto;
+}
+.container .in{
+	padding-top: 114px;
+	width:684px;
+	height: 64px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+.container .in span{
+	text-align: center;
+	line-height: 58px;
+	display: block;
+	float: left;
+	color: #595858;
+	font-size: 48px;
+}
+.container .in span:before{
+	content: "";
+	display: block;
+	width: 64px;
+	height: 64px;
+    float: left;
+    margin-right: 40px;
+    background: url(../images/phone/failure/pay_failure_03.jpg) no-repeat center;
+	background-size: 64px 64px;
+}
+
+.container p{
+	margin: 0 auto;
+	margin-top: 130px;
+	width: 684px;
+	height: 42px;
+	display: flex;
+	justify-content: center;
+}
+.container p span{
+	line-height: 42px;
+	text-align: center;
+	font-size: 28px;
+	padding-left: 55px;
+	width: auto;
+	height: 42px;
+	float: left;
+	color: #666666;
+	background: url(../images/phone/failure/pay_failure_03.jpg) no-repeat left;
+	background-size: 42px 42px;
+}
+footer{
+	padding: 72px 0 464px 0;
+	width: 684px;
+	height: 264px;
+	margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   
+}
+footer a{
+	width: 684px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	border: 1px solid #f69fc2;
+	display: block;
+	list-style: none;
+	font-size: 48px;
+	border-radius: 25px;
+}
+footer a:nth-child(1){
+	background: #cc0033;
+	color: #fcf9f9;
+}
+footer a:nth-child(2){
+	color: #222121;
+}
+
+
+
+
+
+
+

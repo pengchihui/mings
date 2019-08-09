@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="设置值" id="btn" />
+<p id="myp">哦，这太神奇了</p>
+
+<script src="js/common.js"></script>
+<script>
+//设置标签中文本内容
+    /*my$('btn').onclick=function(){
+        //my$('myp').innerText='哈哈哈';
+        console.log(my$('myp').innerText);
+    };*/
+    //另一种设置文本内容的方法   textContent属性
+/*    my$('btn').onclick=function(){
+        // my$('myp').textContent='哈哈哈';
+        console.log(my$('myp').textContent);
+    }*/
+
+    //设置标签中的文本内容，应该使用innerText属性，谷歌、火狐、IE都支持，textContent只有谷歌、火狐，IE8不支持
+    //  如果这个属性在浏览器中不支持，那么这个属性的类型就是undefined
+    //判断这个属性的类型是不是undefined，就知道浏览器是否支持这个属性
+
+    //兼容性代码
+
+    //设置任意文本内容
+    function setInnerText(element,text){
+        //判断浏览器是否支持这个属性
+        if(typeof element.textContent=='undefined'){
+            element.innerText=text;
+        }else{//支持这个属性
+            element.textContent=text;
+        }
+    }
+
+    //获取任意文本
+    function getInnerText(element){
+        if(typeof element.textContent=='undefined') {
+            //不支持
+            return element.innerText;
+        }else{
+            //支持
+            return element.textContent;
+        }
+    }
+
+    //测试
+    my$('btn').onclick=function(){
+        setInnerText(my$('myp'),'哈哈哈，我又变帅了');
+    };
+
+</script>
+</body>
+</html>

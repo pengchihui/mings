@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{ margin: 0; padding: 0;}
+			input{ position: relative;}
+			div{ position:absolute; top:100px; overflow-y: scroll; height: 50px;}
+			.on{ background: red;}
+			.hide{ display: none}
+		</style>
+		<script src="jquery-1.7.2.js"></script>
+	</head>
+	<body>
+		<a href="javascript:;"><b>点击</b></a>
+		<input type="button" value="隐藏"/>
+		<div>
+			<ul>
+				<li>111</li>
+				<li>222</li>
+				<li>333</li>
+			</ul>
+		</div>
+		<form class="box">
+			123<br>
+			123<br>
+			123<br>
+			123<br>
+			123<br>
+			123<br>
+		</div>
+		
+		<script>
+			$("li").click(function(){
+				$("li").removeClass("on")
+				$(this).addClass("on")//不要JS和jq混用
+				console.log($("a").attr("href"))
+				$("a").prop("href","19JQuery（1）.html")
+			})
+			$("li:last-child").click(function(){				
+				$("a").removeAttr("href")
+			})
+			
+			$("input").click(function(){
+				$("div").toggleClass("hide")
+				console.log($("a").text())
+				$("a").css({"background":"red","fontSize":"50px"})
+				if($(this).val()=="显示"){
+					$(this).val("隐藏")
+				}else{
+					$(this).val("显示")
+				}
+			})
+			
+			$("a").click(function(){
+				var obj1=$("div").offset()
+				var obj2=$("div").position()
+				console.log(obj1.top)
+				console.log(obj2.top)
+				$("div").css("top","200px")
+				var num=$("div").scrollTop(13)
+				console.log(num)
+				
+				$("form").fadeToggle(2000,function(){
+					console.log("效果执行完毕")
+				})
+				
+			})
+			
+		$("form").mouseover(function(){
+			$("input").stop()
+			$("input").animate({left:"200px",fontSize:"50px"},2000,function(){
+				//console.log($(this).css({left:"0",fontSize:"14px"}))
+			})
+			$("input").animate({left:"200px",top:"200px",fontSize:"50px"},2000)
+			
+			
+		})		
+			
+
+			
+		</script>
+		
+		
+	</body>
+</html>

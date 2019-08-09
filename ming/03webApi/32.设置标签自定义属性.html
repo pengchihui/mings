@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="uu">
+    <li>张三</li>
+    <li>李四</li>
+    <li>王五</li>
+    <li>赵六</li>
+    <li>田七</li>
+</ul>
+<script src="js/common.js"></script>
+<script>
+    //先获取所有li的对象
+    var list = my$('uu').getElementsByTagName('li');
+    //循环遍历
+    for (var i=0;i<list.length;i++){
+        list[i].setAttribute('score',(i+1)*10);
+        list[i].onclick=function(){
+            alert(this.getAttribute('score'));
+        };
+    }
+
+    //如果要设置自定义属性，只能用setAttribute('属性名字','属性的值')
+</script>
+</body>
+</html>

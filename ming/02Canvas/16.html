@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制四分之一的圆弧</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 绘制圆弧
+        // arc方法
+        // arc(x0,y0,r,startAngle,endAngle[,direction])
+        //   1. 圆心
+        //   2. 半径
+        //   3. 起始角度和结束角度
+        //   4. 方向
+       /* ctx.beginPath();
+        ctx.arc(100,100,50,0, 90 / 360 * 2 * Math.PI);
+        ctx.stroke();*/
+
+        //  方向：   顺时针  逆时针    false   ->是否逆时针
+        ctx.beginPath();
+        ctx.arc(100,100,50,0,90/360*2*Math.PI,true);
+        ctx.stroke();
+
+
+        //  绝大多数情况 ，不使用逆时针
+    </script>
+</body>
+</html>

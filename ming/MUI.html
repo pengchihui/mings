@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--禁止用户缩放-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<style>
+			#king {
+				border: 1px dashed red;
+				background: pink;
+				width: 60px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+			
+			.mui-card {
+				width: 400px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="king">打开</div>
+
+		<div class="mui-switch">
+			<div class="mui-switch-handle"></div>
+		</div>
+		<div id="demo1" class="mui-progressbar mui-progressbar-infinite">
+			<span></span>
+		</div>
+		<br/>
+		<br/>
+		<br/>
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<!-- 菜单容器 -->
+				<aside class="mui-off-canvas-left">
+					<div class="mui-scroll-wrapper" style="background: pink;">
+						<div class="mui-scroll">
+							<!-- 菜单具体展示内容 -->
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>4</span>
+							<span>5</span>
+						</div>
+					</div>
+				</aside>
+				<!-- 主页面标题 -->
+				<header class="mui-bar mui-bar-nav">
+					<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+					<h1 class="mui-title">标题</h1>
+				</header>
+				<!-- 主页面内容容器 -->
+				<div class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+
+						<div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='100'>
+							<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+							<input class="mui-numbox-input" type="number" />
+							<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+						</div>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">Item 1</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">Item 2</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">Item 3</a>
+							</li>
+						</ul>
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="images/centens-lt.jpg">
+									<div class="mui-media-body">
+										幸福
+										<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-right" src="images/centens-gt.jpg">
+									<div class="mui-media-body">
+										木屋
+										<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+									</div>
+								</a>
+							</li>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="images/centens-lt.jpg">
+									<div class="mui-media-body">
+										CBD
+										<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+						<span class="mui-icon mui-icon-spinner mui-spin" style="color:pink; font-size:40px"></span>
+
+						<div class="mui-content">
+							<div class="mui-row">
+								<div class="mui-col-sm-12 mui-col-xs-12">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											Item 1
+										</a>
+									</li>
+								</div>
+								<div class="mui-col-sm-6 mui-col-xs-12">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											Item 1
+										</a>
+									</li>
+								</div>
+							</div>
+						</div>
+						<div class="mui-slider">
+							<div class="mui-slider-group mui-slider-loop">
+								<!--支持循环，需要重复图片节点-->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#"><img src="images/a1_16.jpg" /></a>
+								</div>
+								<div class="mui-slider-item">
+									<a href="#"><img src="images/a1_10.jpg" /></a>
+								</div>
+								<div class="mui-slider-item">
+									<a href="#"><img src="images/a1_12.jpg" /></a>
+								</div>
+								<div class="mui-slider-item">
+									<a href="#"><img src="images/a1_14.jpg" /></a>
+								</div>
+								<div class="mui-slider-item">
+									<a href="#"><img src="images/a1_16.jpg" /></a>
+								</div>
+								<!--支持循环，需要重复图片节点-->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#"><img src="images/a1_10.jpg" /></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="mui-card">
+							<!--页眉，放置标题-->
+							<div class="mui-card-header mui-card-media">
+								<img src="images/dd-top.jpg" />
+								<div class="mui-media-body">
+									小M
+									<p>发表于 2016-06-30 15:30</p>
+								</div>
+							</div>
+							<!--内容区-->
+							<div class="mui-card-content">
+								<img src="images/ee1_39.jpg" />
+							</div>
+							<!--页脚，放置补充信息或支持的操作-->
+							<div class="mui-card-footer">
+								<span>我的</span>
+								<span>小说</span>
+								<span>历史</span>
+								<span>小说</span>
+								<span>历史</span>
+							</div>
+						</div>
+						<div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+							<!-- 可选择菜单 -->
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell">
+									<a href="#">菜单1</a>
+								</li>
+								<li class="mui-table-view-cell">
+									<a href="#">菜单2</a>
+								</li>
+							</ul>
+							<!-- 取消菜单 -->
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell">
+									<a href="#sheet1"><b>取消</b></a>
+								</li>
+							</ul>
+						</div>
+						<button type="button" data-loading-text="提交中" class="mui-btn mui-btn-danger  mui-btn-outlined">确认</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="css/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var king = document.getElementById("king");
+		king.addEventListener('click', function() {
+			mui('#sheet1').popover('toggle');
+			mui.prompt('描述信息', '输入的内容', '标题', ['正确', '错误'], null, 'div');
+		})
+		mui(document.body).on('tap', '.mui-btn', function(e) {
+			mui(this).button('loading');
+			setTimeout(function() {
+				mui(this).button('reset');
+			}.bind(this), 2000);
+		});
+		//获得slider插件对象
+		var gallery = mui('.mui-slider');
+		gallery.slider({
+			interval: 0 //自动轮播周期，若为0则不自动播放，默认为0；
+		});
+
+		//		var picker = new mui.PopPicker({
+		//			layer: 2
+		//		});
+		//		picker.setData([{
+		//			value: '110000',
+		//			text: '北京市',
+		//			children: [{
+		//				value: "110101",
+		//				text: "东城区"
+		//			}]
+		//		}, {
+		//			value: '120000',
+		//			text: '天津市',
+		//			children: [{
+		//				value: "120101",
+		//				text: "和平区"
+		//			}, {
+		//				value: "120102",
+		//				text: "河东区"
+		//			}, {
+		//				value: "120104",
+		//				text: "南开区"
+		//			}]
+		//		}])
+		//		picker.pickers[0].setSelectedIndex(1);
+		//		picker.pickers[1].setSelectedIndex(1);
+		//		picker.show(function(SelectedItem) {
+		//			console.log(SelectedItem);
+		//		});
+		mui("#demo1").progressbar().setProgress(50);
+	</script>
+
+</html>

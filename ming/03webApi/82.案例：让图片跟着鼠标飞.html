@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/tianshi.gif" alt="" id="im" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //鼠标在页面中移动，图片跟着鼠标移动
+        document.onmousemove=function(e){
+            // console.log(e.clientX,e.clientY);
+            my$('im').style.left=e.clientX-64+'px';
+            my$('im').style.top=e.clientY-64+'px';
+        };
+    </script>
+</body>
+</html>

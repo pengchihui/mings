@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .wrap {
+            width: 330px;
+            height: 30px;
+            padding-left: 10px;
+            margin: 100px auto 0;
+            background-color: skyblue;
+            border-radius: 4px;
+        }
+        .wrap > ul {
+            _zoom: 1;
+        }
+        .wrap > ul::after {
+            content: '';
+            visibility: hidden;
+            display: block;
+            height: 0;
+            clear: both;
+        }
+        .wrap > ul >li {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .wrap li {
+            background-color: deepskyblue;
+            border-radius: 3px;
+            opacity: .8;
+        }
+        .wrap a {
+            display: block;
+            width: 100px;
+            text-decoration: none;
+            color: #000;
+            text-align: center;
+            line-height: 30px;
+        }
+        .wrap li ul {
+            position: aboslute;
+            top: 30px;
+            left: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * jQuery
+         *
+         *  mouseenter()方法   鼠标进入事件   与DOM不一样
+         *  mouseleave()方法   鼠标离开事件
+         *     .show()方法     显示
+         *     .hide()方法     隐藏
+         *     .stop()方法     停止当前动画
+         *
+         * .children('标签')方法   获取父级元素下的子集元素
+         * 
+         */
+        $(function(){
+            //获取ul中里，一级菜单，注册鼠标经过 鼠标离开
+            $('.wrap>ul>li').mouseenter(function(){
+                //从当前元素获取ul
+                //从当前元素获取子元素中的ul对象
+                $(this).children('ul').stop().show(200);
+            });
+            $('.wrap>ul>li').mouseleave(function() {
+                $(this).children('ul').stop().hide(200);
+            });
+        });
+    </script>
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="javascript:void(0)">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0)">二级菜单1</a></li>
+                    <li><a href="javascript:void(0)">二级菜单2</a></li>
+                    <li><a href="javascript:void(0)">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)">一级菜单2</a>
+                <ul>
+                    <li><a href="javascript:void(0)">二级菜单1</a></li>
+                    <li><a href="javascript:void(0)">二级菜单2</a></li>
+                    <li><a href="javascript:void(0)">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)">一级菜单3</a>
+                <ul>
+                    <li><a href="javascript:void(0)">二级菜单1</a></li>
+                    <li><a href="javascript:void(0)">二级菜单2</a></li>
+                    <li><a href="javascript:void(0)">二级菜单3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

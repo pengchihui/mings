@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //DOM里  使用addEventListener
+        //
+        //jQuery里
+        $(function(){
+            /*$('#btn').click(function(){
+                console.log('我是第一个方法');
+            }).click(function(){
+                console.log('我是第二个方法');
+            });*/
+
+
+            // bind方法      
+            //  js高级 里边的bind方法    与  jQuery里不一样
+            /*$('#btn').bind('click',function(){
+                console.log('我是第一各bind');
+            }).bind('click',function(){
+                console.log('我是第二个bind');
+            });*/
+
+
+            //此时会覆盖   所以不推荐这个写法
+            $('#btn').bind({
+                'click':function(){
+                    console.log('我是第一各bind');
+                },
+                'click':function(){
+                    console.log('wo shi第二个bind');
+                }
+            });
+
+
+            // 其实bind方法  是调用了  jQuery里边的一个  on方法
+        });
+
+
+    </script>
+    <input type="button" value="显示效果" id="btn" />
+
+</body>
+</html>

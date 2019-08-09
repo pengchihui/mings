@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //点击按钮，设置div的left和top值
+        //
+        //offset()方法  返回一个对象  包括  left属性 和 top属性
+        //   它可以获取  
+        //   
+        //   能不能设置
+        //   设置  -----offset({'left':xxx,'top':xxx})
+        $(function(){
+            $('#btn').click(function(){
+                // console.log($('#dv').offset());
+                /*$("#dv").css({
+                    'left':$('#dv').offset().left*2,
+                    'top':$('#dv').offset().top*2
+                })*/
+                // $('#dv').offset().left=500;
+                $('#dv').offset({
+                    'left':500,
+                    'top':800
+                });
+
+                // 获取top值
+                // var top = $('#dv').offset().top;
+                //此处不要    一般情况不要使用top作为变量名   
+                console.log(top==window);
+            });
+        });
+    </script>
+    <input type="button" value="设置" id="btn" />
+    <div id="dv"></div>
+</body>
+</html>

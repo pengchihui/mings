@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<style>
+			.box{ width: 200px; height: 200px; background: red;}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">666</div>
+		<ul>
+			<li draggable="true">1111</li>
+			<li draggable="true">2222</li>
+			<li draggable="true">3333</li>
+		</ul>
+		<script>
+			var box=document.querySelector(".box");
+			var li=document.querySelector("ul li");
+		//拖拽开始（拖拽目标必须含有draggable="true"属性）
+		li.ondragstart=function(event){
+			console.log(123)
+			event.dataTransfer.setData("asd",this.innerHTML); 
+			var img = new Image(); 
+			img.src = "../images/c1.jpg"; 
+			event.dataTransfer.setDragImage(img,40,10)
+		}
+		//拖拽目标移动
+		li.ondrag=function(){
+			console.log(456)				
+		}
+		//拖拽结束
+		li.ondragend=function(){				
+			console.log(789)
+		}
+		//拖拽目标进入放置的容器时触发
+		box.ondragenter=function(){
+			this.style.fontSize="50px"
+		}
+		//拖拽目标在放置的容器悬浮时触发
+		box.ondragover=function(event){								
+			event.preventDefault()
+			this.style.background="yellow"				
+		}
+		//拖拽目标离开放置的容器时触发
+		box.ondragleave=function(){
+			this.style.background="green"
+		}
+		//拖拽目标在放置的容器里面释放(需要在ondragover中组织浏览器默认行为)
+		box.ondrop=function(event){
+			//this.appendChild(li)
+			var str=event.dataTransfer.getData("asd");
+			this.innerHTML=str
+			
+			
+			
+			
+//			box.ontouchstart=function(){
+//				console.log(123)
+//			}
+//			box.ontouchmove=function(){
+//				console.log(456)
+//			}
+//			box.ontouchend=function(){
+//				console.log(789)
+//			}
+			
+//		box.onclick=function(){
+//			console.log("点击事件，和触屏有300ms延迟")
+//		}
+  		
+  		var firstx,firsty,lastx,lasty;
+  		box.addEventListener("touchstart",function(event){
+  			//console.log("开始触屏")
+  			var finger=event.targetTouches[0]
+  			firstx=finger.clientX
+  			firsty=finger.clientY
+  		},false);
+  		
+  		box.addEventListener("touchmove",function(event){
+  			//console.log("在屏幕上移动")
+  			var finger=event.targetTouches[0]
+  			lastx=finger.clientX
+  			lasty=finger.clientY
+  		},false);
+  		
+  		box.addEventListener("touchend",function(event){
+  			console.log("结束坐标："+lastx+"\t"+lasty);
+  			if(lastx-firstx>50){
+  				console.log("你往右移动了")
+  			}else if(lastx-firstx<-50){
+  				console.log("你往左移动了")					
+  			}
+			},false);
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

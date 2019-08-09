@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /**
+         *   前面 js里边没有提及 ，这里详细讲解下：
+         *
+         *
+         *    什么是事件委托：（事件代理）
+         *         事件委托  其实就是利用了 事件冒泡，只指定一个处理程序，就可以管理某一个类型的所有事件
+         *         举个例子：
+         *         三个同事 预计周一会收到快递，为了签收快递 ，有两种方案：
+         *            第一种： 在周一的时候，三个人都站在公司门口，等送快递；
+         *            第二种： 委托前台的小MM代收。    前台收到快递后，会按照收件人的要求去签收，甚至还代付款。  假如说，，新到的员工，也需要收快递，前台也会在收到新员工快递之后进行核实并且代收。
+         *
+         *    这样做的好处：
+         *         第一点：   委托前台代收的同事，都是可以代签。 就是说 加入公司有100个员工要收快递，那代收的人只有一个。
+         *               DOM---DOM里边所有的节点都可以有这个事件
+         *         第二点：    新员工 也可以被代收，  也就说     
+         *              DOM里新添加一个元素  也会有这个事件
+         *     
+         *     为什么要用到事件委托：
+         *         在js中，添加事件处理关系到整个页面运行性能，如果事件添加多了，性能就下降了。   
+         *              给100个DOM节点添加事件        给一个父级节点添加事件 
+         *                    给父级节点添加事件毫无疑问 性能好很多
+         *              给父级节点添加事件 就叫事件委托：
+         *                    与DOM的交互操作只需要一次，这样就提高性能
+         *
+         *
+         *
+         * 原生js里边  如果实现事件委托：
+         *             e.target|| e.srcElement
+         *
+         * jQuery中  事件委托的实现
+         *     delegate(子元素,事件名,事件处理函数);
+         */
+        
+    </script>
+    <script type="text/javascript">
+        /*window.onload=function(){
+            // 普通的DOM写法
+            var lis = document.getElementById('uu').getElementsByTagName('li');
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].onclick=function(){
+                    console.log(this);
+                };
+            }
+
+
+            //用事件委托的方式
+            //先获取父级元素
+            var uu=document.getElementById('uu');
+            uu.onclick=function(e){
+                var target=e.target||e.srcElement;
+                console.log(target);
+            };
+            var btn=document.getElementById('btn');
+            btn.onclick=function(){
+                var li=document.createElement('li');
+                li.innerText='我是刚创建的li';
+                uu.appendChild(li);
+            };
+        };*/
+    </script>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * jQuery中的事件委托：
+         *    delegate(选择器,事件类型,事件处理函数)
+         *    on(事件类型,选择器,事件处理函数)
+         */
+        $(function(){
+            /*$('#uu').delegate('li','click',function(){
+                console.log(this);
+            });*/
+            $("#uu").on('click','li',function(){
+                console.log($(this).text());
+            })
+            $("#btn").click(function(){
+                $('<li>我就是jQuery创建的li</li>').appendTo('#uu');
+                // $('#uu').append('<li>我就是jQuery创建的li</li>');
+            });
+        });
+    </script>
+    <input type="button" value="添加一个li" id="btn" />
+    <ul id="uu">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+        <li>item7</li>
+        <li>item8</li>
+        <li>item9</li>
+        <li>item10</li>
+    </ul>
+</body>
+</html>

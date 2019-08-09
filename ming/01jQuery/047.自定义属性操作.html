@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * 给每个li添加自定义属性  score      
+         *
+         *
+         *
+         *
+         * attr()方法
+         *
+         *   一个参数，用来获取某个自定义属性的值
+         *   两个参数，用来设置某个自定义属性的值
+         *
+         *    它是用于设置自定义属性
+         *    当然 他也可以用于设置 html自带一些属性
+         *
+         *
+         *    但是，当他用于操作表单元素，  checked状态的时候，会出现bug
+         *        遇到这种情况怎么办？
+         *        prop();方法
+         *
+         *  
+         */
+        // $('#uu>li').score=1000;
+        $(function(){
+            $('#uu>li').attr('score',1000);
+            console.log($('#uu>li').eq(3).attr('score'));
+            $("#ak").attr('href','http://www.baidu.com').text('百度');
+        });
+    </script>
+    <a id="ak"></a>
+    <ul id="uu">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var val='c';
+			var str='Value is'+ (val---'c')?'a':'b';
+//			alert(str);
+            var a=1<2<3;
+            var b=3<2<1;
+//          alert(a,b);
+           var one=0.1,tow=0.2,eight=0.8,six=0.6;
+//        alert(tow-one==one,eight-six==tow);
+   			/*https://www.runoob.com/regexp/regexp-intro.html?name=abc&password=123456*/
+			url="https://www.runoob.com/regexp/regexp-intro.html?name=abc&password=123456";
+			String.prototype.queryStr=function(){
+				var reg=/([^?!&]+)=([^?!&]+)/g;
+				var obj={};
+				this.replace(reg,(arguments)=>{
+					obj[arguments.split("=")[0]]=arguments.split("=")[1];
+				});
+			 return obj;           
+			}
+			console.log("\n");
+//			console.log(url.queryStr());
+			
+//			function fn(i){
+//				return function(n){
+//					console.log(n+(--i));
+//				}
+//			}
+//			var f=fn(2);
+//			console.log(f(3));
+//			console.log(fn(4)(5));
+//			console.log(fn(6)(7));
+//			console.log(f(8));
+			
+			
+		//函数闭包(让我们能在外面使用到里面的局部变量) （局部变量将记录在内存中，销毁不掉，要少用）		
+//		function open(){
+//			var m=100;
+//			return function(){
+//				return m=m*m;
+//			}
+//		}
+//		var n=open();	
+//		//上面代码才是一个完整的闭包过程
+//		
+//		
+//		document.write(n()+"<br>");
+//		document.write(n()+"<br>");
+//		document.write(n()+"<br>");
+//		document.write(n()+"<br>");
+
+//变量提升 var num;var obj;var fn
+//var num=10;  //window的num
+//var obj={num:20}; //window的obj
+//obj.fn=(function(num){ //私有变量num值为20 
+//	this.num=num*3;  //this指window即头部num改为60
+//	num++;           //私有的num加1
+//	return function(n){
+//		this.num+=n;  //this指window即头部num改为60
+//		num++;      //私有的num加1
+//		console.log(num);
+//	} 
+//	
+//})(obj.num);//对象的值作为实参传递给自定义匿名的形参
+//var fn=obj.fn;
+//console.log(fn(5));
+//console.log(obj.fn(67));
+
+function Fn(){
+	 this.x=100;
+	 this.y=200;
+	 this.getX=function(){
+	 	console.log(this.x);
+	 }
+}
+//Fn.prototype={  //开辟一个空间  共有空间
+//	y:400,
+//	getX:function(){
+//		console.log(this.x);
+//	},
+//	getY:function(){
+//		console.log(this.y);
+//	},
+//	sum:function(){
+//		console.log(this.x+this.y);
+//	}
+//}
+//var f1=new Fn();//开辟一个f1空间
+//var f2=new Fn();//开辟一个f2空间
+//console.log(f1.getX===f2.getX) //私有不相等
+//console.log(f1.getY===f2.getY) //共有相等
+
+var btn=document.getElementById("button");
+li=btn.getElementsByTagName("li");
+for(var i=0;i<li.length;i++){
+	li[i].onclick=function(){
+         console.log("想我的话，打电话");		
+	}
+}
+         
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link type="text/css" rel="stylesheet" href="css/page.css" />
+	</head>
+
+	<body>
+		<ul>
+			<li>123</li>
+			<li>456</li>
+			<li>789</li>
+		</ul>
+		<button>刷新</button>
+		<div>
+			<div class="first" id="home">首页</div>
+			<div class="first" id="before">上一页</div>
+			<div id="number">
+				
+			</div>
+			<div class="first" id="next">下一页</div>
+			<div class="first" id="last">尾页</div>
+			<div class="current"></div>
+			<div class="jump">
+				<input type="text" id="inp"></input>
+				<div class="l_jump">跳转</div>
+			</div>
+		</div>
+		
+		<script>
+			var btn = document.querySelector("button");
+			var ul = document.querySelector("ul");
+			var num = 0;
+			var bool = true;
+			btn.onclick = function() {
+				var jj = new XMLHttpRequest();
+				jj.open("get", "js/json.txt", true);
+				//jj.onload 一键处理
+				//jj.onreadystatechange 分步处理
+				jj.onreadystatechange = function() {
+					if(this.status == 200 && this.readyState == 4) {
+						var str = this.responseText;
+						var arry = JSON.parse(str);
+						ul.innerHTML = "";
+						for(var i = num; i < num + 3; i++) {
+							if(i>=arry.length) {
+								console.log("name为空" + arry.length + "\n" + (i + 1));
+							} else {
+								ul.innerHTML += "<li>" + arry[i].name + "</li>";
+							}
+						}
+						num = num + 3;
+					} else if(this.readyState == 4 && this.status == 500) {
+						console.log("服务器错误")
+					}
+				};
+				jj.send();
+			};
+		</script>
+
+	</body>
+
+</html>

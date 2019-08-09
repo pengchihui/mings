@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+
+
+        /**
+         *  off()  如果不传任何参数    该元素 以及其所有的子元素的所有类型的事件全部解除
+         *  off()  一个参数  事件类型参数   该元素 以及  其所有的子元素 指定的事件类型全部解绑
+         *
+         * off()   两个参数   事件类型参数和选择器参数   该元素下制定的子元素指定的事件全部被解绑
+                        解绑多个  ： 链式编程、在事件类型参数里边添加多个事件类型，并用空格隔开
+
+            off('',选择器)           该元素下制定的子元素的所有类型的事件都被解绑
+            off(事件类型,'')   解除该元素以及其子元素指定的事件
+            off(事件类型,'**');  解除该元素下所有的子元素指定的事件
+
+         */
+        
+        $(function(){
+            // 点第一个按钮  绑定事件
+            $('#btn1').click(function(){
+                $('#dv').click(function(){
+                    console.log('我是div直接调用click绑定的事件');
+                }).bind('click',function(){
+                    console.log('div被点击了');
+                }).bind('mouseenter',function(){
+                    console.log('鼠标进入了div');
+                }).bind('mouseleave',function(){
+                    console.log('鼠标离开了div');
+                }).append('<p>我是新创建p</p>').on('click','p',function(){
+                    console.log('我是p标签中click事件');
+                }).on('mouseenter','p',function(){
+                    console.log('我是p标签中的mouseenter事件');
+                }).on('mouseleave','p',function(){
+                    console.log('我是p标签中的mouseleave事件');
+                }).append('<span>我又创建了一个span</span>').on('click','span',function(){
+                    console.log('新创建的span的click事件');
+                });
+                //在div中创建一个p标签，然绑定事件
+            });
+            // 点第二个按钮
+            $('#btn2').click(function(){
+                $('#dv').off('mouseenter','**');
+            });
+            
+        });
+        
+    </script>
+    <input type="button" value="绑定" id="btn1" />
+    <input type="button" value="解绑" id="btn2" />
+    <div id="dv"></div>
+</body>
+</html>

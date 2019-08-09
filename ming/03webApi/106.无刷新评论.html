@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tbody id="j_tb">
+            
+        </tbody>
+    </table>
+        昵称：<input type="text" name="" id="username" /><br />
+        <textarea name="" id="tt" cols="30" rows="10"></textarea><br />
+        <input type="button" value="评论一下" id="btn" />
+    <script type="text/javascript">
+        //获取按钮，注册事件
+        document.getElementById('btn').onclick=function(){
+            //获取昵称
+            var userName = document.getElementById('username');
+            //评论
+            var tt = document.getElementById('tt');
+            //创建行
+            var tr = document.createElement('tr');
+            //把行追加到tbody中
+            document.getElementById('j_tb').appendChild(tr);
+            //创建单元格
+            var td1 = document.createElement('td'),
+                td2 = document.createElement('td');
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            td1.innerHTML=userName.value;
+            td2.innerHTML=tt.value;
+
+            userName.value='';
+            tt.value='';
+        };
+    </script>
+</body>
+</html>

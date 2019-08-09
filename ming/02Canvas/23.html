@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>帧动画</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- <img src="./images/01.jpg" alt="" style="display: none;" /> -->
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 加载图片
+        var image = new Image();
+        image.onload = function(){
+            // ctx.drawImage(image, 0, 0);
+            // 图片已经加载完成
+            // 动态的去获取 当前图片的尺寸
+            // console.log(image.width,image.height);
+            var imageWidth = image.width;
+            var imageHeight = image.height;
+
+            // 每个小人的尺寸
+            var personWidth = imageWidth/4;
+            var personHeight = imageHeight/4;
+
+            // 截取图片
+            // ctx.drawImage(image,0,0,personWidth,personHeight,100,100,personWidth,personHeight);
+
+            // 帧动画  在固定的时间间隔更换绘制额图片  ----->  图片的索引
+            var index  = 0;
+
+            // 绘制图片在画布的正中心
+            var x0 = ctx.canvas.width /2 - personWidth /2 ;
+            var y0 = ctx.canvas.height /2 - personHeight /2;
+            setInterval(function(){
+                ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+                ctx.drawImage(image,index++ *personWidth,0,personWidth,personHeight,x0,y0,personWidth,personHeight);
+                if(index>3){
+                    index=0;
+                }
+
+            }, 500);
+
+        };
+        image.src = './images/04.png';
+    </script>
+</body>
+</html>

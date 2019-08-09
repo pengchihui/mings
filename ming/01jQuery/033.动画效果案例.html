@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        .im {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .wrap2 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#btn2').click(function(){
+                $('.wrap1>.im:last').hide(500,function f1(){
+                    //在匿名函数中调用自身
+                    //arguments.callee
+                    //在ECMAScript5、6的标准中，不推荐
+                    $(this).prev().hide(500,f1);
+                })
+            });
+            $('#btn1').click(function(){
+                $('.wrap1>.im:first').show(300,function f1(){
+                    $(this).next().show(300,f1);
+                });
+            });
+
+            $('.wrap2>.im').click(function(){
+                $(this).hide(500);
+            });
+        });
+    </script>
+    <input type="button" value="显示" id="btn1" />
+    <input type="button" value="隐藏" id="btn2" />
+    <div class="wrap1">
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+    </div>
+
+    <div class="wrap2">
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+        <div class="im"></div>
+    </div>
+</body>
+</html>

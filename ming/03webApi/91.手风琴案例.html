@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        div {
+            width: 1150px;
+            margin: 100px auto;
+            background-color: pink;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+        div ul {
+            overflow: hidden;
+            width: 120%;
+            *zoom: 1;
+        }
+        div li {
+            width: 230px;
+            height: 460px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //先获取所有li标签
+        var list = my$('box').getElementsByTagName('li');
+        for (var i = 0; i < list.length; i++) {
+            list[i].style.backgroundImage="url(./images/"+(i+1)+"-s.jpg)";
+            list[i].onmouseover =function(){
+                for(var j=0;j<list.length;j++){
+                    animation(list[j],{'width':100});//先把所有的都变窄
+                }
+                animation(this,{'width':800,'backgroundPosition':-300});
+            };
+            list[i].onmouseout =function(){
+                for (var j = 0; j < list.length; j++) {
+                    animation(list[j],{'width':230,'backgroundPosition':0});
+                }
+            };
+        }
+    </script>
+</body>
+</html>

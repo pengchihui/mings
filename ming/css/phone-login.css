@@ -1,0 +1,166 @@
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	ul,
+	ol li {
+		list-style: none;
+	}
+	
+	a {
+		text-decoration: none;
+	}
+	
+	.back {
+		width: 720px;
+		height: 256px;
+		background: url(../images/phone/login/login_top_03.jpg) no-repeat center #ffffff;
+		background-size: 202px 202px;
+	}
+	
+	.content {
+		margin: 0 auto;
+		width: 660px;
+		height: 260px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		font-size: 30px;
+		color: #333333;
+	}
+	
+	.box {
+		width: 656px;
+		height: 58px;
+		border: 1px solid #999999;
+	}
+	
+	.box label {
+		padding-left: 20px;
+		line-height: 55px;
+	}
+	
+	.box input {
+		padding: 0 0 0 10px;
+		width: 450px;
+		height: 38px;
+		outline: none;
+		border: none;
+		font-size: 30px;
+		color: #333333;
+	}
+	
+	.clear {
+		margin: 0 auto;
+		width: 660px;
+		height: auto;
+		font-size: 24px;
+		color: #999999;
+	}
+	
+	.clear input {
+		margin-top: 5px;
+		width: 23px;
+		height: 23px;
+		border: 1px solid #cccccc;
+		margin-right: 10px;
+		float: left;
+	}
+	
+	.clear input {
+		float: left;
+		color: #999999;
+		font-size: 24px;
+	}
+	
+	.clear a {
+		float: right;
+		color: #999999;
+		font-size: 24px;
+	}
+	
+	.message {
+		width: 600px;
+		margin: 0 auto;
+		height: 30px;
+		margin-top: 10px;
+		text-align: center;
+		font-size: 30px;
+		line-height: 30px;
+	}
+	
+	.look {
+		margin: 0 auto;
+		width: 600px;
+		height: 90px;
+		margin-top: 50px;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.look input {
+		list-style: none;
+		width: 297px;
+		height: 86px;
+		outline: none;
+		border: 5px solid #cc0033;
+		font-size: 36px;
+	}
+	
+	.look input:nth-child(1) {
+		border-right: none;
+		color: #ffffff;
+		background-color: #cc0033;
+	}
+	
+	.look input:nth-child(2) {
+		color: #cc0033;
+		background-color: #ffffff;
+	}
+	
+	.liner {
+		margin: 0 auto;
+		width: 660px;
+		text-align: center;
+		padding-top: 50px;
+		position: relative;
+	}
+	
+	.liner div {
+		widows: 660px;
+		height: 20px;
+		padding-top: 30px;
+		border-bottom: 1px solid #666666;
+	}
+	
+	.liner span {
+		position: absolute;
+		top: 78px;
+		left: 190px;
+		padding: 0 5px;
+		font-size: 30px;
+		color: #666666;
+		background: #FFFFFF;
+	}
+	
+	footer {
+		margin: 0 auto;
+		width: 660px;
+		height: 340px;
+		padding-bottom: 80px;
+	}
+	
+	footer ul {
+		margin: 0 auto;
+		padding-top: 120px;
+		width: 404px;
+		height: 102px;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	footer img {
+		width: 102px;
+		height: 102px;
+	}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            padding: 10px;
+            border: 20px solid blue;
+            margin: 30px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * width()   height()   获取元素的宽高
+         * innerWidth()\innerHeight()    返回元素的宽高（包括内边距）
+         *       它既然能获取    也能 设置   设置的是元素宽 （除掉 内边距）
+         * outerWidth()\outerHeight()  返回元素的宽、高（包括内边距+边框）
+         *        设置：     除掉 内边距 和 边框
+         * outerWidth(true)\outerHeight(true)   返回元素所占的空间（内边距、边框、外边距）
+         * 
+         */
+        $(function(){
+            // console.log($("#dv").width());
+            // console.log($("#dv").innerWidth(500),$('#dv').width());
+            // console.log($("#dv").outerWidth(500),$('#dv').width());
+            console.log($("#dv").outerWidth(true));
+        });
+    </script>
+    <div id="dv"></div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            vertical-align: middle;
+        }
+        a {
+            display: block;
+        }
+        .wrap {
+            width: 1200px;
+            margin: 100px auto;
+            background-color: pink;
+        }
+        .wrap .slide {
+            height: 540px;
+            position: relative;
+        }
+        .slide li {
+            position: absolute;
+            top: 0;
+            left: 200px;
+        }
+        .slide li img {
+            width: 100%;
+        }
+        .arrow {
+            opacity: 0;
+        }
+        .arrow a {
+            position: absolute;
+            width: 76px;
+            height: 112px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: url() 0 0 no-repeat;
+            z-index: 10;
+        }
+        .arrow .prev {
+            background-image: url(./images/prev.png);
+            left: 0;
+        }
+        .arrow .next {
+            background-image: url(./images/next.png);
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" id="wrap">
+        <div class="slide" id="slide">
+            <ul>
+                <li><a href="#"><img src="./images/slidepic1.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="./images/slidepic2.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="./images/slidepic3.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="./images/slidepic4.jpg" alt="" /></a></li>
+                <li><a href="#"><img src="./images/slidepic5.jpg" alt="" /></a></li>
+            </ul>
+            <div class="arrow" id="arrow">
+                <a href="javascript:;" class="prev" id="arrLeft"></a>
+                <a href="javascript:;" class="next" id="arrRight"></a>
+            </div>
+        </div>
+    </div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        var flag = true; //假设所有的动画都执行完毕了
+        var config = [{
+            'width': 400,
+            'top': 145,
+            'left': 50,
+            'opacity': .2,
+            'zIndex': 1
+        }, {
+            'width': 600,
+            'top': 83,
+            'left': 0,
+            'opacity': .6,
+            'zIndex': 2
+        }, {
+            'width': 800,
+            'top': 20,
+            'left': 200,
+            'opacity': 1,
+            'zIndex': 3
+        }, {
+            'width': 600,
+            'top': 83,
+            'left': 600,
+            'opacity': .6,
+            'zIndex': 2
+        }, {
+            'width': 400,
+            'top': 145,
+            'left': 750,
+            'opacity': .2,
+            'zIndex': 1
+        }];
+        //获取所有的li
+        var list = my$('slide').getElementsByTagName('li');
+        //图片散开
+        function assign() {
+            for (var i = 0; i < list.length; i++) {
+                //设置每个li的属性，把config里边的宽、高、一一对应
+                animation(list[i], config[i],function(){
+                    flag=true;
+                    // console.log(flag);
+                });
+            }
+
+        }
+        //分配图片
+        assign();
+
+        //鼠标进入
+        my$('slide').onmouseover = function() {
+            animation(my$('arrow'), {
+                'opacity': 1
+            });
+        };
+        //鼠标离开
+        my$('slide').onmouseout = function() {
+            animation(my$('arrow'), {
+                'opacity': 0
+            });
+        };
+
+        //单击事件
+        //右边
+        my$('arrRight').onclick = function() {
+            if (flag) {
+                flag=false;
+                config.unshift(config.pop());
+                // 重新分配图片
+                assign();
+                console.log(flag);
+            }
+        }
+        //左边
+        my$('arrLeft').onclick = function() {
+            if (flag) {
+                flag = false;
+                config.push(config.shift());
+                // 重新分配图片
+                assign();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: green;
+        }
+        .cls {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * 交集选择器：  标签名.类样式名
+         * 并集选择器    选择器,选择器......
+         */
+
+        $(function(){
+            $('#btn').click(function(){
+                //  div   p   span
+                $('#dv,p,span.cls').css('backgroundColor','pink');
+            });
+        });
+    </script>
+    <input type="button" value="显示" id="btn" />
+    <div id="dv"></div>
+    <p>这是一个p</p>
+    <span class="cls">这是一个span</span>
+    <ul>
+        <li>列表项1</li>
+        <li>列表项2</li>
+        <li>列表项3</li>
+    </ul>
+</body>
+</html>

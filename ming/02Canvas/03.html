@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制三条不同宽度不同颜色的平行线</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 绘制三条不同宽度不同颜色的平行线
+        
+        //第一条
+        //蓝色、10px
+        //开启新路径
+        ctx.beginPath();
+        ctx.moveTo(100,100);
+        ctx.lineTo(200,100);
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 10;
+        ctx.stroke();
+
+        // 第二条
+        // 红色 20px
+        ctx.beginPath();
+        ctx.moveTo(100,200);
+        ctx.lineTo(200,200);
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 20;
+        ctx.stroke();
+
+
+        // 第三条
+        // 黄色 30px
+        ctx.beginPath();
+        ctx.moveTo(100,300);
+        ctx.lineTo(200,300);
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = 30;
+
+        ctx.stroke();
+
+
+        // 绘制多条线的时候，设置不同的样式，会出现样式覆盖的情况
+        //   开启新路径 可以解决这种问题。
+        
+    </script>
+    
+</body>
+</html>

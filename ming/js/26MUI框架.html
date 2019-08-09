@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="mui/mui.min.css" />
+		<style>
+			.mui-table-view-cell p {
+				color: red;
+				line-height: 30px;
+			}
+
+		</style>
+	</head>
+
+	<body>
+	<div class="mui-scroll-wrapper">
+	<div class="mui-scroll">	
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<div class="mui-input-row mui-input-range">
+	<label>Range</label>
+	<input type="range" min="0" max="100">
+</div>
+<div class="mui-input-row mui-radio mui-left">
+	<label>radio</label>
+	<input name="radio1" type="radio">
+</div>
+<div class="mui-input-row mui-radio">
+	<label>radio</label>
+	<input name="radio1" type="radio">
+</div>
+<ul class="mui-table-view mui-table-view-radio">
+	<li class="mui-table-view-cell">
+		<a class="mui-navigate-right">Item 1</a>
+	</li>
+	<li class="mui-table-view-cell mui-selected">
+		<a class="mui-navigate-right">Item 2</a>
+	</li>
+	<li class="mui-table-view-cell">
+		<a class="mui-navigate-right">Item 3</a>
+	</li>
+</ul
+		
+<header class="mui-bar mui-bar-nav mui-bar-transparent" data-top='100' data-offset='150' data-duration='16'>
+	<h1 class="mui-title">标题</h1>
+</header>
+		
+<div id="demo1" class="mui-progressbar">
+	<span></span>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block">打开弹出菜单</a>
+
+<div id="popover" class="mui-popover">
+  <ul class="mui-table-view">
+    <li class="mui-table-view-cell"><a href="#">Item1</a></li>
+    <li class="mui-table-view-cell"><a href="#">Item2</a></li>
+    <li class="mui-table-view-cell"><a href="#">Item3</a></li>
+    <li class="mui-table-view-cell"><a href="#">Item4</a></li>
+    <li class="mui-table-view-cell"><a href="#">Item5</a></li>
+  </ul>
+</div>
+
+		
+<!-- 侧滑导航根容器 -->
+<div class="mui-off-canvas-wrap mui-draggable">
+  <!-- 菜单容器 -->
+  <aside class="mui-off-canvas-left">
+    <div class="mui-scroll-wrapper">
+      <div class="mui-scroll">
+        <!-- 菜单具体展示内容 -->
+        ...
+      </div>
+    </div>
+  </aside>
+  <!-- 主页面容器 -->
+  <div class="mui-inner-wrap">
+    <!-- 主页面标题 -->
+    <header class="mui-bar mui-bar-nav">
+      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+      <h1 class="mui-title">标题</h1>
+    </header>
+    <div class="mui-content mui-scroll-wrapper">
+      <div class="mui-scroll">
+        <!-- 主界面具体展示内容 -->
+        ...
+      </div>
+    </div>  
+  </div>
+</div>	
+		
+		<div class="mui-input-row mui-search">
+    <input type="search" class="mui-input-clear" placeholder="">
+</div>
+		
+		
+<div class="mui-slider">
+  <div class="mui-slider-group mui-slider-loop">
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="4.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="1.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="2.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="3.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="4.jpg" /></a></div>
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="1.jpg" /></a></div>
+  </div>
+</div>
+
+		mui官网：http://dev.dcloud.net.cn/mui/
+
+		<div class="mui-input-row mui-checkbox  mui-left">
+			<label>checkbox示例</label>
+			<input name="checkbox1" value="Item 1" type="checkbox" checked>
+		</div>
+
+		<div class="mui-card">
+			<!--页眉，放置标题-->
+			<div class="mui-card-header">页眉</div>
+			<!--内容区-->
+			<div class="mui-card-content">内容区</div>
+			<!--页脚，放置补充信息或支持的操作-->
+			<div class="mui-card-footer">页脚</div>
+		</div>
+
+		<button type="button" class="mui-btn">默asdasdasd认</button>
+
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-collapse">
+				<a class="mui-navigate-right" href="#">面板1</a>
+				<div class="mui-collapse-content">
+					<p onclick="mui('#sheet1').popover('toggle');">面板1子内容</p>
+					<p onclick="mui.prompt('text','deftext','title',['true','false'],null,'div') ">面板1子内容</p>
+					<p>面板1子内容</p>
+					<p>
+						<a href="#">面板1子内容</a>
+					</p>
+				</div>
+			</li>
+		</ul>
+<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-primary">确认</button>
+		<div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+			<!-- 可选择菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">菜单1</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">菜单2</a>
+				</li>
+			</ul>
+			<!-- 取消菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#sheet1"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+</div>
+</div>
+		<script src="mui/mui.min.js"></script>
+		<script>
+var gallery = mui('.mui-slider');
+gallery.slider({
+  interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
+});
+
+var mask = mui.createMask(call);//callback为用户点击蒙版时自动执行的回调；
+mask.show();//显示遮罩
+function call(){
+	console.log(123)
+}
+
+mui("#demo1").progressbar({progress:20}).show();
+
+mui('.mui-scroll-wrapper').scroll({
+	 scrollY: true, //是否竖向滚动
+ scrollX: false, //是否横向滚动
+ startX: 0, //初始化时滚动至x
+ startY: -300, //初始化时滚动至y
+ indicators: false, //是否显示滚动条
+ deceleration:0.0006, //阻尼系数,系数越小滑动越灵敏
+ bounce: false //是否启用回弹
+});
+		</script>
+	</body>
+
+</html>

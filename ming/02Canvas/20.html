@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制文本</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        /**
+         * 绘制文本
+         *
+         *  fillText()\strokeText()
+         *      参数1：
+         *       text   需要绘制的文本
+         *       x,y   起始坐标  从左下角开始
+         *       maxWidth    最大宽度（可选）
+         *       
+         *
+         * 在Canvas里边 ctx.font   用于设置文本的样式
+         *
+         *  canvas里边的文本也是采用 基线对齐方式
+         *
+         *
+         * ctx.textAlign   设置文本的水平对齐方式 、 参照其实坐标来的
+         *      left 、 right 、center     start \end 一般不用
+         * ctx.textBaseline  用于设置 基线   （垂直对齐方式）
+         *      top\middle\bottom
+         *
+         *
+         * 获取绘制文本的宽度
+         * ctx.measureText()   获取到的是一个对象，width
+         */
+        
+        // 1. 在画布中心绘制一段文字
+        // 2. 准备一段文字
+        var str = '声明一段文字';
+
+        // 3.确认画布的中心点
+        var w = ctx.canvas.width - .5;
+        var h = ctx.canvas.height - .5;
+
+        // 4.画辅助线
+        ctx.beginPath();
+        ctx.moveTo(0,h/2);
+        ctx.lineTo(w,h/2);
+        ctx.moveTo(w/2,0);
+        ctx.lineTo(w/2,h);
+        ctx.strokeStyle = '#ddd';
+        ctx.stroke();
+
+        // 5.绘制文本
+        ctx.font = 'bolder 30px Microsoft Yahei';
+        console.log(ctx.measureText(str).width);
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = 'red';
+        ctx.fillText(str,w/2,h/2);
+
+        // 6.在文字的底部绘制一条线
+        ctx.beginPath();
+        ctx.moveTo(w/2-ctx.measureText(str).width/2,h/2 +30 /2);
+        ctx.lineTo(w/2+ctx.measureText(str).width/2,h/2 + 30 /2 );
+        ctx.strokeStyle = '#000';
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

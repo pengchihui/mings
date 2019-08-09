@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+        }
+        table,
+        table td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="j_cbAll"/>
+            </th>
+            <th>菜名</th>
+            <th>饭店</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>西红柿鸡蛋</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>油炸榴莲</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>清蒸助教</td>
+            <td>田老师</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<script src="js/common.js"></script>
+<script>
+    //获取全选复选框
+    var ckAll = my$('j_cbAll');
+    //获取tbody里边所有的checkbox
+    var cks = my$('j_tb').getElementsByTagName('input');
+    //点击全选，获取他们当前的状态，然后设置tbody里边所有复选框的状态
+    ckAll.onclick=function(){
+        //console.log(this.checked);
+        for (var i=0;i<cks.length;i++){
+            cks[i].checked=this.checked;
+        }
+    };
+
+    //对每个cks注册点击事件
+    for (var i=0;i<cks.length;i++){
+        cks[i].onclick=function(){
+            var flag=true;//默认都被选中了
+            //判断所有的复选框时候都被选中了
+            for (var j=0;j<cks.length;j++){
+                if(!cks[j].checked){
+                    flag=false;
+                    break;
+                }
+            }
+            ckAll.checked=flag;
+        };
+    }
+    var reg = new RegExp(/\d+/);
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.success{
+	width: 720px;
+	height: 228px;
+	padding: 90px 0px;
+	background: url(../images/phone/success/pay_success_03.jpg) no-repeat center;
+	background-size:228px 228px ;
+}
+.p{
+	width: 720px;
+	height: 748px;
+	background: #ffffff;
+}
+.p div{
+	width: 684px;
+	height: 190px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.p div p{
+	text-align: center;
+	font-size: 28px;
+	color: #000000;
+}
+.p div p:nth-child(1){
+	
+}
+.p div p:nth-child(1) span{
+	color: #cc3333;
+	font-size: 36px;
+}
+.p div p:nth-child(2) span{
+	color: #993333;
+}
+.p div p:nth-child(3){
+	color: #1d1e1e;
+}

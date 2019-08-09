@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style>
+			.bin {
+				width: 400px;
+				height: 300px;
+				background: pink;
+				position: relative;
+			}
+			
+			.bin a {
+				text-decoration: none;
+				font-size: 50px;
+				color: #FFFFFF;
+				position: absolute;
+				z-index: 3;
+			}
+			
+			.bin a:nth-child(1) {
+				left: 0;
+				top: 40%;
+			}
+			
+			.bin a:nth-child(2) {
+				right: 0;
+				top: 40%;
+			}
+			
+			.bin-box {
+				width: 400px;
+				height: 300px;
+				background: pink;
+				position: absolute;
+			}
+			
+			img {
+				width: 400px;
+				height: 300px;
+			}
+			
+			#zz {
+				transition: 1s;
+			}
+			
+			.zzul {
+				position: absolute;
+				bottom: 20px;
+				left: 120px;
+				width: 80px;
+				height: 20px;
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.zzul li {
+				list-style: none;
+				width: 20px;
+				height: 20px;
+				background: #000000;
+				float: left;
+				border-radius: 50%;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="bin">
+			        <a id='left' href="javascript:;"><</a>
+					<a id='right' href="javascript:;">></a>
+					<div id='zz' class="bin-box" style="left:0;">
+						<img class="zz" src="" alt="0" />
+					</div>
+					<ul class="zzul">
+						<li style="background: #fff;"></li>
+						<li></li>
+						<li></li>
+					</ul>
+		</div>
+
+		<script>
+			/*页面加载完成*/
+			window.onload = function() {
+				var arry=["images/ee1_39.jpg","images/ee1_40.jpg","images/ee1_42.jpg"];
+				//箭头切换
+				var left = document.getElementById('left');
+				var right = document.getElementById('right');
+				var img=document.getElementsByClassName("zz")[0];
+				
+				var num=0;//初始化
+				function fn(){
+					img.src=arry[num];
+				}
+				fn()
+				left.onclick = function() {
+					num--;
+                    if(num==-1){
+                    	num=arry.length-1;
+                    }
+                    fn()
+                    stop()
+				}
+				right.onclick = function() {
+					num++;
+                    if(num==arry.length){
+                    	num=0;
+                    }
+                    fn()
+                    stop()
+                }
+				var off=true;
+				/*圆形切换*/
+				var lis = document.getElementsByTagName("li");
+				for(var k = 0; k < lis.length; k++) {
+					lis[k].min = k;
+					lis[k].onclick = function() {
+						for(var j = 0; j < lis.length; j++) {
+							lis[j].style.background = "#000000";
+						}
+						lis[this.min].style.background = "#ffffff";
+						 img.src=arry[this.min];
+						 stop()
+					}
+				}
+				function stop(){
+				     off=false;
+					 setTimeout(function(){off=true;time; },2000);
+				}
+				/*时间切换 setIntervall会一直占用资源，可能会导致页面崩溃*/
+				var time=setInterval(function(){
+					if(off){
+							num++;
+	                    if(num==arry.length){
+	                    	num=0;
+	                    }
+	                    for(var j = 0; j < arry.length; j++) {
+								lis[j].style.background = "#000000";
+							}
+						lis[num].style.background = "#ffffff";
+	                    fn();
+					}
+				},1000);
+			}
+		</script>
+	</body>
+
+</html>

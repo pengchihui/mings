@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //点击按钮，移除div里边的元素
+            $('#btn').click(function(){
+                //1.  html()方法   
+                // $("#dv").html('');//
+                
+
+                //2.   empty()   把父级元素里边的子元素 清空
+                // $("#dv").empty();
+
+
+                //3.remove     想要干掉谁，那就谁调用这个方法
+                //  移除自身   ----   自杀
+                $('#dv').remove();
+            });
+        });
+    </script>
+    <input type="button" value="移除" id="btn" />
+    <div id="dv">
+        <p>这是一个p</p>
+    </div>
+</body>
+</html>

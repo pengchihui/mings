@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<!--外链js:在内嵌的基础上加上src引用-->
+		<script src="test.js"></script>
+		
+		
+		<!--内嵌js-->
+		<script>
+			alert(false);//带确定按钮的弹框
+			console.log(666);//在控制台输出
+			document.write(123456789);//在DOM里面输出
+			document.getElementById("btn");//找到id="btn"的容器		
+			
+			var num=6;
+			var b;//没有值，undefined
+			var c=null;//有值，但值是空的，null
+			console.log(b);
+			console.log(c);
+			
+			
+			var x=6,y="4";
+			console.log(x+y);//只要有一个是字符串数据，那么加号就起拼接作用，把两个参数连接到一起，形成一个新的字符串
+			console.log(x-y);
+			console.log(x*y);
+			console.log(x/y);//被除数不能为0，否则无穷大Infinity
+			console.log(x%y);
+			
+			document.write("<br>"+1+2+3+4+5+"<br>");//运行从上到下，从左到右
+			document.write(1+2+3+4+5);
+			
+		</script>
+		
+		
+	</head>
+	<body>
+<!--		
+		html   css    javascript（js）
+		内容      表现          行为
+		
+		JavaScript ==> JS script(脚本语言，有逻辑，要运算)
+		
+		css使用：行      内嵌      外链
+		js使用：同上
+		js运行顺序，默认是从上到下，从左到右的！(重点！！！！！！！！！！！！！！！！！！！！！)
+		js基本命令：
+			alert()
+			console.log()
+			document.write()
+			document.getElementById()
+		js数据类型：
+			数值型数据：直接输入的数字56、5.2、0.23....
+			字符串型数据：被双引号或单引号包起来的内容(只要不是数字，都要加上引号)
+			布尔值数据：只有两种结果，正确或错误    true/false
+			undefined/null
+		js变量：记录和（在内存中）存储数据用的
+			格式: var 变量名=值;
+			变量名不能数字开头，区分大小写，可以中文（最好不要用）
+			等号在这里不是等于，它是一个赋值过程，等于判断要用“==”
+			变量可以只声明，但不赋值，得到undefined结果
+		js基本运算：+ - * / %（求余数）	
+		
+		
+		练习：
+		计算58/69/32平均数
+		输出下面效果：
+		小明  男
+		18
+		两个变量s1="红",s2="蓝",不改变值得情况下，交换输出它们的结果
+		
+		s3=s1
+		s1=s2
+		s2=s3
+			
+-->
+
+		<!--行内js-->
+		<button id="btn" onclick="alert(123)">点击</button>
+		<script>
+			var a1=document.getElementById("btn");
+			a1.style.background="red";
+			//通过js改变css行内样式中的背景
+			a1.style.fontSize="50px";
+			a1.style.border="none";
+
+
+		</script>
+
+
+
+
+		
+		
+		
+	</body>
+</html>

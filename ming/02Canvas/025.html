@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>关于canvas坐标的转换</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- <img src="./images/01.jpg" alt="" style="display: none;" /> -->
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        /**
+         *  关于canvas坐标的转换
+         *  -  平移     移动画布的原点
+         *     translate(x,y)   表示移动目标点的坐标
+         *
+         *
+         * -scale  缩放
+         *    scale(x,y)   x轴缩放的比率   y轴缩放的比率
+         *
+         *
+         * - rotate(angle)  表示旋转的角度
+         */
+
+         ctx.strokeRect(50,50,100,100);
+
+         // ctx.translate(50,50);
+         // ctx.scale(.5,1);
+
+         // 旋转
+         var angle=0;
+         var x0 = ctx.canvas.width/2;
+         var y0 = ctx.canvas.height/2;
+         ctx.translate(x0,y0);
+         setInterval(function(){
+            angle += Math.PI / 180;
+            ctx.rotate(angle);
+            ctx.strokeRect(0,0,100,100)
+         },500)
+         // ctx.rotate(Math.PI / 2);
+         // ctx.strokeRect(50,50,50,50);
+    </script>
+</body>
+</html>

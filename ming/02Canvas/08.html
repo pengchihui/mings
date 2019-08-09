@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制网格</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+
+        // 1. 用来绘制网格
+        // 2. 网格大小
+        var grid = 10;
+
+        // 3. 画多少条线   
+        // 3.1  x轴条数     与画布的高度    Math.floor(画布高度/格子的大小)
+        // 3.2  y轴条数     与画布的宽度   Math.floor(画布的宽度/格子的大小)
+        // 3.3  如何来获取画布的宽高  
+        // console.log(myCanvas.width,myCanvas.height);
+        
+        // 借助ctx 来获取画布的属性
+        // console.dir(ctx.canvas);
+        var canvasWidth = ctx.canvas.width;
+        var canvasHeight = ctx.canvas.height;
+        // console.log(canvasWidth,canvasHeight);
+
+        var xLineCount = Math.floor(canvasHeight/grid);
+        var yLineCount = Math.floor(canvasWidth/grid);
+
+        for (var i = 1; i < xLineCount; i++) {
+            ctx.beginPath();
+            ctx.moveTo(0, grid * i - .5);
+            ctx.lineTo(canvasWidth, grid * i - .5);
+            ctx.strokeStyle = '#eee';
+            ctx.stroke();
+        }
+        for (var i = 1; i < yLineCount; i++) {
+            ctx.beginPath();
+            ctx.moveTo(grid * i - .5, 0);
+            ctx.lineTo(grid * i - .5, canvasHeight);
+            ctx.strokeStyle = '#eee';
+            ctx.stroke();
+        }
+
+
+    </script>
+</body>
+</html>

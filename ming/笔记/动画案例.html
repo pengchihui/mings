@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 204px;
+				height: 204px;
+				margin: 100px auto 0;
+				position: absolute;
+				transform: rotateX(80deg);
+				transform-style: preserve-3d;
+			}
+			
+			.box>div {
+				width: 200px;
+				height: 200px;
+				border: 2px solid #000;
+				position: absolute;
+				border-radius: 50%;
+				animation: rote 1s linear infinite;
+				transform-style: preserve-3d;
+			}
+			
+			.box>div>span {
+				width: 10px;
+				height: 10px;
+				background: #000;
+				position: absolute;
+				border-radius: 50%;
+				left: 95px;
+				top: -6px;
+				animation: span 1s linear infinite;
+			}
+			/*.box>div:nth-child(2)>span {
+				left: 166px;
+				top: 166px;
+			}
+			.box>div:last-child>span {
+				left: 24px;
+				top: 166px;
+			}*/
+			
+			@keyframes rote {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+			
+			@keyframes span {
+				from {
+					transform: rotateX(-80deg ) rotateY(0deg);
+				}
+				to {
+					transform: rotateX(-80deg) rotateY(360deg);
+				}
+			}
+			
+			.box:nth-child(2) {
+				transform: rotateX(60deg) rotateY(60deg);
+			}
+			
+			.box:nth-child(3) {
+				transform: rotateX(60deg) rotateY(-60deg);
+			}
+			
+			/*.tj {
+				width: 200px;
+				height: 200px;
+				border: 2px solid #008000;
+				border-radius: 50%;
+				position: relative;
+				animation:  rote 1s linear infinite;
+			}
+			
+			.black {
+				width: 100px;
+				height: 200px;
+				background: #000;
+				border-radius: 100px 0 0 100px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.black_small{
+				width: 50px;
+				height: 100px;
+				background: #000;
+				position: absolute;
+				left: 100px;
+				top: 0;
+				border-radius: 0 50px 50px 0;
+			}
+			.white{
+				width: 50px;
+				height: 100px;
+				background: #fff;
+				position: absolute;
+				left: 50px;
+				top: 100px;
+				border-radius: 50px 0 0 50px;
+			}*/
+		</style>
+	</head>
+
+	<body>
+
+		<div class="box">
+			<div><span></span></div>
+		</div>
+		<!--<div class="box">
+			<div><span></span></div>
+		</div>
+		<div class="box">
+			<div><span></span></div>
+		</div>-->
+
+		<!--<div class="tj">
+			<div class="black"></div>
+			<div class="black_small"></div>
+			<div class="white"></div>
+		</div>-->
+
+	</body>
+
+</html>

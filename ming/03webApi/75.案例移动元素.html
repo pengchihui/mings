@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="移动到400"id="btn1" />
+    <input type="button" value="移动到800" id="btn2" />
+    <div id="dv"></div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        
+        /**
+         * 1.div要移动的话，那就移动要脱离文档流     position: aboslute;
+         * 2.要获取当前的位置
+         *     如果样式代码在style标签里边，或者说在外部样式里，这时候通过style属性是无法获取到值的
+         *     如果样式代码在标签的style属性里，是可以获取到。
+         *     想要获取div的当前位置，不管css样式写在哪，就要用到 offsetLeft属性
+         *     这个属性是不带单位的，它是纯数字的
+         *     console.log(my$('dv').offsetLeft);
+         * 
+         */
+         /**
+          *  在每次 点击的时候，要清除上一个定时（不管你点多少次，都只会产生一个定时器）
+          */
+        //点击第一个按钮 移动到400px
+        my$('btn1').onclick=function(){
+            //使用定时器重复动作
+            var timeId = setInterval(function(){
+                //先获取当位置
+                var current=my$('dv').offsetLeft;//这个是数字类型,不带单位
+                //div每次移动多少像素----每一步step
+                var step=9;
+                //每一次移动后的距离
+                current+=step;
+                if(current<=400){
+                    my$('dv').style.left=current+'px';
+                }else{
+                    clearInterval(timeId);
+                }
+            }, 20);
+        };
+        my$('btn2').onclick = function() {
+            //使用定时器重复动作
+            var timeId = setInterval(function() {
+                //先获取当位置
+                var current = my$('dv').offsetLeft; //这个是数字类型,不带单位
+                //div每次移动多少像素----每一步step
+                var step = 10;
+                //每一次移动后的距离
+                current += step;
+                if (current <= 800) {
+                    my$('dv').style.left = current + 'px';
+                } else {
+                    clearInterval(timeId);
+                }
+            }, 20);
+        };
+    </script>
+</body>
+</html>

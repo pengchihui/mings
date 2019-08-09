@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 500px;
+            height: 300px;
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //点击按钮设置div中span的样式
+        $(function(){
+            //层次选择器-----后代选择器
+            $('#btn').click(function(){
+                //获取id为dv的这个父级元素中所有的span
+                // $('#dv span').css('backgroundColor','red');
+                
+                //子代选择器
+                // $('#dv>span').css('backgroundColor','red');
+
+
+                //~    div这个元素后面的所有的兄弟元素
+                // $('#dv~span').css('backgroundColor','red');
+
+                //+    div这个元素后相邻的兄弟元素
+                $('#dv+span').css('backgroundColor','red');
+            });
+
+        });
+    </script>
+    <input type="button" value="显示" id="btn" />
+    <span>div前面的span</span>
+    <div id="dv">
+        <span>第一个span</span>
+        <ul>
+            <li>1</li>
+            <li>2
+                <span>第二个li中的span</span>
+                <span>第二个li中的span</span>
+            </li>
+            <li>3第三个li中的span</li>
+        </ul>
+        <span>第二个span</span>
+        <span>第三个span</span>
+    </div>
+    <span>后一个span</span>
+    <p>我是div后边p</p>
+    <span>div后面的span</span>
+    <span>div后面的span</span>
+    <span>div后面的span</span>
+    <script type="text/javascript">
+        /**
+         * 总结选择器：
+         *
+         *id选择器 $('#id')
+         *
+         *标签选择  $('标签名')
+         *
+         * 类选择器： $('.类名')
+         *
+         * 交集选择器  $('标签.类名') -----有的时候又叫   标签+类选择器
+         *
+         * 并集选择器  $('选择器,选择器....')       多条件选择器
+         *
+         * 层次选择器：
+         *     $('选择器 选择器');//后代选择器
+         *     $('选择器>选择器');//子代选择器
+         *     $('选择器~选择器');//后边所有的兄弟元素
+         *     $('选择器+选择器');//后边相邻的兄弟元素
+         * 
+         * 
+         */
+    </script>
+</body>
+</html>

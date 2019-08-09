@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            vertical-align: middle;
+        }
+        .box {
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        .box .in {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .box .in ul.lunbo {
+            width: 1000%;
+            background-color: yellow;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .box .in .lunbo li {
+            float: left;
+        }
+        .box .in a {
+            display: block;
+        }
+        .box .in .square {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .square li {
+            float: left;
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+            background-color: #fff;
+        }
+        .square li.current {
+            background-color: orange;
+            color: #fff;
+        }
+        .box .in .directions {
+            display: none;
+        }
+        .box .in:hover .directions {
+            display: block;
+        }
+        .directions span {
+            width: 80px;
+            height: 40px;
+            border-radius: 20px;
+            font-size: 20px;
+            color: #fff;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 40px;
+            background-color: rgba(0,0,0,.2);
+            position: absolute;
+            cursor: pointer;
+        }
+        .directions .left {
+            text-indent: 50px;
+            left: -40px;
+        }
+        .directions .right {
+            text-indent: 20px;
+            right: -40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="in">
+            <ul class="lunbo">
+                <li><a href=""><img src="images/1.jpg" alt="" /></a></li>
+                <li><a href=""><img src="images/2.jpg" alt="" /></a></li>
+                <li><a href=""><img src="images/3.jpg" alt="" /></a></li>
+                <li><a href=""><img src="images/4.jpg" alt="" /></a></li>
+                <li><a href=""><img src="images/5.jpg" alt="" /></a></li>
+                <li><a href=""><img src="images/6.jpg" alt="" /></a></li>
+            </ul>
+            <ul class="square">
+                <li class="current">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+            <div id="directions" class="directions">
+                <span class="left" id="leftBtn">&lt;</span>
+                <span class="right" id="rightBtn">&gt;</span>
+            </div>
+        </div>
+    </div>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript">
+        //获取最外层div
+        var box = my$('box');
+        //获取相框
+        var myin = box.children[0];
+        //获取相框的宽
+        var imgWidth = myin.offsetWidth;
+        //获取ul
+        var ulObj = myin.children[0];
+        var squares = myin.children[1].children;
+        //循环遍历所有square,注册鼠标经过时间
+        for (var i = 0; i < squares.length; i++) {
+            squares[i].setAttribute('index', i);
+            squares[i].onmouseover = function() {
+                //先去除所有sqares的背景颜色
+                for (var j = squares.length - 1; j >= 0; j--) {
+                    squares[j].removeAttribute('class');
+                }
+                //设置当前的li的current
+                this.className = "current";
+                //移动图片ul(图片的宽*当前的index值)
+                var index = this.getAttribute('index');
+                move(ulObj, -imgWidth * index)
+            };
+        }
+
+        var index=0;
+        //注册方向按钮事件
+        my$('leftBtn').onclick=function(){
+            if(index<ulObj.children.length-1){
+                index++;
+                for (var i = squares.length - 1; i >= 0; i--) {
+                    squares[i].removeAttribute('class');
+                }
+                squares[index].className='current';
+                move(ulObj,-imgWidth*index);
+            }
+        };
+        my$('rightBtn').onclick=function(){
+            if(index>0){
+                index--;
+                for (var i = squares.length - 1; i >= 0; i--) {
+                    squares[i].removeAttribute('class');
+                }
+                squares[index].className='current';
+                move(ulObj,-imgWidth*index);
+            }
+        };
+    </script>
+</body>
+</html>

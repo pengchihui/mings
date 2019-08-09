@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制图片</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+            display: block;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- <img src="./images/01.jpg" alt="" style="display: none;" /> -->
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 绘制图片
+        // 就一个api
+        // drawImage()
+        // 这个api 有  3种用法
+        // 
+        // 
+        // -  三个参数：   drawImage(img,x,y)
+        //          img   图片对象、canvas对象、vedio对象
+        //          x,y   图片绘制路径的左上角坐标
+        //          
+        //          
+        //    五个参数：   drawImage(img,x,y,w,h)
+        //          w,h 限制图片绘制的尺寸 （图片是缩放，而不是截取）
+        //          
+        //          
+        //    九个参数：   drawImage(img,x,y,w,h,x1,y1,w1,h1)
+        //          img  图片对象
+        //          x,y,w,h  图片中的一个矩形区域
+        //          x1,y1,w1,h1  是在画布中的一个矩形区域
+
+        // 1.  先加载图片
+        // 1.1 创建一个Image对象
+        // 1.2 img 标签  dom的加载方式
+        var image = new Image();
+        image.onload = function(){
+            // 在使用图片之前，必须等到图片加载完成
+            // 在onload 事件中，一定可以使用到 image
+            // console.log(image);
+
+            // 三个参数
+            // ctx.drawImage(image,100,100);
+
+            // 五个参数
+            // ctx.drawImage(image,100,100,100,100);
+
+            // 九个参数
+            ctx.drawImage(image,500,500,300,300,50,50,300,300)
+        };
+        // console.log(image);
+        image.src = './images/02.jpg';
+    </script>
+</body>
+</html>

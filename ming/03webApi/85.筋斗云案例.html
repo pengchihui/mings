@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            background-color: grey;
+        }
+        a {
+            text-decoration: none;
+        }
+        .nav {
+            width: 800px;
+            margin: 100px auto;
+            background: #fff url(./images/rss.png) right center no-repeat;
+            border-radius: 10px;
+            position: relative;
+        }
+        .nav ul {
+            overflow: hidden;
+            *zoom: 1;
+            position: relative;
+
+        }
+        .nav li {
+            float: left;
+            width: 83px;
+            line-height: 42px;
+            text-align: center;
+        }
+        .nav li a {
+            color: #333;
+        }
+        .nav .cloud {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 83px;
+            height: 100%;
+            background: url(./images/cloud.gif) no-repeat 0 0 ;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <span id="cloud" class="cloud"></span>
+        <ul id="navBar">
+            <li><a href="#">北京校区</a></li>
+            <li><a href="#">上海校区</a></li>
+            <li><a href="#">广州校区</a></li>
+            <li><a href="#">深圳校区</a></li>
+            <li><a href="#">武汉校区</a></li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
+            <li><a href="#">招贤纳士</a></li>
+        </ul>
+    </div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //获取云彩的对象
+        var cloud = my$('cloud');
+        //获取所有li的对象
+        var list = my$('navBar').children;
+        for (var i = 0; i < list.length; i++) {
+            //注册鼠标进入
+            list[i].onmouseover=eHandle;
+            //点击
+            list[i].onclick=eHandle;
+            //鼠标离开
+            list[i].onmouseout=eHandle;
+        }
+        var lastPosition=0;
+        function eHandle(e) {
+            switch (e.type) {
+                case 'mouseover':
+                    moveHuan(cloud,this.offsetLeft);
+                    break;
+                case 'click':
+                    lastPosition=this.offsetLeft;
+                    break;
+                case 'mouseout':
+                    moveHuan(cloud,lastPosition);
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

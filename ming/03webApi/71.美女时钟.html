@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <img src="" alt="" id="im" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        // 在页面加载完毕后，应该马上执行一次，所以在setInterval之前应该调用一次该函数
+        window.onload=function(){
+            f1();
+            //页面加载完毕后，过了一秒执行代码
+            setInterval(f1, 1000);
+        };
+        function f1() {
+            //获取当前的时间
+            var dt = new Date();
+            //通过dt来获取当前的小时和分钟
+            var hour = dt.getHours();
+            var minute = dt.getMinutes();
+            var second = dt.getSeconds();
+            hour = hour < 10 ? '0' + hour : hour;
+            minute = minute < 10 ? '0' + minute : minute;
+            second = second < 10 ? '0' + second : second;
+            my$('im').src = 'meimei/' + hour + '_' + minute + '.jpg';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            /**
+             * show(),hide()方法可以有参数
+             * 参数1： 持续时间   毫秒为单位
+             * 参数2： 回调函数  在动画接受执行
+             */
+
+            /*//点第一个按钮显示
+            $('#btn1').click(function(){
+                $('#dv').show(5000,function(){
+                    alert('完了');
+                });
+            });
+            //点第二个按钮隐藏
+            $('#btn2').click(function(){
+                $('#dv').hide(5000,function(){
+                    alert('终结');//在动画结束后调用
+                });
+            });*/
+
+            /**
+             * slideDon()   向下滑入
+             * slideUp()   向上滑出
+             * 
+             * 
+             * slideToggle()  切换滑动
+             * 参数同上
+             *
+             * 
+             */
+
+            /*//点第一个按钮显示
+            $('#btn1').click(function(){
+                $('#dv').slideDown(1000,function(){
+                    //回调函数
+                });
+            });
+            //点第二个按钮隐藏
+            $('#btn2').click(function(){
+                $('#dv').slideUp(3000,function(){
+                    //回调函数
+                });
+            });
+
+            $('#btn3').click(function(){
+                $('#dv').slideToggle();
+            });*/
+
+
+            /**
+             * fadeIn()  淡入
+             * fadeOut()  淡出
+             * fadeToggle()  切换淡入淡出  
+             * 参数  同上
+             *
+             *
+             * fadeTo();
+             * 参数1： 持续时间 
+             * 参数2：  目标透明度
+             * 参数3： 回调函数
+             */
+
+            //点第一个按钮显示
+            $('#btn1').click(function(){
+                $('#dv').fadeIn(500);//淡入
+            });
+            //点第二个按钮隐藏
+            $('#btn2').click(function(){
+                $('#dv').fadeOut(500);//淡出
+            });
+
+            $('#btn3').click(function(){
+                // $('#dv').fadeToggle(600);
+                $('#dv').fadeTo(1000,.6);
+            });
+        });
+    </script>
+    <input type="button" value="显示" id="btn1" />
+    <input type="button" value="隐藏" id="btn2" />
+    <input type="button" value="切换" id="btn3" />
+    <div id="dv"></div>
+</body>
+</html>

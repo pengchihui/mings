@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //为这个button添加  鼠标进入  鼠标离开  点击事件
+
+            //第一种写法
+            /*$('#btn').click(function(){
+                console.log('我点击了');
+            });
+            $('#btn').mouseenter(function(){
+                console.log('我进入了');
+            });
+            $('#btn').mouseleave(function(){
+                console.log('我离开了');
+            });*/
+
+            // 第二种   链式编程
+            /*$('#btn').click(function(){
+                console.log('我点击了');
+            }).mouseenter(function(){
+                console.log('我进入了');
+            }).mouseleave(function(){
+                console.log('我离开了');
+            });*/
+            
+
+            // 第三种  借助bind()方法     bind---绑定
+            /*$('#btn').bind('click',function(){
+                console.log('我是点击了');
+            });
+            $('#btn').bind('mouseenter',function(){
+                console.log('我是Jinru了');
+            });
+            $('#btn').bind('mouseleave',function(){
+                console.log('我是离开了');
+            });*/
+
+            // 第四种  链式编程
+            /*$('#btn').bind('click',function(){
+                console.log('我是点击了');
+            }).bind('mouseenter',function(){
+                console.log('我是Jinru了');
+            }).bind('mouseleave',function(){
+                console.log('我是离开了');
+            });*/
+
+            //第五种
+            $('#btn').bind({
+                'click':function(){
+                    console.log('我又点击了')
+                },
+                'mouseenter':function(){
+                    console.log('我又进入了')
+                },
+                'mouseleave':function(){
+                    console.log('我又离开了')
+                }
+            });
+        });
+    </script>
+    <input type="button" value="显示效果" id="btn" />
+</body>
+</html>

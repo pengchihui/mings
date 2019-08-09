@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div>
+			<button>点击</button>
+			<div class="box" style="display: none;">
+				<ul>
+					<li>1111</li>
+					<li>2222</li>
+				</ul>
+				<ul>
+					<li>3333</li>
+					<li>4444</li>
+					<li>5555</li>
+				</ul>
+			</div>
+		</div>
+		<div>
+			<button>点击</button>
+			<div class="box" style="display: none;">
+				<ul>
+					<li>11222</li>
+					<li>2222</li>
+				</ul>
+				<ul>
+					<li>3333</li>
+					<li>4444</li>
+					<li>5555</li>
+				</ul>
+			</div>
+		</div>
+		<div>
+			<button>点击</button>
+			<div class="box" style="display: none;">
+				<ul>
+					<li>11333</li>
+					<li>2222</li>
+				</ul>
+				<ul>
+					<li>3333</li>
+					<li>4444</li>
+					<li>5555</li>
+				</ul>
+			</div>
+		</div>
+		<b>123</b>
+		<b>456</b>
+		<div>test</div>
+		<input type="text" name="user" value="tom" disabled="disabled" />
+		<input type="password" name="password" value="123456" />
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="" id="" value="" />
+		<input type="checkbox" name="all" id="" value="" />
+		<button>反选</button>
+		<script src="jquery-1.7.2.js"></script>
+		<script>
+			//			$("div:not(.box)").click(function(){
+			//				event.stopPropagation()
+			//				console.log(this.innerHTML)
+			//			})
+
+			//			原生JS和JQuery的语法不要混着用
+			//			var arr=$("li")
+			//			arr[2].onclick=function(){
+			//				event.stopPropagation()
+			//				console.log(this.innerHTML)
+			//			}
+
+			//			$("input,div").click(function(){
+			//				event.stopPropagation()
+			//				console.log($("input:focus").val())
+			//			})
+
+			//			$("div:has(ul)").click(function(){
+			//				event.stopPropagation()
+			//				console.log(this.innerHTML)
+			//			})
+
+			//			$("input:text").click(function(){
+			//				event.stopPropagation()
+			//				console.log(this.value)
+			//			})
+
+			$("input[name='all']").click(function() {
+				event.stopPropagation()
+				if(this.checked == true) {
+					$("input:checkbox").attr("checked", "checked");
+				} else {
+					$("input:checkbox").removeAttr("checked");
+				}
+			})
+
+			$("button:contains('反选')").click(function() {
+
+				//				if($("input:not(:checked)")){					
+				//					$("input:checkbox").attr("checked","checked");
+				//				}else{		
+				//					$("input:checkbox").removeAttr("checked");			
+				//				}
+
+				if($("input:checked") == true) {
+					$("input:checkbox").attr("checked", false);
+				}
+				if($("input:checked" == false)) {
+					$("input:checkbox").attr("checked", true);
+				}
+
+			})
+
+			$("button").hover(function() {
+				$("div").stop()
+				$(this).next().slideToggle()
+			})
+		</script>
+
+	</body>
+
+</html>

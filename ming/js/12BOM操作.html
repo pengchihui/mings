@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//bom browser object model  浏览器的对象模型
+//window
+alert()//提示框
+confirm()//带取消按钮的提示框
+var str=prompt("请输入：")//带输入功能的提示框
+
+//setInterval()//循环执行
+//clearInterval()//停止循环执行
+
+var asd=setTimeout(function(){
+	console.log(123)
+},2000)//延迟执行
+clearTimeout(asd)//停止延迟执行
+
+
+
+//navigator
+
+var zxc=navigator.userAgent;
+var qwe=/Trident/i
+console.log(zxc.match("Trident"))
+console.log(qwe.test(zxc))//true就是使用的ie浏览器
+//console.log(zxc.substr(zxc.indexOf("MSIE")+5,3))
+console.log(zxc.split(" ")[3])
+
+
+
+//screen
+//history
+//location
+
+location.reload()
+//location.href='http://www.baidu.com';
+//document
+
+		</script>
+		<button onclick="history.go(-1)">666666</button>
+	</body>
+</html>

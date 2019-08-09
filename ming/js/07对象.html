@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//传址
+			var arr1=[1,2,3];
+			var arr2=arr1;
+			arr2[2]=5;
+			
+			//传值
+			var a=6;
+			var b=a;
+			b=3;
+			
+			
+			
+			//js对象：多个变量的集合（通过关联属性去调取）
+			//对象创建（通过键值对赋值。 键:值  ）
+			var obj1={
+				num:1,
+				str:"你好",
+				bool:true,
+				length:["a","b"],
+				fn:function(x){
+					alert(x)
+				},
+				obj:{name:"张三",age:19}
+			}
+			
+			//对象第二种创建方式
+			var obj2=new Object({num:1});
+			
+			//对象的第三种创建方式
+			var obj3=new Object();
+			obj3.name="李四"
+			obj3.age=20
+			
+			
+			
+			
+			//对象单元的使用：通过关联属性去调取    对象名["属性名"] 或者 对象名.属性名			
+			console.log(obj1["str"])
+			console.log(obj1.bool)
+			obj1.fn(666)//执行了对象里面的函数
+			obj1.length[0]//"a"  对象里面length的数组第一成员
+			obj1.length.length//2  对象里面length的数组长度
+			obj1.obj.name //读取对象里面的对象
+			
+			
+			//对象的长度无法读取(内置对象：已经定义好了的对象，我们只要拿过来用就行)
+			console.log(obj1.length)	
+			//box.innerHTML
+			//box.style.babkground
+			
+			//内置函数：浏览器为我们网页已经定义好了的函数，我们只要拿过来用就行
+			window.alert(123)
+			var buer=confirm(5963)//带取消按钮的弹框 取消false  确定true
+			console.log(buer)
+			typeof(123)//获取数据的类型
+			Number("12.3")//转换数值数据类型
+			var num=parseInt("13.132");//转换数值数据类型并取整数
+			
+			window.asd=789;//这也是变量asd的声明
+			//内置对象函数
+			console.log(num+1)
+			console.dir(123)
+			
+			//对象单元的遍历(通过for...in...循环结构遍历对象，不能通过对象名.属性名去读取，得用对象名["属性名"])
+			for(var i in obj1){
+				console.log(obj1[i])
+			}
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

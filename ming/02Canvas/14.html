@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>什么叫弧度</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+        div.linearGradient {
+            width: 400px;
+            height: 50px;
+            background-image: linear-gradient(45deg, pink 10%, blue 50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="linearGradient"></div>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 1.什么是弧度   首先它是一个长度的描述单位
+        // 2.一个弧度应该怎么去描述
+        // 3. 一个弧度到底有多长     一个弧度 等于 一个半径的长度
+        // 4.  一个圆有多少个弧度：     2 * π
+        // 5.  一个圆跟一个弧度的关系   
+        
+
+        // 角度
+        /**
+         *     一个圆   ：      360°
+         *     半径：   r  从圆心到圆边缘的距离
+         *         以 一个点为中心， 对 r 的长度为放射 
+         *     周长：   2 * π * r
+         */
+        
+        //  一个角度 到底等于多少弧度   
+        //  周长：   2 * π * r
+        //  一个弧度 就是 一个r   
+        //  180°的圆 ---> 一个半圆    π
+        //  
+    </script>
+    
+</body>
+</html>

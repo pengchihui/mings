@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+        }
+        table,
+        table td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //获取表头里边 全选  的选中
+            $("#j_cbAll").click(function(){
+/*                var flag=$(this).prop('checked');
+                //判断
+                if(flag){
+                    $('#j_tb').find('input:checkbox').prop('checked',true);
+                }else{
+                    $('#j_tb').find('input:checkbox').prop('checked',false);
+                }*/
+                $('#j_tb').find('input:checkbox').prop('checked',$(this).prop('checked'));
+            });
+            //对tbody里边每个checkbox点击事件
+            $('#j_tb').find('input:checkbox').click(function(){
+                //所有的复选框    4
+                //选中的复选框    4   全选
+                //
+                var ckLength=$('#j_tb').find('input:checkbox').length;
+                // console.log($('#j_tb').find('input:checkbox:checked'));
+                var checkLength=$('#j_tb').find('input:checkbox:checked').length;
+
+                // console.log(ckLength,'======',checkLength);
+                // 判断
+                /*if(ckLength==checkLength){
+                    $("#j_cbAll").prop('checked',true);
+                }else{
+                    $("#j_cbAll").prop('checked',false);
+                }*/
+                $('#j_cbAll').prop('checked',ckLength==checkLength);
+            });
+        });
+    </script>
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="j_cbAll"/>
+            </th>
+            <th>菜名</th>
+            <th>饭店</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>西红柿鸡蛋</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>油炸榴莲</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>清蒸助教</td>
+            <td>田老师</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

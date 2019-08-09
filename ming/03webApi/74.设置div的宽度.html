@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="dv"></div>
+    <input type="button" value="变宽" id="btn" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //设置鼠标点击事件
+        my$('btn').onclick=function(){
+            var width=200;
+            var timeId = setInterval(function(){
+                width+=10;
+                my$('dv').style.width=width+'px';
+                if(width==800){
+                    clearInterval(timeId);
+                }
+            },20);
+        };
+    </script>
+</body>
+</html>

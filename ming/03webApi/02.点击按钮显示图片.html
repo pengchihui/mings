@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button"value="显示图片" id="btn" />
+<!--<img src="images/liuyan.jpg" style="width:300px;" id="im" alt="" />-->
+<img src="" id="im" alt="" />
+<script>
+//点击图片显示按钮：点击按钮的时候设置img的src属性就行了
+    //根据id获取到按钮对象
+    var btnObj=document.getElementById('btn');
+    //为按钮注册点击事件，添加时间处理函数
+    btnObj.onclick=function(){
+        //根据id获取到图片对象
+        var imgObj=document.getElementById('im');
+        //设置图片的src属性值
+        imgObj.src='images/boduo.jpg';
+        //通过imgObj对象设置图片的大小,属性里边不需要加px
+        imgObj.width='400';
+        imgObj.height='300';
+    };
+</script>
+</body>
+</html>

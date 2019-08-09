@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #dv1 {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+            top: 30px;
+        }
+        #dv2 {
+            width: 100px;
+            height: 50px;
+            background-color: green;
+        }
+
+        #btn {
+            position: absolute;
+            top: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dv1">
+        <div id="dv2"></div>
+    </div>
+    <input type="button" value="显示效果" id="btn" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        /**
+         * js里关于宽高、偏移量  有三大系列
+         *
+         * offset系列中的属性。
+         *
+         *
+         * 在style标签中、以及外部样式表中设置的样式，
+         * 使用style.语法是获取不到的
+         *
+         * 在style属性中，设置的样式实行是可以获取到的。
+         *
+         * 为了获取宽高，以后应该使用offset系列来获取
+         * 
+         */
+        my$('btn').onclick=function(){
+            // console.log(my$('dv1').style.width);
+            // console.log(my$('dv1').style.height);
+            console.log(my$('dv1').offsetWidth);
+            console.log(my$('dv1').offsetHeight);
+
+            console.log(my$('dv1').offsetTop);
+            console.log(my$('dv1').offsetLeft);
+            /**
+             * offsetWidth 获取元素的宽
+             * offsetHeight  获取元素的高
+             *
+             * offsetTop 获取元素距离上边位置的值
+             * offsetLeft 获取元素距离左边的值
+             */
+        };
+    </script>
+</body>
+</html>

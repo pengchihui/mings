@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="移动到400"id="btn1" />
+    <input type="button" value="移动到800" id="btn2" />
+    <div id="dv"></div>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //点击第一个按钮移动到400
+        my$('btn1').onclick =function(){
+            move(my$('dv'),400);
+        };
+
+        //点击第二个按钮移动到800
+        my$('btn2').onclick=function(){
+            animationBian(my$('dv'),'width',1000);
+        };
+
+        
+    /**
+     * 变速动画函数
+     * @param  {[type]} ele    [当前操作对象]
+     * @param  {[type]} target [移动到目标位置]
+     * @return {[type]}        [无返回值]
+     */
+    function animationBian(ele, attr, target) {
+        //清理定时器
+        clearInterval(ele.timeId);
+        //设置定时器
+        ele.timeId = setInterval(function() {
+            //获取当前位置
+            var current = parseInt(getStyle(ele,attr));
+            //定义每一步距离
+            var step = (target - current) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            current += step;
+            ele.style[attr] = current + 'px';
+            if (current == target) {
+                clearInterval(ele.timeId);
+            }
+        }, 20);
+    }
+    </script>
+</body>
+</html>

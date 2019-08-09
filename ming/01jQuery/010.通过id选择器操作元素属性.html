@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * DOM的作用： 用来操作页面中的元素
+         *
+         *
+         * DOM中获取元素的方式：
+         *
+         *   根据id获取元素
+         *       document.getElementById('id的属性值')
+         *   根据标签名字获取元素
+         *       document.getElementsByTagName('标签名')
+         *   根据name属性获取元素
+         *       document.getElementsByName('name属性值')
+         *   根据类样式名获取元素
+         *       document.getElementsByClassName('类样式名')
+         *   根据选择器获取元素
+         *       document.querySelector('选择器');---->id，类、标签等等
+         *       document.querySelectorAll('选择');----->获取的是多个
+         */
+        
+        /**
+         * jQuery是封装了很多，所以通过jQuery来获取，会简单很多
+         *
+         * jQuery获取元素的方式：
+         *   $('选择器')---->jQuery对象
+         */
+        
+        //通过id选择器点击按钮
+        $(function(){
+            $('#btn').click(function(){
+                //this指的是当前按钮的DOM对象
+                // this.value='哈哈';
+                $(this).val('哈哈');
+            });
+        });
+        
+    </script>
+    <input type="button" value="显示效果" id="btn" />
+</body>
+</html>

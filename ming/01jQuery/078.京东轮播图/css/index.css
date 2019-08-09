@@ -1,0 +1,306 @@
+/*京东首页的css*/
+
+.jd-main {
+    position: relative;
+    overflow: hidden;
+}
+
+/*主题广告*/
+.jd-main .ad {
+    position: absolute;
+    width: 1920px;
+    height: 470px;
+    left: 50%;
+    top: 10px;
+    z-index: 0;
+    margin-left: -960px;
+}
+.jd-main .ad a {
+    display: block;
+    height: 100%;
+    background: url(../images/zhuti-ad.png) no-repeat center center;
+}
+
+/*main部分*/
+.jd-main .jd-inner {
+    position: relative;
+    z-index: 1;
+}
+.jd-main .jd-inner .col-1,
+.jd-main .jd-inner .col-2,
+.jd-main .jd-inner .col-3,
+.jd-main .jd-inner .col-4 {
+    width: 190px;
+    float: left;
+    margin-right: 10px;
+}
+
+
+.jd-main .jd-inner .col-1 {
+    border-top: 1px solid #ededed;
+    padding: 10px 0;
+    background-color: #fff;
+    position: relative;
+}
+
+.jd-inner .col-1 li {
+    font-size: 14px;
+    line-height: 27px;
+    height: 27px;
+    overflow: hidden;
+    color: #636363;
+    padding-left: 18px;
+}
+.jd-inner .col-1 li:hover,
+.jd-inner .col-1 li.current {
+    background-color: #d9d9d9;
+}
+.jd-inner .col-1 li:hover .erjikuang {
+    display: block;
+}
+
+.jd-inner .col-1 li a {
+    color: #626262;
+}
+.jd-inner .col-1 .cate_menu_line {
+    font-size: 12px;
+    padding: 0 2px;
+}
+.jd-inner .col-1 .erjikuang {
+    width: 998px;
+    height: 454px;
+    position: absolute;
+    background-color: skyblue;
+    top: 0;
+    right: -998px;
+    display: none;
+}
+
+/* 轮播图 */
+.jd-main .jd-inner .col-2 {
+    width: 590px;
+    padding-top: 10px;
+    height: 470px;
+    overflow: hidden;
+    position: relative;
+}
+.jd-inner .col-2 .pics li a {
+    display: block;
+}
+.jd-inner .col-2 .pics li {
+    float: left;
+}
+.jd-inner .col-2 .arrows {
+    position: absolute;
+    top: 50%;
+    width: 24px;
+    height: 40px;
+    margin-top: -20px;
+    background-color: rgba(0,0,0,.3);
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    color: rgba(255,255,255,2);
+}
+.jd-inner .col-2 .arrows:hover {
+    background-color: rgba(0,0,0,.5);
+}
+.jd-inner .col-2 .prev {
+    left: 0;
+}
+.jd-inner .col-2 .next {
+    right: 0;
+}
+.jd-inner .col-2 .dots {
+    position: absolute;
+    left: 49px;
+    bottom: 24px;
+}
+.jd-inner .col-2 .dots li {
+    width: 6px;
+    height: 6px;
+    font-size: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,.4);
+    float: left;
+    margin-right: 9px;
+    cursor: pointer;
+}
+.jd-inner .col-2 .dots li:hover,
+.jd-inner .col-2 .dots li.active {
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 0 4px rgba(255,255,255,.5);
+}
+
+/* 第三列 */
+.jd-main .jd-inner .col-3 {
+    padding-top: 10px;
+}
+.jd-main .jd-inner .col-3 a {
+    display: block;
+}
+.jd-inner .col-3 .rec-item {
+    margin-bottom: 10px;
+}
+.jd-inner .col-3 .rec-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 会员信息 */
+.jd-main .jd-inner .col-4 {
+    padding-top: 10px;
+    margin-right: 0;
+    font-size: 12px;
+}
+
+.jd-main .col-4 .user {
+    background-color: #fff;
+    padding: 62px 0 23px;
+    color: #888;
+    position: relative;
+}
+.jd-main .col-4 .user p {
+    line-height: 20px;
+    text-align: center;
+}
+.col-4 .user .user-pic {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #e3e1df;
+    left: 50%;
+    top: -10px;
+    margin-left: -32px;
+    box-shadow: 3px 6px 25px 0 #c3c3c3;
+}
+.col-4 .user .user-pic img {
+    width: 100%;
+}
+.col-4 .user .user-btn a{
+    color: #666;
+    padding: 0 2px;
+}
+.col-4 .user .user-btn a:hover {
+    color: #c81623;
+    
+}
+.col-4 .user .user-welfare {
+    text-align: center;
+}
+.col-4 .user .user-welfare a {
+    display: inline-block;
+    background-color: #fff;
+    box-shadow: 6px 8px 20px rgba(45,45,45,.15);
+    width: 70px;
+    height: 25px;
+    border-radius: 13px;
+    margin: 0 5px;
+    color: #e43f3b;
+    line-height: 25px;
+}
+.col-4 .user .user-welfare a:last-child {
+    background-color: #363634;
+    color: #e5d790;
+}
+.col-4 .user .user-welfare a:hover {
+    background-color: #e01222;
+    color: #fff;
+}
+
+/* 新闻 */
+.col-4 .news {
+    background-color: #fff;
+}
+.col-4 .news .tab-hd {
+    position: relative;
+    padding: 5px 0;
+}
+.col-4 .news .hd-nav a {
+    float: left;
+    color: #333;
+    line-height: 16px;
+    padding: 0 15px;
+    border-right: 1px solid #dfe0e1;
+}
+.news .hd-nav a:last-child {
+    border-right: 0;
+
+}
+.news .tab-hd .more {
+    position: absolute;
+    color: #333;
+    right: 12px;
+    top: 7px;
+}
+.news .tab-hd .more:hover {
+    color: #c81623;
+}
+.news .tab-hd:after {
+    content: '';
+    position: absolute;
+    width: 27px;
+    height: 2px;
+    bottom: 0;
+    left: 13px;
+    background-color: #db192b;
+}
+.news .tab-bd {
+    padding: 8px 0;
+    width: 158px;
+    margin: 0 auto;
+    line-height: 22px;
+    border-bottom: 1px solid #ebeaea;
+}
+.news .tab-bd a {
+    color: #666;
+}
+.news .tab-bd a:hover {
+    color: #c81623;
+}
+.news .tab-bd ul {
+    display: none;
+}
+.news .tab-bd ul.current {
+    display: block;
+}
+.news .tab-bd ul li {
+    white-space: nowrap;/*强制一行显示，除非遇到段落结束或者br强制换行*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #999;
+}
+
+/* 右侧服务 */
+.col-4 .jd-service {
+    background-color: #fff;
+    padding: 18px 11px 0;
+}
+
+.col-4 .jd-service li {
+    width: 42px;
+    float: left;
+    
+}
+.col-4 .jd-service a {
+    display: block;
+    padding: 3px 0 7px;
+    text-align: center;
+    color: #bea68d;
+}
+.col-4 .jd-service a:hover {
+    color: #c81623;
+}
+.col-4 .jd-service .iconfont {
+    display: block;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.col-4 .jd-service .service_txt {
+    display: block;
+    line-height: 17px;
+}

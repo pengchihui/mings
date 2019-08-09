@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box {
+				width: 200px;
+				height: 200px;
+				background: radial-gradient(red, blue, green 50%);
+				;
+				box-shadow: 0px 5px 5px 0px;
+				position: relative;
+				text-shadow: 0px 0px 0px;
+				font-family: "叶根友神工体";
+			}
+			/*  伪类:  a    :link   :hover   :active    :visited   */
+			/*div>p:last-child{ background: green;} */
+			/*div>p:nth-child(3n){ background: green;} *//*nth-child(2n) nth-child(even)都是标记偶数  nth-child(odd)标记奇数*/
+			/*div>p:first-child{ background: green;}*/
+			/*ie8有效*/
+			
+			div>p:nth-child(1) {
+				background: green;
+			}
+			/*所有的子栏目标记*/
+			
+			div>p:nth-of-type(1) {
+				background: grey;
+			}
+			/*所有子栏目中的p标记*/
+			/*伪对象           ::before              ::after       */
+			
+			div::before {
+				content: "";
+				/*伪对象必需属性*/
+				width: 10px;
+				height: 200px;
+				background: #fff;
+				display: block;
+				position: absolute;
+				left: -10px;
+				top: 0;
+			}
+			
+			div::after {
+				content: ">";
+				clear: both;
+			}
+			
+			div:hover::before {
+				/*经过div时伪对象before变色*/
+				background: yellow;
+			}
+			/*浏览器兼容 css hank*/
+			
+			div {
+				margin-left: 100px;
+				/* 所有*/
+				*margin-left: 200px;
+				/*ie6 ie7*/
+				_margin-left: 50px;
+				/* ie6*/
+				/*-moz-                 firefox*/
+				/*-webkit-                chrome*/
+				/*-o-                      Opera*/
+			}
+			
+			ul>li {
+				width: 200px;
+				height: 200px;
+				background: green;
+				margin: 10px;
+				float: left;
+				transition: 2s;
+				position: relative;
+				top: 0;
+			}
+			ul>li:first-child:hover{
+				transform: rotate(-30deg);/*旋转*/
+			}
+			ul>li:nth-child(2):hover{
+				transform: scale(1.1,1.1);/*缩放*/
+				box-shadow: 0px 2px 5px 0px;
+			}
+			ul>li:nth-child(3):hover{
+				/*transform: translate(0, 20px);*//*位移*/
+				top: 20px;
+			}
+			ul>li:last-child:hover{
+				transform: skew(30deg,-30deg);/*2d翻转*/
+				transform: rotateY(360deg); /*3d翻转*/
+			}
+			ul::after{
+				content: "";
+				clear: both;
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+		</ul>
+
+		<div class="box">
+
+			<span>6666</span>
+			<p>456</p>
+			<p>你好</p>
+			<p>456</p>
+			<p>456</p>
+			<p>456</p>
+			<p>456</p>
+			<p>456</p>
+			<p>你好</p>
+			<p>456</p>
+			<p>456</p>
+			<p>456</p>
+			<p>456</p>
+		</div>
+
+	</body>
+
+</html>

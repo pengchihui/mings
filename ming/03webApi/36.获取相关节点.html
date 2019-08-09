@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="dv" class="" name="" style="bagckground-color: #ccc;">
+    <span>这个是div中的第一个span</span>
+    <p>这是div中的第一个p标签</p>
+    <ul id="uu">
+        <li>乔峰</li>
+        <li>段誉</li>
+        <li id="three">虚竹</li>
+        <li>慕容复</li>
+    </ul>
+</div>
+<script src="js/common.js"></script>
+<script>
+    var ulObj = my$('uu');
+    //ul的父亲节点
+    /*console.log(ulObj.parentNode);
+    console.log(ulObj.parentNode.parentNode);
+    console.log(ulObj.parentNode.parentNode.parentNode);
+    console.log(ulObj.parentNode.parentNode.parentNode.parentNode);
+    console.log(ulObj.parentNode.parentNode.parentNode.parentNode.parentNode);*/
+
+
+    //ul标签的父亲节点
+    // console.log(ulObj.parentNode);
+    //ul标签的父级元素
+    // console.log(ulObj.parentElement);
+
+    // console.log(ulObj.parentNode.nodeType);//节点类型---标签（1）
+    // console.log(ulObj.parentNode.nodeName);//节点名称----标签-->大写的标签名
+    // console.log(ulObj.parentNode.nodeValue);//null----标签的value为null
+
+
+    //获取div下边的相关节点
+    var dvObj = my$('dv');
+
+    //如何获取子节点
+    // console.log(dvObj.childNodes);//长度为7
+    //获取对象下边所有的子元素
+    // console.log(dvObj.children);//长度为3
+
+
+    //获取属性节点
+    // var attNode = dvObj.getAttributeNode('id');
+    // console.log(attNode+'================='+attNode.nodeType+'============='+attNode.nodeName+'======'+attNode.nodeValue);
+
+
+    // 获取这个div标签中的每一个子节点
+    /*for (var i=0;i<dvObj.childNodes.length;i++){
+        var node = dvObj.childNodes[i];
+        console.log(node.nodeType,node.nodeName,node.nodeValue);
+    }*/
+
+</script>
+</body>
+</html>

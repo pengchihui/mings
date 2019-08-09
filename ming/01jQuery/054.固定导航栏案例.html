@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    img {
+      vertical-align: top;
+    }
+
+    .main {
+      margin: 0 auto;
+      width: 1000px;
+      margin-top: 10px;
+
+    }
+
+    .fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<script src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //注册 浏览器的滚动事件
+        $(window).scroll(function(){
+            //获取页面卷曲出去的距离
+            // console.log($(this).scrollTop());
+            if($(this).scrollTop()>=$('#topPart').height()){
+                $('#navBar').addClass('fixed');
+                $('#topPart').css('marginBottom',$('#navBar').height());
+            }else{
+                $('#navBar').removeClass('fixed');
+                $('#topPart').css('marginBottom',0);
+            }
+        });
+    });
+</script>
+<body>
+    <div class="top" id="topPart">
+        <img src="images/top.png" alt=""/>
+    </div>
+    <div class="nav" id="navBar">
+        <img src="images/nav-gu.png" alt=""/>
+    </div>
+    <div class="main" id="mainPart">
+        <img src="images/main.png" alt=""/>
+    </div>
+</body>
+</html>

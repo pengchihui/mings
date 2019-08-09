@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="拼接" id="btn" /><br />
+    <input type="text" name="" id="" /><br />
+    <input type="text" name="" id="" /><br />
+    <input type="text" name="" id="" /><br />
+    <input type="text" name="" id="" />
+    <script type="text/javascript">
+        /*document.getElementById('btn').onclick=function(){
+            //获取所有的input  text
+            var inputs=document.getElementsByTagName('input');
+            var str='';
+            for (var i = 0; i < inputs.length-1; i++) {
+                if(inputs[i].type!='button'){
+                    str+=inputs[i].value+'|';
+                }
+            }
+            str+=inputs[inputs.length-1].value;
+            console.log(str);
+
+        };*/
+        /**
+         * 字符串的特性：  不可变性
+         * 
+         */
+        /*var str2='asdfjlkjsadjfalskd;fj';
+            console.log(str2.length);
+            console.log(str2[4]);
+            str2[4]='A';
+            console.log(str2);*/
+        //推荐使用数组的方式进行拼接大量字符串
+        document.getElementById('btn').onclick=function(){
+            var str=[];
+            //获取所有的文本框
+            var inputs=document.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i++) {
+                if(inputs[i].type!='button'){
+                    str.push(inputs[i].value);
+                }
+            }
+            console.log(str.join('|'));
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style-type: none;
+        }
+        .box {
+            width: 400px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .box .hd {
+            height: 45px;
+            line-height: 45px;
+        }
+
+        .hd span {
+            display: inline-block;
+            width: 90px;
+            text-align: center;
+            cursor: pointer;
+            background-color: pink;
+        }
+        .hd span.current {
+            background-color: purple;
+        }
+
+        .bd li {
+            height: 225px;
+            background-color: purple;
+            display: none;
+        }
+        .bd li.current {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <div class="hd">
+        <span class="current">体育</span>
+        <span>娱乐</span>
+        <span>新闻</span>
+        <span>综合</span>
+    </div>
+    <div class="bd">
+        <ul>
+            <li class="current">我是体育模块</li>
+            <li>我是娱乐模块</li>
+            <li>我是新闻模块</li>
+            <li>我是综合模块</li>
+        </ul>
+    </div>
+</div>
+
+
+<script src="js/common.js"></script>
+<script>
+//https://blog.csdn.net/jiangxinyu50/article/details/79104016
+//点击tab，进行切换
+    var box = my$('box');
+    //获取hd里边的span
+    var spans = box.getElementsByTagName('div')[0].getElementsByTagName('span');
+    //获取bd里边所有的li
+    var lists = box.getElementsByTagName('div')[1].getElementsByTagName('li');
+    //遍历span，添加点击事件
+/*    for( var i = 0;i<spans.length;i++) {
+        //在点击之前，就要把索引保存起来
+        //可以定义一个临时变量来保存，也可以保存在span标签里边的自定义属性
+        spans[i].setAttribute('index',i);
+        //点击事件
+        spans[i].onclick=function(){
+            //第一件事，把所有span的类样式全部移除
+            for( var j=0;j<spans.length;j++){
+                spans[j].removeAttribute('class');
+                lists[j].removeAttribute('class');
+            }
+            //第二件事，把当前的span设置类样式
+            this.setAttribute('class','current');
+            var num =this.getAttribute('index');
+            // console.log(lists[num]);
+            lists[num].setAttribute('class','current');
+
+        };
+    }*/
+    var a=[0,2,1,5];
+    /*lists.forEach(function(element,index){
+        element.onclick=function(){
+            this.index;
+        }
+    });*/
+    //获取到的lists是一个dom对象的集合
+    console.log(lists);
+    console.log(a instanceof Array ,lists instanceof Object);//lists叫类数组对象--- 也叫伪数组
+    //   arguments    ----也是一个伪数组
+    //伪数组  并不是通过Array构造函数构造出来的，所以，有一些方法是不可用。
+
+    // console.log(a);
+// lists.forEach(function(element,index){
+//         console.log(element,index);
+//     });
+</script>
+</body>
+</html>

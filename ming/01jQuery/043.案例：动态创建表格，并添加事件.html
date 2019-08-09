@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 500px;
+            height: 600px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        //用数组模拟后台数据
+        $(function(){
+            var arr=[
+                {'name':'百度','href':'http://www.baidu.com'},
+                {'name':'华信智原','href':'http://www.hxzycs.com'},
+                {'name':'腾讯视频','href':'http://v.qq.com'},
+                {'name':'优酷','href':'http://www.youku.com'},
+                {'name':'爱奇艺','href':'http://www.iqiyi.com'},
+                {'name':'B站','href':'http://www.bilibili.com'}
+            ];
+            $('#btn').click(function(){
+                var table = $('<table border="1" cellspacing="0" cellpadding="0" style="cursor: pointer;"></table>');
+                $('#dv').append(table);
+                for (var i = 0; i < arr.length; i++) {
+                    // arr[i]
+                    var tr= $("<tr></tr>");
+                    table.append(tr);
+
+                    var td1=$('<td>'+arr[i].name+'</td>');
+                    var td2=$('<td><a href="'+arr[i].href+'">'+arr[i].name+'</a></td>');
+                    tr.mouseenter(function(){
+                        $(this).css('backgroundColor','orange');
+                    }).mouseleave(function() {
+                        $(this).css('backgroundColor',"");
+                    }).append(td1).append(td2);
+                }
+            });
+        });
+    </script>
+    <input type="button" value="创建" id="btn" />
+    <div id="dv"></div>
+
+
+</body>
+</html>

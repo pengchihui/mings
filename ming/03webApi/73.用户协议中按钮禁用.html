@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="text" cols="30" rows="10">
+        这个世界这么疯狂
+        你不同意，我就不给你注册
+        你必须给我浏览5s，
+        否则别想点
+    </textarea>
+    <input type="button" value="请仔细阅读用户协议(5)" id="btn" disabled />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        var time =5;
+        var timeId=setInterval(function(){
+            time--;
+            my$('btn').value='请仔细阅读用户协议('+time+')';
+            if(time<=0){
+                //停止当前定时器
+                clearInterval(timeId);
+                //使按钮可以点击
+                my$('btn').disabled=false;
+                my$('btn').value='同意';
+            }
+        },1000);
+    </script>
+</body>
+</html>
+
+<script type="text/javascript">
+    /**
+     * 作业：
+     * 1.div里边的颜色 渐变
+     *
+     * 2.使div的宽度迅速增加
+     *
+     * 3.移动div的位置
+     */
+</script>

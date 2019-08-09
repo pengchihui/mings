@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			
+		</style>
+		
+		  
+	</head>
+	<body>
+		<ul>
+			<li>123</li>
+			<li>456</li>
+			<li>789</li>
+		</ul>
+		<script>
+			var ul=document.getElementsByTagName("ul");
+			ul[0].onclick=function(event){
+				var event=window.event||event; //事件兼容性
+				var target=event.srcElement||event.target;//委托事件兼容性
+				event.preventDefault();//去除默认
+				event.stopPropagation();
+				var value=target.innerText;
+//			    console.log(value);
+			}
+			var miss=[1,22,3,4,5,6,4,8,6,7,8,96,120];
+			for(var j in miss){
+//				console.log(j);
+			}
+		</script>
+	</body>
+</html>

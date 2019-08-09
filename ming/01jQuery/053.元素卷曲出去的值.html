@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * DOM   scroll系列
+         *
+         * scrollLeft  向左卷曲出去的距离
+         * scrollTop   向上卷曲出去的距离
+         * scrollWidth  内容的实际宽度
+         * scrollHeight  内容的实际高度
+         *
+         *
+         *
+         * jQuery中，获取元素向上卷曲出去的距离
+                scrollTop();
+                向左卷曲出去的距离 
+                scrollLeft();
+
+                scrollTop()\scrollLeft()  既可以获取 又可以设置
+
+
+                没有scrollWidth()   scorllHeight()  错误的！
+
+
+
+         */
+        $(function(){
+            $("#btn").click(function(){
+                // console.log($('#dv').scroll());
+                // 点击按钮获取div向上卷曲出去的距离
+                console.log($("#dv").scrollTop(100));
+                console.log($("#dv").scrollLeft());
+
+
+                // console.log($("#dv").scrollWidth());
+                // 
+                // 
+                // 
+                $("#dv").scroll();
+                
+            });
+            document.getElementById('dv').onscroll=function(){
+                console.log('aaaa');
+            }
+            $('#dv').scroll();//它是事件
+        });
+    </script>
+    <input type="button" value="设置" id="btn" />
+    <div id="dv">
+        <pre>
+        根本遵循：九个“坚持”
+
+●坚持党对意识形态工作的领导权
+
+●坚持思想工作“两个巩固”的根本任务
+
+●坚持用新时代中国特色社会主义思想武装全党、教育人民
+
+●坚持培育和践行社会主义核心价值观
+
+●坚持文化自信是更基础、更广泛、更深厚的自信，是更基本、更深沉、更持久的力量
+
+●坚持提高新闻舆论传播力、引导力、影响力、公信力
+
+●坚持以人民为中心的创作导向
+
+●坚持营造风清气正的网络空间
+
+●坚持讲好中国故事、传播好中国声音
+
+中心环节：统一思想、凝聚力量
+根本遵循：九个“坚持”
+
+●坚持党对意识形态工作的领导权
+
+●坚持思想工作“两个巩固”的根本任务
+
+●坚持用新时代中国特色社会主义思想武装全党、教育人民
+
+●坚持培育和践行社会主义核心价值观
+
+●坚持文化自信是更基础、更广泛、更深厚的自信，是更基本、更深沉、更持久的力量
+
+●坚持提高新闻舆论传播力、引导力、影响力、公信力
+
+●坚持以人民为中心的创作导向
+
+●坚持营造风清气正的网络空间
+
+●坚持讲好中国故事、传播好中国声音
+
+中心环节：统一思想、凝聚力量
+</pre>
+</div>
+</body>
+</html>

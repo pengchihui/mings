@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				background-color: #333333;
+			}
+			
+			img {
+				border: 0;
+				vertical-align: top;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+				/*  float: left;*/
+			}
+			
+			.outer {
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.shutter {
+				width: 1000px;
+				height: 358px;
+				position: relative;
+				margin: 0 auto;
+				border-radius: 10px;
+				left: 50%;
+				transform: translate(-50%, 0);
+			}
+			
+			.shutter-img {
+				z-index: 1;
+			}
+			
+			.shutter-img,
+			.shutter-img a {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.shutter-img a {
+				cursor: default;
+			}
+			
+			.shutter-img a>img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.shutter-img .created {
+				overflow: hidden;
+				position: absolute;
+				z-index: 20;
+			}
+			
+			.shutter-btn {}
+			
+			.shutter-btn li {
+				position: absolute;
+				z-index: 2;
+				top: 50%;
+				width: 79px;
+				height: 79px;
+				margin-top: -25px;
+				cursor: pointer;
+			}
+			
+			.shutter-btn li.prev {
+				left: 20%;
+				background: url(../images/shutter_prevBtn.png) no-repeat 0 -78px;
+				background-size: 100%;
+				border-radius: 50%;
+				z-index: 5;
+			}
+			
+			.shutter-btn li.next {
+				right: 20%;
+				background: url(../images/shutter_nextBtn.png) no-repeat 0 -78px;
+				background-size: 100%;
+				border-radius: 50%;
+				z-index: 5;
+			}
+			
+			.shutter-btn li.prev:hover,
+			.shutter-btn li.next:hover {
+				background-color: #fff;
+			}
+			
+			.shutter-desc {
+				position: absolute;
+				z-index: 2;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 36px;
+				background: url(../images/shutter_shadow.png) repeat;
+			}
+			
+			.shutter-desc p {
+				padding-left: 20px;
+				line-height: 36px;
+				color: #fff;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="outer">
+			<div class="shutter">
+				<div class="shutter-img">
+					<a data-shutter-title="Iron Man"><img src="http://www.ynqwzz.cn/uploadfiles/image/201904/425.jpg" alt="#"></a>
+					<a data-shutter-title="Iron Man"><img src="http://www.ynqwzz.cn/uploadfiles/image/201904/424.jpg" alt="#"></a>
+					<a data-shutter-title="Iron Man"><img src="http://www.ynqwzz.cn/uploadfiles/image/201904/423.jpg" alt="#"></a>
+					<a data-shutter-title="Iron Man"><img src="http://www.ynqwzz.cn/uploadfiles/image/201903/7.jpg" alt="#"></a>
+					<a data-shutter-title="Iron Man"><img src="http://www.ynqwzz.cn/uploadfiles/image/201904/10.jpg" alt="#"></a>
+					<a data-shutter-title="Iron Man"><img src="http://www.ynqwzz.cn/uploadfiles/image/201904/11.jpg" alt="#"></a>
+				</div>
+				<ul class="shutter-btn" style="display: none;">
+					<li class="prev"></li>
+					<li class="next"></li>
+				</ul>
+				<!-- <div class="shutter-desc">
+              <p>Iron Man</p>
+            </div> -->
+			</div>
+		</div>
+
+		<script src="http://www.ynqwzz.cn/views/new/js/jquery.min.js"></script>
+		<script src="http://www.ynqwzz.cn/views/new/js/velocity.js"></script>
+		<script src="http://www.ynqwzz.cn/views/new/js/shutter.js"></script>
+		<script>
+			$(function() {
+				$('.shutter').shutter({
+					shutterW: 1920, // 容器宽度
+					shutterH: 690, // 容器高度
+					isAutoPlay: true, // 是否自动播放
+					playInterval: 800, // 自动播放时间
+					curDisplay: 3, // 当前显示页
+					fullPage: false // 是否全屏展示
+				});
+			});
+		</script>
+	</body>
+
+</html>

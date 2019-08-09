@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //第一种写法
+            // $('#dv').css('width','300px');
+            // $('#dv').css('height','200px');
+            // $('#dv').css('backgroundColor','red');
+
+            // 第二种
+            // $('#dv').css('width','300px').css('height','200px').css('backgroundColor','red');
+
+            // 第三种   利用键值对  json    css()方法可以直接传json数据
+            var json = {
+                "width":'200px',
+                'height':'100px',
+                'backgroundColor':'skyblue'
+            };
+            $('#dv').css(json);
+        });
+
+    </script>
+    <div id="dv"></div>
+</body>
+</html>

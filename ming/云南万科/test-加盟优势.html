@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://www.ynqwzz.cn/views/new/js/jquery-1.8.3.min.js"></script>
+
+		<style>
+			/*加盟优势*/
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			ol li {
+				list-style: none;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.jmys {
+				height: 992px;
+				min-width: 1300px;
+				background-color: #fff;
+				overflow-x: hidden;
+				position: relative;
+			}
+			
+			.jmys .w {
+				height: 100%;
+			}
+			
+			.jmys-h {
+				margin: 0 auto;
+				width: 566px;
+				height: 125px;
+				background-image: url(view/images/jmys.jpg);
+			}
+			
+			.yzfw {
+				position: absolute;
+				left: 0;
+				top: 150px;
+				width: 306px;
+				height: 84px;
+				background-image: url(view/images/yzfw.jpg);
+			}
+			
+			.md-ys {
+				position: absolute;
+				left: 50%;
+				top: 150px;
+				-webkit-transform: translate(-50%, 0);
+				-ms-transform: translate(-50%, 0);
+				-o-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);
+				width: 459px;
+				height: 496px;
+				background-image: url(view/images/md-ys.png);
+			}
+			
+			.yzfw-p,
+			.sdys-p,
+			.sdly-p {
+				line-height: 34px;
+				font-size: 16px;
+				position: absolute;
+			}
+			
+			.cic {
+				display: inline-block;
+				width: 17px;
+				height: 17px;
+				border-radius: 50%;
+				font-size: 16px;
+				color: #fff;
+				background-color: #e6c47a;
+				text-align: center;
+				line-height: 17px;
+				margin-right: 4px;
+			}
+			
+			.yzfw-p {
+				top: 150px;
+				left: 330px;
+			}
+			
+			.sdys-p {
+				top: 150px;
+				left: 892px;
+			}
+			
+			.sdly-p {
+				top: 300px;
+				left: 756px;
+			}
+			
+			.box-ul-l li,
+			.box-ul-r li {
+				float: left;
+				margin-right: 60px;
+			}
+			
+			.box-ul-l {
+				position: absolute;
+				bottom: 130px;
+				left: 0;
+			}
+			
+			.box-ul-r {
+				position: absolute;
+				bottom: 130px;
+				right: 0;
+			}
+			
+			.box-ul-l li span,
+			.box-ul-r li span {
+				display: block;
+				width: 100%;
+				text-align: center;
+				font-size: 16px;
+				line-height: 30px;
+			}
+			
+			.box-ul-l li span:nth-child(3),
+			.box-ul-r li span:nth-child(3) {
+				font-size: 14px;
+				color: #a3a3a3;
+			}
+			
+			.box-ul-l li:hover span:nth-child(2) {
+				color: #f00f;
+			}
+			
+			.box-ul-r li:hover span:nth-child(2) {
+				color: #f00f;
+			}
+			
+			.box-center-img {
+				position: absolute;
+				left: 50%;
+				bottom: 20px;
+				-webkit-transform: translate(-50%, 0);
+				-ms-transform: translate(-50%, 0);
+				-o-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);
+			}
+			
+			.box-center-img img {
+				-webkit-transition: all .5s ease;
+				-o-transition: all .5s ease;
+				transition: all .5s ease;
+			}
+			
+			.box-center-img:hover img {
+				-webkit-transform: rotate(360deg);
+				-ms-transform: rotate(360deg);
+				-o-transform: rotate(360deg);
+				transform: rotate(360deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="jmys">
+			<div class="w">
+				<div class="jmys-h"></div>
+				<div class="yzfw"></div>
+				<div class="yzfw-p">
+					<p data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="1" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">1</span><span>全屋式.定制家居</span></p>
+					<p data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="2" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">2</span><span>以人为本的原创设计</span></p>
+					<p data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="3" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">3</span><span>严谨的服务质量</span></p>
+					<p data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="4" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">4</span><span>终端4s服务体系</span></p>
+				</div>
+				<div class="md-ys"></div>
+				<div class="sdys-p">
+					<p data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="5" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">1</span>10年家居制造实力</p>
+					<p data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="6" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">2</span>先进设备</p>
+					<p data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="7" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">3</span>环保材料</p>
+					<p data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="8" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">4</span>行业地位</p>
+				</div>
+				<div class="sdly-p">
+					<p data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="9" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">1</span>专业设计、无需基材、毛坯装修、环保健康</p>
+					<p data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="10" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">2</span>色泽纯正、 文理清晰、结构立体、款式多样</p>
+					<p data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="11" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">3</span>真皮质感、 触感舒适、回弹性高、防止静电</p>
+					<p data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="12" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">4</span>尊贵奢华、 精致优雅、大气唯美、简约时尚</p>
+					<p data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="13" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">5</span>抗菌抗霉、阻燃隔音、防污防水、释放负氧离子</p>
+					<p data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="14" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">6</span>易清洁保养、 具有超强的耐磨性和抗污性</p>
+					<p data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="15" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">7</span>新房新小区72小时装修、旧房翻新36小时改造</p>
+					<p data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="16" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">8</span>拥有整套发明、使用新型、外观专利的科技型企业</p>
+					<p data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="17" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic">9</span>专业设计师团队，为您提供名系列整体墙面装饰解决方案</p>
+					<p data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="18" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true"><span class="cic" style="font-size: 12px">10</span>完美的售后服务体系，客服一对一对接，解决从下单、备货、发货、设计 安装到售后服务体系。
+					</p>
+				</div>
+				<ul class="box-ul-l clearfix">
+					<li data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="19" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
+						<a>
+							<img src="http://www.ynqwzz.cn/views/new/images/box3_pic1.png" alt="">
+							<span>免费量尺</span>
+							<span>预约量尺</span>
+						</a>
+					</li>
+					<li data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="20" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
+						<a>
+							<img src="http://www.ynqwzz.cn/views/new/images/box3_pic2.png" alt="">
+							<span>免费设计</span>
+							<span>量身定制方案</span>
+						</a>
+					</li>
+					<li data-scroll-reveal="enter left after .6s" data-scroll-reveal-id="21" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
+						<a>
+							<img src="http://www.ynqwzz.cn/views/new/images/box3_pic3.png" alt="">
+							<span>预约看方案</span>
+							<span>报价、签订合同</span>
+						</a>
+					</li>
+				</ul>
+				<div class="box-center-img">
+					<img src="http://www.ynqwzz.cn/views/new/images/box3_pic7.jpg" alt="">
+				</div>
+
+				<ul class="box-ul-r clearfix">
+					<li data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="22" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
+						<a>
+							<img src="http://www.ynqwzz.cn/views/new/images/box3_pic4.png" alt="">
+							<span>免费安装</span>
+							<span>专业安装团队</span>
+						</a>
+					</li>
+					<li data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="23" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
+						<a>
+							<img src="http://www.ynqwzz.cn/views/new/images/box3_pic5.png" alt="">
+							<span>售后保障</span>
+							<span>贴心售后</span>
+						</a>
+					</li>
+					<li data-scroll-reveal="enter right after .6s" data-scroll-reveal-id="24" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
+						<a>
+							<img src="http://www.ynqwzz.cn/views/new/images/box3_pic6.png" alt="">
+							<span>终生维护</span>
+							<span>好品质更贴心</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<script src="http://www.ynqwzz.cn/views/new/js/jquery.min.js"></script>
+		<script src="http://www.ynqwzz.cn/views/new/js/scrollReveal.js"></script>
+		<script src="http://www.ynqwzz.cn/views/new/js/velocity.js"></script>
+		<script>
+			(function() {
+				window.scrollReveal = new scrollReveal({
+					reset: false,
+					move: '350px'
+				});
+			})()
+
+			//回到顶部
+			$(function() {
+				$('.rightnav>.contact1').hover(function() {
+					$(this).children('img,span').css('visibility', 'visible');
+				}, function() {
+					$(this).children('img,span').css('visibility', 'hidden')
+				});
+				$(".rightnav>.contact1-4").click(function() {
+					$("html,body").animate({
+						scrollTop: 0
+					}, 500);
+				});
+				//回到顶部的显示隐藏
+				$(window).scroll(function() {
+					if($(window).scrollTop() > 800) {
+						$(".rightnav").fadeIn(500);
+					} else {
+						$(".rightnav").fadeOut(500);
+					}
+				})
+			})
+		</script>
+	</body>
+
+</html>

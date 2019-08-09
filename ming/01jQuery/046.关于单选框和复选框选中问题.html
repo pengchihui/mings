@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * DOM  选中  
+         *   dom.checked=true;
+         *   dom.checked=false;
+         */
+        $(function(){
+            $("#btn").click(function(){
+                //这是DOM方法不适用jQuery对象
+                // $('#rd2').checked=true;
+                // $('#rd2')[0].checked=true;
+                // $('#rd2').get(0).checked=true;
+                // 
+                //jQuery方法
+                // 需要使用自定义属性
+                // setAttribute()---DOM    attr()
+                /*console.log($('#rd3').attr('checked'));//没有设置checked 是undefined
+                console.log($('#rd3').attr('checked'));//设置checked 是checked*/
+
+                // 点击按钮，如果选中了，设置取消选中，如果没有选中，设置选中
+                if($('#rd3').attr('checked')){
+                    //有选中，那么就取消选中它
+                    $('#rd3').attr('checked',false);
+                    console.log('aaa');
+                }else{
+                    $('#rd3').attr('checked',true);
+                    console.log('bbb');
+                }
+                
+            });
+        });
+    </script>
+    <input type="button" value="选中" id="btn" /><br />
+    <input type="radio" name="sex" id="rd1" />男<br />
+    <input type="radio" name="sex" id="rd2" />女<br />
+    <input type="radio" name="sex" id="rd3" checked />人妖
+</body>
+</html>

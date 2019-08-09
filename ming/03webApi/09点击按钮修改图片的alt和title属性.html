@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<img src="images/cangjingkong.jpg" alt="" />
+<script>
+    document.getElementById('btn').onclick=function(){
+        //返回的是一个伪数组
+        var imgObjs=document.getElementsByTagName('img');
+        imgObjs[0].alt='修改';
+        imgObjs[0].title='你叫苍老师吧';
+    };
+</script>
+<script>
+    //练习：
+    //点击按钮修改所有文本框的值
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        /**
+         * 为按钮绑定点击事件
+         *   用到添加事件监听器
+         *  1.对象.addEventListener('事件类型，不带on',事件处理函数,false)--------谷歌、火狐、ie9以上支持
+         *  2.
+         */
+        //为同一个元素绑定多个相同的事件
+        //参数1：事件类型----也就是事件的名字-----不带on
+        //参数2：事件处理函数-----函数（匿名函数，命名函数）
+        //参数3：布尔类型，这里先不讲，目前来讲，都写false-----后边再讲
+        /*my$('btn').addEventListener('click', function(){
+            console.log('今天下大雨');
+        }, false);
+       my$('btn').addEventListener('click', function(){
+            console.log('明天还下雨吗？');
+        }, false);
+       my$('btn').addEventListener('click', function(){
+            console.log('后天该放晴了吧！');
+        }, false);*/
+
+
+        // attachEvent   ----
+        // 参数1：事件类型----带on
+        // 参数2：事件处理函数
+        /*my$('btn').attachEvent('onclick',function(){
+            console.log('小王好帅哟1');
+        });
+        my$('btn').attachEvent('onclick',function(){
+            console.log('小王好帅哟2');
+        });
+        my$('btn').attachEvent('onclick',function(){
+            console.log('小王好帅哟3');
+        });*/
+    </script>
+</body>
+</html>

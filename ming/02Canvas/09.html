@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制坐标系</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 1.绘制坐标系
+        // 2. 坐标系距离画布边缘的宽的
+        // 2. 确定坐标系原点
+        // 4. x,y坐标轴长度
+        // 5. 箭头的大小----等腰三角形
+        // 6. 箭头填充
+        
+        // 距离画布边缘的宽度 
+        var space = 20;
+        //箭头的宽度
+        var arrowSize = 10;
+
+        //计算原点
+        var w = ctx.canvas.width;
+        var h = ctx.canvas.height;
+
+        var x0 = space - .5;
+        var y0 = h - space - .5;
+
+        // 绘制x轴
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+        ctx.lineTo(w - space, y0);
+        ctx.moveTo(w - space, y0);
+        ctx.lineTo(w -space - arrowSize, y0 + arrowSize / 2);
+        ctx.lineTo(w -space - arrowSize, y0 - arrowSize / 2);
+        ctx.closePath();
+        ctx.fillStyle = ctx.strokeStyle = '#f00';
+        ctx.stroke();
+        ctx.fill();
+
+        // 绘制y轴
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+        ctx.lineTo(x0, space);
+        ctx.moveTo(x0, space);
+        ctx.lineTo(x0 + arrowSize / 2, space + arrowSize);
+        ctx.lineTo(x0 - arrowSize / 2, space + arrowSize);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+
+
+    </script>
+</body>
+</html>

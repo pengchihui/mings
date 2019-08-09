@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery-1.7.2.js"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+		
+			.box {
+				width: 800px;
+				height: 300px;
+				background: #eee;
+				margin: 0 auto;
+				position: relative;
+			}
+		
+			.box li {
+				list-style: none;
+				width: 200px;
+				height: 100px;
+				position: absolute;
+			}
+			.box li:nth-child(1) {background: red;}
+			.box li:nth-child(2) {background: orange;}
+			.box li:nth-child(3) {background: yellow;}
+			.box li:nth-child(4) {background: green;}
+			.box li:nth-child(5) {background: blue;}
+		
+			.box button {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				top: 140px;
+			}
+			</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<button style="right: 0;">&gt;</button>
+			<button style="left: 0;">&lt;</button>
+		</div>
+		
+		<script>
+        /* 定义数组对象*/
+		var arr = [{
+				left: "300px",
+				top: "125px",
+				zIndex: 3,
+				opacity: 1
+			},
+			{
+				left: "450px",
+				top: "100px",
+				zIndex: 2,
+				opacity: .75
+			},
+			{
+				left: "400px",
+				top: "75px",
+				zIndex: 1,
+				opacity: .5
+			},
+			{
+				left: "200px",
+				top: "75px",
+				zIndex: 1,
+				opacity: .5
+			},
+			{
+				left: "150px",
+				top: "100px",
+				zIndex: 2,
+				opacity: .75
+			}
+		]
+		/* 初始化 */	 
+		/* $(this).get(0)与$(this)[0]等价   eq匹配一个给定索引值的元素  get匹配元素 */
+		for(var i=0; i<arr.length;i++){ 
+			 $("li").eq(i).css(arr[i]);
+			 $("li").get(i).index=i; //
+			 // console.log($("li").get(i).index) //undefined
+		}	 
+		/* 动画开关 */
+		var kg=true;
+		function turn_left(){
+			kg=false
+			for(var i=0;i<arr.length;i++){
+				var a=$("li").get(i).index   //得到索引值
+				$("li").get(i).index=(a==4?0:a+1)  //索引值边界
+				$("li").eq(i).animate(arr[$("li").get(i).index],500,function(){kg=true})
+			}
+		}
+		function turn_right(){
+			kg=false
+			for(var i=0;i<arr.length;i++){
+				var a=$("li").get(i).index
+				$("li").get(i).index=(a==0?4:a-1)
+				$("li").eq(i).animate(arr[$("li").get(i).index],500,function(){kg=true})
+			}
+		}
+		/* 点击事件 */
+		$("button").click(function(){
+			if($(this).index()==2&&kg==true){
+				turn_right()
+			}else if($(this).index()==1&&kg==true){
+				turn_left()
+			}
+		})
+		
+		/* 循环 */
+		var asd=setInterval("turn_left()",1000)
+		
+		/* 进入停止 离开 继续 */
+		$(".box").mouseenter(function(){
+			clearInterval(asd)
+		})
+		$(".box").mouseleave(function(){
+			asd=setInterval("turn_left()",1000)
+		})	 
+			 
+			 
+		</script>
+	</body>
+</html>

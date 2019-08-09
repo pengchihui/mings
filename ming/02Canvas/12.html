@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>canvas图形绘制</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+
+    <script type="text/javascript">
+        // 矩形----  用线条来绘制矩形
+        // 矩形的绘制 api
+        // rect(x, y, w, h)
+        // x,y  表示 左上角的坐标
+        // w,h  表示 矩形的宽高
+        
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // 利用ctx 绘制矩形路径
+        ctx.rect(100,100,200,150); //  此处 只是绘制了路径，比没有描边
+        // ctx.stroke();
+        ctx.fill();
+
+        // strokeRect(x,y,w,h);
+        // fillRect(x,y,w,h);
+        ctx.strokeRect(150,150,200,100);  // 它是拥有独立路径的，所以不需要描边
+        ctx.fillRect(200,200,100,50);  // 填充的  它也是拥有独立路径，不需要再调用fill
+
+
+        /**
+         * rect  没有独立路径，那么在绘制它的时候，需要注意，不要影响到之前的路径
+         *      注意  先 beginPath()
+         *
+         * strokeRect、fillRect  有独立路径的，所以在绘制的时候，不会影响其他的绘制，不需要开启独立路径
+         */
+        
+        // clearRect(x,y,w,h);  擦除 矩形区域
+        
+        ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+        
+    </script>
+</body>
+</html>

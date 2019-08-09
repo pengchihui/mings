@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: darkcyan;
+        }
+        .cls {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+<div id="dv"></div>
+<input type="button" value="隐藏" id="btn"/>
+<script src="js/common.js"></script>
+<script>
+    /*my$('btn').onclick=function(){
+        if (this.value=='隐藏'){
+            my$('dv').style.display='none';//隐藏
+            this.value='显示';
+        } else if(this.value=='显示'){
+            my$('dv').style.display='block';//显示
+            this.value='隐藏';
+        }
+    };*/
+    my$('btn').onclick=function(){
+        //判断div是否应用了类样式
+        if (my$('dv').className != 'cls'){
+            //现在是显示状态，所以接下来应该隐藏
+            my$('dv').className='cls';
+            this.value='显示';
+        }else{
+            //现在是隐藏的状态，接下来就是显示
+            my$('dv').className='';
+            this.value='隐藏';
+        }
+    };
+</script>
+</body>
+</html>

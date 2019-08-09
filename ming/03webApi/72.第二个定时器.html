@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /**
+         *  前面讲 window对象下有两个定时器，
+         *  一个是比较常用，反复执行  window.setInterval(function(){},1000);
+         *  //清除定时器方法  window.clearInterval(定时器的id);
+         *
+         *
+         *  另一个定时器-----一次性的定时
+         *  它的参数：
+         *  参数1：函数
+         *  参数2：时间---1000毫秒=1秒
+         *
+         *  window.setTimeout(function(){},1000);
+         *
+         *  清除定时器方法：
+         *  clearTimeout(timeId);
+         */
+    </script>
+    <input type="button" value="停止" id="btn" />
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //页面加载完毕，1s后，弹出对话框，说您好
+        window.onload = function() {
+            var timeId = setTimeout(function() {
+                alert('您好！');
+            }, 1000);
+            //点击按钮，停止定时器
+            my$('btn').onclick=function(){
+                clearTimeout(timeId);
+            };
+        };
+
+    </script>
+</body>
+</html>

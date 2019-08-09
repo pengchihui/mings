@@ -1,0 +1,149 @@
+.all {
+	width: 720px;
+	height: auto;
+	margin: 0 auto;
+	font-family: "Adobe 黑体 Std";
+}
+
+.header {
+	width: 720px;
+	height: 80px;
+	background: #9f0027;
+}
+
+.header header {
+	margin: 0 auto;
+	width: 684px;
+	height: 80px;
+	line-height:80px;
+}
+header div{
+	padding-top: 20px;
+	padding-left: 50px;
+	width: auto;
+	height: 40px;
+    background: url(../images/phone/login/login_03.jpg) no-repeat left;
+    background-size: 22px 40px;
+    background-position-y: 20px;
+}
+header input{
+	    float: left;
+		width: 500px;
+		height: 40px;
+		line-height: 40px;
+	    border-style: none;
+		outline: none;
+		color:#dad7d7;
+		font-size: 24px;
+		border-radius:20px;
+		padding-left: 40px;		
+		background: url(../images/phone/index_04.jpg) no-repeat left #FFFFFF;
+		background-size:22px 24px;
+		background-position-x: 10px;
+}
+
+header span{
+	display: block;
+	float: right;
+	color: #ffffff;
+	font-size: 24px;
+	line-height: 40px;
+}
+.container{
+	width: 720px;
+	padding-bottom: 54px;
+}
+.container div{
+	margin:0 auto ;
+	width: 684px;
+	
+	}
+
+.container div p{
+	font-size: 30px;
+	color: #333333;
+	margin-top: 5px;
+}
+.container li{
+	list-style: none;
+	float: left;
+	padding: 10px 22px;
+	background: #efeced;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+.container a{
+	color: #666666;
+	font-size: 28px;
+}
+.container li:nth-child(4){
+	margin-right: 0px;
+	
+}
+.container li:nth-child(11){
+	margin-right: 0px;
+}
+
+.foo_on{
+	padding-top: 40px;
+	height: auto;
+	width: 720px;
+	clear: both;
+}
+.foo_on li{
+	border-bottom:1px solid #cccccc;
+	padding-left: 18px;
+	padding: 16px 16px 18px;
+}
+.foo_on li span{
+	font-size: 30px;
+	color: #333333;
+}
+.foo_on li a{
+	font-size: 28px;
+	color: #999999;
+}
+#loading{
+	margin-top: 53px;
+	margin-bottom: 568px;
+}
+
+#loading p{
+	margin: 0 auto;
+	width: 684px;
+	height: 44px;
+	border: 1px solid #cccccc;
+	line-height: 42px;
+	background: #f0ebeb;
+	border-radius: 25px;
+   display: flex;
+   justify-content: center;
+}
+
+#loading p span{
+	float: left;
+	padding-left: 40px;
+	font-size: 28px;
+	color: #999999;
+	
+}
+
+#loading p span::before{
+	content: "";
+	display: block;
+	width: 16px;
+	height: 26px;
+	background: url(../images/phone/search/pro_search_03.jpg) no-repeat left ;
+    background-size: 16px 26px;	
+    margin-right: 10px;
+    float: left;
+    padding-top: 20px;
+    
+}
+
+
+
+
+
+
+

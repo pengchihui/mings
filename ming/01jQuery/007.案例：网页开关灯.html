@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        /* .cls {
+            background-color: black;
+        } */
+    </style>
+</head>
+<body>
+    <input type="button" value="关灯" id="btn" />
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        /**
+         * DOM方法
+         */
+        /*document.getElementById('btn').onclick=function(){
+            var body=document.body;
+            if(body.className=='cls'){
+                body.className='';
+                this.value='关灯';
+            }else{
+                body.className='cls';
+                this.value='开灯';
+            }
+        };*/
+
+
+        // 以下jQuery写法
+        /*$("#btn").click(function(){
+            if($('body')[0].className=='cls'){
+                $('body')[0].className='';
+            }else{
+                $('body')[0].className="cls";
+            }
+        });*/
+
+
+        /**
+         *    hasClass();//是否应用了类样式
+         *    removeClass();//移除类样式
+         *    addClass();//添加类样式
+         */
+
+        /*$('#btn').click(function(){
+            //对象是否应用了类样式
+            if($('body').hasClass('cls')){
+                //应用了
+                $('body').removeClass('cls');
+            }else{
+                //加上类样式
+                $('body').addClass('cls');
+            }
+        });*/
+
+
+        /**
+         * 关于表单标签获取value值和设置value属性值    
+         *     DOM方法：  对象.value
+         *     jQuery中:  对象.val()  返回value值
+         *                对象.val('值');设置value值
+         *
+         *
+         *      对象.css('css属性的名字','属性的值');.----->设置元素的样式属性
+         *      对象.css('css属性名','');  ---->设置元素样式为空，移除样式
+         */
+
+        $('#btn').click(function(){
+            //通过值来修改body的样式
+            //
+            //此时this指的是当前按钮的DOM对象
+            //所以可以使用DOM的属性
+            //
+            //但是我们最好转换成jQuery对象
+            // console.log(this);
+            if($(this).val()=='关灯'){
+                $('body').css('backgroundColor','black');
+                $(this).val('开灯');
+            }else{
+                $('body').css('backgroundColor','');
+                $(this).val('关灯');
+            }
+        });
+    </script>
+</body>
+</html>

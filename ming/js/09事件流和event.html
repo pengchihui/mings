@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{width: 200px; height: 200px; background: red; overflow: hidden;}
+			button{ margin-top: 30px;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<button>点击</button>
+		</div>
+		<ul>
+			<li>111</li>
+			<li>2<span>2<b>2</b>2</span></li>
+			<li>333</li>
+		</ul>
+		<script type="text/javascript">
+		
+		//JS事件流：  
+		//事件的执行顺序分三个阶段：    捕获    目标    冒泡（默认）
+		
+		var btn=document.getElementsByTagName("button")
+		var box=document.getElementsByTagName("div")
+		
+//		box[0].onclick=function(){
+//			if(this.style.height=="200px"){
+//				this.style.height="30px"
+//			}else{
+//				this.style.height="200px"
+//			}
+//		}
+//		//我想点击按钮时，让事件不要往上传播，那么就要阻止冒泡
+//		btn[0].onclick=function(){
+//			event.stopPropagation()//阻止冒泡
+//			this.style.height="200px"
+//		}
+		
+		//事件绑定   .addEventListener(什么事件(不要带on)，执行程序，是否执行捕获事件流)
+		
+		
+//element.attachEvent(‘onclick’, observer);添加
+//element.detachEvent(‘onclick’, observer);移除
+//element.addEventListener(‘click’, observer, useCapture);添加
+//element.removeEventListener(‘click’, observer, useCapture);移除
+		
+		
+//		btn[0].addEventListener("click",function(){
+//			console.log(2222)
+//		},true)
+//		
+//		box[0].addEventListener("click",function(){
+//			console.log(1111)
+//		},true)
+//		
+//		btn[0].addEventListener("click",function(){
+//			console.log(3333)
+//		},false)
+//		
+//		box[0].addEventListener("click",function(){
+//			console.log(4444)
+//		},false)
+
+		
+		//event事件对象，详细记录了事件发生时的一些相关数据（类似黑夹子）
+
+//box[0].onclick=function(event){	
+//	var ev=event||window.event	
+//	console.log(ev)
+//	console.log(ev.button)//鼠标按键     0表示左键
+//	console.log(ev.clientY)//视口位置  （固定定位）
+//	console.log(ev.offsetY)//容器位置  （绝对定位以容器为参照物）
+//	console.log(ev.screenY)//屏幕位置  （）
+//	console.log(ev.pageY)//页面位置       （绝对定位以页面为参照物）
+//}
+
+//右键菜单事件
+//box[0].oncontextmenu=function(){
+//	event.preventDefault()//阻止默认行为
+//	console.log(event.button)
+//}
+
+
+//37 38 39 40
+//var a=0;
+//document.onkeydown=function(event){
+//	var ev=event||window.event
+//	console.log(ev)
+//	var key=ev.keycode||ev.which||ev.charcode
+//	if(key==39){
+//		console.log("你按下了右键")
+//		box[0].style.marginLeft=(a+=5)+"px"
+//	}
+//}
+//	
+	
+	
+//事件委托	
+var ul=document.getElementsByTagName("ul")	
+ul[0].onclick=function(event){
+	var e=event||window.event
+	var target = e.srcElement ? e.srcElement : e.target;
+	console.log(target)//它永远是最底层直接接受事件的目标DOM元素
+}
+	
+		</script>
+		
+		
+		
+	</body>
+</html>

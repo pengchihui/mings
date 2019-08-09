@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				background-color: #333333;
+			}
+			
+			img {
+				border: 0;
+				vertical-align: top;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+				/*  float: left;*/
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.jieshao {
+				position: relative;
+				background-color: #fcf6e9;
+				height: 536px;
+			}
+			
+			.jian {
+				position: absolute;
+				width: 100%;
+				height: 11px;
+				background: url(http://www.ynqwzz.cn/images/jian.png) 0 0 repeat;
+				top: -11px;
+			}
+			
+			.ri {
+				background-color: #000;
+				width: 97px;
+				height: 97px;
+				border-radius: 50%;
+				position: absolute;
+				left: 50%;
+				transform: translate(-50%, 0);
+				top: -63px;
+				z-index: 2;
+			}
+			
+			.ri a {
+				width: 100%;
+				height: 100%;
+				line-height: 97px;
+				text-align: center;
+				display: block;
+				color: #e1cca3;
+			}
+			
+			.ri .jbtb {
+				position: absolute;
+				left: 50%;
+				-webkit-transform: translate(-50%, 0);
+				-ms-transform: translate(-50%, 0);
+				-o-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);
+				width: 15px;
+				height: 6px;
+				bottom: 26px;
+				background-image: url(../images/jbtb.jpg);
+				-webkit-transition: all .5s ease;
+				-o-transition: all .5s ease;
+				transition: all .5s ease;
+			}
+			
+			.ri:hover .jbtb {
+				bottom: 10px;
+			}
+			
+			.rb {
+				background-image: url(http://www.ynqwzz.cn/images/rb.jpg);
+				position: absolute;
+				left: 49.999%;
+				-webkit-transform: (-50%, 0);
+				-ms-transform: translate(-50%, 0);
+				-o-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);
+				width: 129px;
+				height: 53px;
+				z-index: 1;
+			}
+			
+			.jieshao-l {
+				width: 290px;
+				height: 380px;
+				position: absolute;
+				background-color: #fff;
+				top: 80px;
+				left: 50px;
+				-webkit-transition: all .6s ease;
+				-o-transition: all .6s ease;
+				transition: all .6s ease;
+			}
+			
+			.jieshao-l:hover {
+				-webkit-transform: translateY(-7px);
+				-ms-transform: translateY(-7px);
+				-o-transform: translateY(-7px);
+				transform: translateY(-7px);
+				box-shadow: 2px 10px 3px rgba(0, 0, 0, 0.3), -2px -3px 3px rgba(0, 0, 0, 0.3);
+			}
+			
+			.jieshao-l ul li a {
+				display: block;
+				width: 290px;
+				height: 111.66px;
+				padding-top: 15px;
+			}
+			
+			.jieshao-l ul li a:hover {
+				background-color: #39C53A;
+			}
+			
+			.tu {
+				display: block;
+				margin: 0 auto;
+			}
+			
+			.jieshao-l a span {
+				margin: 0 auto;
+				display: block;
+				width: 90px;
+				height: 25px;
+				text-align: center;
+				margin-top: 10px;
+				font-size: 16px;
+			}
+			
+			.jieshao-l a:hover span {
+				color: #fff;
+			}
+			
+			.jieshao-r {
+				position: absolute;
+				width: 910px;
+				height: 360px;
+				top: 100px;
+				right: 0;
+				/*background-color: red;*/
+			}
+			
+			.jieshao-r .jieshao-h {
+				margin: 0 auto;
+				text-align: center;
+				font-size: 30px;
+				width: 320px;
+				color: #431716;
+				height: 32px;
+			}
+			
+			.jieshao-h-y {
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				font-size: 14px;
+				width: 415px;
+				margin: 0 auto;
+				color: #4a4a4a;
+			}
+			
+			.jieshao-line {
+				width: 70px;
+				height: 3px;
+				margin: 0 auto;
+				margin-top: 15px;
+				-webkit-transition: all .5s ease;
+				-o-transition: all .5s ease;
+				transition: all .5s ease;
+				background-color: #431716;
+			}
+			
+			.jieshao-r:hover .jieshao-line {
+				width: 415px;
+			}
+			
+			.jieshao-b {
+				margin-top: 40px;
+				padding-right: 50px;
+			}
+			
+			.jieshao-b p {
+				color: #4a4a4a;
+				font-size: 14px;
+				line-height: 24px;
+				text-indent: 2em;
+			}
+			
+			.jieshao-bb {
+				width: 143px;
+				height: 71px;
+				position: absolute;
+				left: 50%;
+				-webkit-transform: translate(-50%, 0);
+				-ms-transform: translate(-50%, 0);
+				-o-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);
+				background-image: url(../images/jieshao-bb.jpg);
+				bottom: 0;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--介绍-->
+		<div class="jieshao">
+			<div class="jian"></div>
+
+			<div class="w">
+				<div class="ri">
+					<a href="javascript:void(0)">万科整装</a>
+					<div class="jbtb"></div>
+				</div>
+				<div class="rb"></div>
+
+				<div class="jieshao-l">
+					<ul>
+						<li>
+							<a href="/index.php?c=content&amp;a=list&amp;catid=29"><img src="http://www.ynqwzz.cn/views/new/images/top.png" class="tu"><span>产品中心</span></a>
+						</li>
+						<li>
+							<a href="/index.php?c=content&amp;a=list&amp;catid=25"><img src="http://www.ynqwzz.cn/views/new/images/mid.png" class="tu"><span>3D体验中心</span></a>
+						</li>
+						<li>
+							<a href="/index.php?c=content&amp;a=list&amp;catid=41"><img src="http://www.ynqwzz.cn/views/new/images/bot.png" class="tu"><span>联系我们</span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="jieshao-r">
+					<div class="jieshao-h">锦鑫全屋整装定制家具</div>
+					<div class="jieshao-h-y">JINXIN WHOLE HOISE SELF-MADE CUSTOM HOME</div>
+					<div class="jieshao-line"></div>
+					<div class="jieshao-b">
+						<p>&nbsp; &nbsp; &nbsp; 云南锦鑫全屋整装系列产品秉承绿色环保的理念，零甲醛释放，研发出以竹木纤维墙板等系列产品， 以纯正欧洲血统汇聚精英设计师，传承意大科学派设计精神。凭倡看顶尖工艺创造非凡品质，以为国际时尚打造美学典范，以极致理念实现健康家居。</p>
+						<p>我们选用的金奈集成墙板全屋整装依靠顶尖设计师团队，建立起3万平米国际化整装产品制造基地，采用国际领先的3D度报设计生产和关配系统，引进德国全流据化生产线，与国内外知名板材生产企业建立战略合作，确保家医从定制设计创制作安展的完美品质。</p>
+						<p>我们首倡“私享艺术生活”为生活理念，把艺术与家居巧妙地融合在一起，让每个家庭拥有专属设计师，公司配有专业的VR视觉体验，通过VR的视觉体验，让客户将成为家庭的生活顾问和艺术导师，真正做到时刻关注顾客感受用舒适和时尚点亮顾客的生活，全面提升家居生活品质，奠定了二十一世纪家居生活的格调。</p>
+						<p>目前，公司系列产品已经形成“全屋快装，皮雕定制、整体衣柜”等多元化产业格局，通盖欧美日韩数十种风格，是国内首屈一指的综合型整体家居一体化服务供应高。</p>
+						<p><br></p>
+					</div>
+				</div>
+			</div>
+			<div class="jieshao-bb"></div>
+		</div>
+	</body>
+
+</html>

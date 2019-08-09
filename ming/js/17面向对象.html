@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{ width: 200px; height: 200px; position: absolute; background: red;}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box1" style="left: 0; top: 0;">111</div>
+		<div id="box2" style="left: 0; top: 0;">222</div>
+		
+		<script>
+			//面向对象：是一种编程的思维模式，万物皆对象
+			//封装   多态   继承
+			
+//			var a={name:"张三",age:18}
+//			var b=a
+//			b.name="李四"
+//			console.log(a.name)//没有修改a.name，但也变成了“李四”
+//			
+		//工厂模式	
+		function test(val1,val2){	
+			var obj=new Object()
+			obj.name=val1
+			obj.age=val2
+			return obj
+		}	
+		var c=test("王五",20)	
+		var d=test("赵六",19)	
+		d.name="123"
+		console.log(c.name)//利用工厂模式，我们修改的d.name，但没有影响到c.name
+		
+		//工厂模式的简写：构造函数
+		function Test(val1,val2){
+			this.name=val1
+			this.age=val2
+		}
+		//原型函数
+		Test.prototype.say=function(){
+			console.log("你好，我是"+this.name)
+		}
+		//构造函数的使用：通过 实例化 去实现
+		var e=new Test("study",22)
+		console.log(e.name)
+		e.say()
+		
+		
+		
+		var f=new Test("阿萨德",22)
+		f.say()		
+		console.log(e.say===f.say)//不成立则资源不共用。成立则资源共用
+		
+		
+				
+		//__proto__构造函数的原型链        e-->Test()-->Object()
+		
+		//原型构造函数，构造函数里面放不共用的数据，原型里面放共用的数据
+	
+		function Drag(val1){
+			this.name=document.getElementById(val1)
+		}
+		Drag.prototype.move=function(){
+			this.name.onmousedown=function(event){
+				var first_x=event.offsetX
+				var first_y=event.offsetY
+				this.onmousemove=function(event){					
+					var move_x=event.clientX
+					var move_y=event.clientY					
+					this.style.left=move_x-first_x+"px"
+					this.style.top=move_y-first_y+"px"
+				}				
+			}
+			this.name.onmouseup=function(){
+				this.onmousemove=null
+			}
+		}
+		var box1=new Drag("box1");
+		box1.move()
+		
+		var box2=new Drag("box2");
+		box2.move()
+		
+		
+		
+			
+		function Anmail(val1,val2,val3){
+			this.name=val1
+			this.color=val2
+			this.age=val3
+		}
+		function Cat(name,age,color){
+			this.style="猫"
+			//Anmail.call(this,name,color,age)
+			//Anmail.apply(this,[name,color,age])
+			//Anmail.apply(this,arguments)
+		}
+		Cat.prototype=new Anmail("小白",3,"白色")
+		Cat.prototype.constructor= Cat
+		var m=new Cat()
+		console.log(m.name)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

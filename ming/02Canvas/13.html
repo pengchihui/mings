@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制一个渐变的矩形</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+        div.linearGradient {
+            width: 400px;
+            height: 50px;
+            background-image: linear-gradient(45deg, pink 10%, blue 50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="linearGradient"></div>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+        // 画一个渐变色    由 pink----> blue
+        
+        // css3  linearGradient
+        // 线性渐变    ——>  方向  起始颜色   结束颜色
+
+        //  在canvas里边  通过两个点的坐标，可以控制渐变的方向
+
+        // fillStyle   pink   #000 rgb()  rgba()  
+        //   css 里边可以使用以上的，还可以使用一种  渐变方案
+        
+        // 如何在canvas里边创建一个渐变方案
+        // createLinearGradient(x0,y0,x1,y1)   起点坐标-->终点坐标
+        var linearGradient = ctx.createLinearGradient(100, 100, 500, 100);
+        linearGradient.addColorStop(0,'pink');
+        linearGradient.addColorStop(.5,'red');
+        linearGradient.addColorStop(1,'blue');
+
+        ctx.fillStyle = linearGradient;
+
+        ctx.fillRect(100,100,400,100);
+
+    </script>
+    
+</body>
+</html>

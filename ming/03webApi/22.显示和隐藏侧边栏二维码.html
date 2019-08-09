@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .nodeSmall {
+            width: 50px;
+            height: 50px;
+            background: url(images/bgs.png) no-repeat -159px -51px;
+            position: fixed;
+            right: 10px;
+            top: 40%;
+        }
+        .nodeSmall a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+        .erweima {
+            position: absolute;
+            top: 0;
+            left: -145px;
+        }
+    </style>
+</head>
+<body>
+<div class="nodeSmall" id="node_small">
+    <a href="#"></a>
+    <div class="erweima hide" id="er">
+        <img src="images/456.png" alt="" />
+    </div>
+</div>
+<script src="js/common.js"></script>
+<script>
+    //获取a标签并注册时间
+    var aObj = my$('node_small').getElementsByTagName('a')[0];
+    aObj.onmouseover=function(){
+        my$('er').className="erweima show";
+    };
+    aObj.onmouseout=function(){
+        my$('er').className='erweima hide';
+    };
+</script>
+</body>
+</html>

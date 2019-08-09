@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<script type="text/javascript" src="extjs/bootstrap.js"></script>-->
+		<script type="text/javascript" src="extjs/ext-all.js"></script>
+		<!--<script type="text/javascript" src="extjs/local/ext-lang-zh_CN.js"></script>-->
+		<link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
+
+		<style>
+			#box {
+				margin: 0 auto;
+				width: 1000px;
+				height: auto;
+				margin-bottom: 20px;
+				overflow-x: hidden
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+
+		<script>
+			Ext.onReady(function() {
+				Ext.create("Ext.panel.Panel", {
+					title:'环境治理设施智能管理软件',
+					width: 1000,
+					height: 700,
+					renderTo: 'box',
+					items: [{
+						width: 1000,
+						height: 30,
+						xtype: 'toolbar',
+						/*工具栏*/
+						items: [
+
+							// 使用右对齐容器
+							'->', // 等同 { xtype: 'tbfill' }
+							{
+								xtype: 'textfield',
+								name: 'field1',
+								emptyText: '输入搜索词'
+							},
+							'-', 
+							'text 1', 
+							{
+								xtype: 'tbspacer'
+							}, 
+							
+							{
+								xtype: 'splitbutton',
+								text: '主题'
+							}, 
+							{
+								xtype: 'splitbutton',
+								text: '控制面板'
+							},
+						]
+
+					}]
+
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

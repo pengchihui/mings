@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>绘制扇形</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        var myCanvas = document.querySelector('#myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        //在画布的中心位置，画一个半径150的圆弧，右上角的扇形
+        var w = ctx.canvas.width;
+        var h = ctx.canvas.height;
+        ctx.beginPath();
+        ctx.moveTo(w/2,h/2);
+        ctx.arc(w/2,h/2,150,-Math.PI/2,0);
+        // ctx.closePath();
+        // ctx.stroke();
+
+        ctx.fill();  //  fill 会自动 closePath;
+    </script>
+</body>
+</html>

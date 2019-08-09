@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        #dv2 {
+            border-color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#btn').click(function(){
+                //把dv1中的p加入到dv2中
+                // $('#dv2').append($('#dv1>p'));
+                
+                // $('#dv1>p').appendTo($('#dv2'));
+
+                //注意  获取的元素通过append方法添加到另一个元素中的时候，类似于剪切
+                $('#dv1>p').clone().appendTo($('#dv2'));
+
+
+                
+            });
+        });
+    </script>
+    <input type="button" value="添加" id="btn" />
+    <div id="dv1">
+        <p>我很帅！</p>
+    </div>
+    <div id="dv2"></div>
+</body>
+</html>

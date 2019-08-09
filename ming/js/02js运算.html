@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//JS运算
+			//基本运算: + - * / %			
+			console.log(456+123);
+			console.log("456"+123);
+			var m=3;
+			m+=3;//由m=m+3简写而来
+			m-=2;//由m=m-2简写而来
+			m*=4;//由m=m*4简写而来
+			m/=5;//由m=m/5简写而来
+			console.log(m)
+			
+			
+			
+			
+			
+			
+			
+			//比较运算：>  >=  <  <=  ==   ===（全等于，不只值相等，且数据类型也要一样）
+			//结果是布尔值
+			var a="5";
+			var b=5;
+			console.log(a==b);
+			//js中   1==true  0==false  null==undefined 这些都是能成立的
+			console.log(1==true);
+			console.log(0==false);
+			console.log(null==undefined);
+			
+			//NaN表示非数字
+			var num="asd";
+			num=Number(num)//通过Number(值)把它转换成数值型数据
+			console.log(num+1);
+			console.log(NaN==NaN);//false
+			
+			
+			
+			//比较运算常用于 if...else...的结构
+//			if(条件式){
+//				代码段1
+//			}else{
+//				代码段2
+//			}
+//          如果条件式成立，则执行代码段1，否则执行代码段2
+			if(a>0){
+				console.log("a是正数")
+			}else{
+				console.log("a是负数")
+			}
+			
+			
+			//如何判断一个数在0到10之间？
+			var x=16;
+//			if(10>x>0){//这里不能直接写成10>-16>0，要用逻辑运算
+//				console.log("x在0到10之间")
+//			}
+			
+			
+			//逻辑运算： &&并且    ||或者     !非     
+			//真且真为真
+			//真且假为假
+			//假且假为假
+			//真或真为真
+			//真或假为真
+			//假或假为假
+			if(x > 0 && x < 10) {
+				console.log("x在0到10之间")
+			}
+			
+			
+			//三元运算：if...else...的简写
+			//条件式?值1:值2
+			console.log(x>0?x:"");
+			
+			
+			
+			//自增自减运算：++/-- (谁在前面就先运算谁)
+			var n=7;
+			//7
+			document.write(--n);//符号在前面，就先进行符号自增运算，再使用运算后的变量值
+			//6
+			document.write("<hr>");
+			//6
+			document.write(n--);//变量在前面，就先使用变量的值，使用完后在进行符号自增运算
+			//5
+			document.write("<hr>");
+			document.write(n);//5
+			
+			
+			//
+			document.write("<hr>");
+			
+			//js中在if...else...的判断下，
+			//除了0/false/""/null/undefined/NaN...以外，
+			//其他默认都是成立的
+//			if(null){
+//				document.write("上");
+//			}else{
+//				document.write("下");
+//			}
+			
+			//符号在前面，就先进行符号自增运算，再使用运算后的变量值
+			//变量在前面，就先使用变量的值，使用完后在进行符号自增运算
+			var i=0;
+			if(i++){
+				document.write(i+"上<br>");
+			}else{
+				document.write(i+"下<br>");//1下
+			}
+			if(--i){
+				document.write(i+"上<br>");
+			}else{
+				document.write(i+"下<br>");//0下
+			}
+			if(++i){
+				document.write(i+"上<br>");//1上
+			}else{
+				document.write(i+"下<br>");
+			}
+			if(i--){
+				document.write(i+"上<br>");//0上
+			}else{
+				document.write(i+"下<br>");
+			}
+			
+			
+			
+			//练习：
+//			1·判断一个变量
+//			是否等于1,等于则输出"今天星期一";
+//			是否等于2,等于则输出"今天星期二";
+//			...
+//			是否等于7,等于则输出"今天星期天";
+//			如果都不等于,则输出"没有这个星期";
+//			
+//			2.判断一个变量是否是3/5/3和5的倍数	
+//			3.判断一个正数是否小于10？
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js-phone/jquery-1.7.2.js" ></script>
+		<script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.0.0.js" ></script>
+		<style>
+			*{
+				margin: 0; padding: 0;
+			}
+			.box,.box div{
+				width: 400px;
+				height: 400px;
+				background-color:LavenderBlush ;
+			}
+			canvas {
+				background: #eee;
+			}
+			.on{
+				background:	#E0FFFF ;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">
+			<canvas id="boxs" class="boxs" width="400" height="200"> </canvas>
+		</div>
+		<img src="#" alt="wei" />
+		<script>
+			var box = document.getElementById("boxs");  /*使用$("#boxs")会直接报错*/
+			var obj = box.getContext("2d"); /*canvas的对象*/
+			var arr = [];
+			var width=400;
+			var height=200;
+			setInterval(function() {
+				obj.clearRect(0, 0, 400, 400); /*清楚矩形*/
+				var x = parseInt(Math.random() * width);
+				var y = parseInt(Math.random() * width);
+				var R = 0;
+				var r = parseInt(Math.random() * 255);
+				var g = parseInt(Math.random() * 255);
+				var b = parseInt(Math.random() * 255);
+				var a = 1;
+				var path = {
+					x: x,
+					y: y,
+					R: R,
+					r: r,
+					g: g,
+					b: b,
+					a: a
+				};
+				arr.push(path);
+				//线stroke  面fill   矩形rect
+				for(var i = 0; i < arr.length; i++) {
+					obj.beginPath(); /*开始*/
+					obj.fillStyle = "rgba(" + arr[i].r + "," + arr[i].g + "," + arr[i].b + "," + arr[i].a + ")";
+					obj.arc(arr[i].x,arr[i].y,arr[i].R,0,Math.PI*2,false);
+					obj.fill();
+					arr[i].R = arr[i].R + 1;
+					arr[i].a = arr[i].a - 0.02;
+					if(arr[i].a <= 0) {
+						arr.splice(i, 1);
+					}
+				}
+			}, 10);
+		  //        过几秒内颜色改变 减淡效果 从上到下
+	   
+		$(".box").on("click",function(){
+			 var q = parseInt(Math.random() * 255);
+		     var w = parseInt(Math.random() * 255);
+		     var t = parseInt(Math.random() * 255);
+		     var a=0.3;
+			 $(".box canvas").animate({backgroundColor:"rgba("+q+","+w+","+t+","+a+")",height:"200px",fontSize:"30px"},1000);
+		});
+       
+		  $(".box div:eq(0)").attr({width:"300px"});
+		  $(".box > div").css("background","Lavender");
+		  $("img:last").attr({src:"images/dd-top.jpg",alt:"mingxing"});
+		  $("img:lt(2)").removeAttr("src");
+              		
+		  $("#boxs").hide();
+		  $("#boxs").mousemove().show(1000);
+	      $(".box div").addClass("on");
+		  var b=$(".box").parent();
+		  var k=$("box").children();
+		  console.log(b); 
+		  console.log(k);
+
+//里面实现抽奖效果
+		
+		
+		
+		
+		
+		</script>
+	</body>
+</html>

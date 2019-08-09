@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/*页面加载完成*/
+			window.onload = function() {
+				//输入框文字消失效果 例：https://weibo.com/
+				var text = document.getElementById("text");
+				text.onfocus = function() {
+					if(text.value == '请输入用户名'){
+						text.value='';
+					}
+				}
+				text.onblur = function() {
+					text.value = "请输入用户名";
+				}
+				//购物车数量的加减
+				var a = document.getElementById("a");
+				var b = document.getElementById("b");
+				var c = document.getElementById("c");
+				a.onclick=function(){
+					b.value--;
+					if(b.value<=1){
+						b.value=1;
+					}
+					
+					console.log(this)
+				}
+				c.onclick=function(){
+					b.value++;
+					if(b.value>10){
+						b.value=10;
+					}
+					console.log(this)
+				}
+				//弹出框的效果 
+				var hidden=document.getElementById("hidden");
+				var box=document.getElementById("box");
+				var show=document.getElementById("show");
+				hidden.onclick=function(){
+					box.style.display="none";
+				}
+				show.onclick=function(){
+					box.style.display="block";
+				}
+				//图片路径的修改... 
+					var img=document.getElementById('img');
+					img.onclick=function(){
+						img.src="images/a1_16.jpg";
+					}
+				//图片的切换....
+				var zz=document.getElementById('zz');
+				var left=document.getElementById('left');
+				var right=document.getElementById('right');
+				var i=0;
+	
+				left.onclick=function(){
+					i++;
+					if(i==1){
+						zz.style.left='-400px';
+					}else if(i==2){
+						zz.style.left='-800px';
+					}else if(i==3){
+						zz.style.left='0px';
+						i=0;
+					}
+					console.log(i);
+					
+				}
+				right.onclick=function(){
+                     i++;
+					if(i==1){
+						zz.style.left='-800px';
+					}else if(i==2){
+						zz.style.left='0px';
+					}else if(i==3){
+						zz.style.left='-400px';
+						i=0;
+					}
+					console.log(i);
+				}
+				
+				/*图片切换  使用对象*/
+				var zzs=document.getElementById("zz");
+				var lis=document.getElementsByTagName("li");
+				for(var k=0;k<lis.length;k++){
+					lis[k].min=k;
+					lis[k].onclick=function(){
+						for(var j=0;j<lis.length;j++){
+							lis[j].style.background="#000000";
+						}
+						lis[this.min].style.background="#ffffff";
+						zzs.style.left=-400*this.min+'px';
+					}
+				}
+			
+				
+			}
+		</script>
+		<style type="text/css">
+			.box{
+				width: 150px;
+				height: 20px;
+				
+			}
+			.box input {
+				outline: none;
+				list-style: none;
+				float: left;
+			}
+			.box input:nth-child(2){
+				width: 50px;
+				text-align: center;
+			}
+			#box{
+				width: 100px;
+				height:100px;
+				background: pink;	
+	    	}
+	    	.bin{
+	    		clear: both;
+	    		width: 400px;
+	    		height: 300px;
+	    		position: relative;
+	    		overflow: hidden;
+	    	}
+	    	.bin a{
+	    		z-index: 3;
+	    		background: pink;
+	    		text-decoration: none;
+	    		list-style: none;
+	    		font-size: 50px;
+	    		color: #FFFFFF;
+	    		position: absolute;
+	    	}
+	    	.bin a:nth-child(1){
+	    		left: 0;
+	    		top: 40%;
+	    	}
+	    	.bin a:nth-child(2){
+	    		right: 0;
+	    		top: 40%;
+	    	}
+	    	.bin-box{
+	    		width: 1200px;
+	    		height: 300px;
+	    		background: pink;
+	    		position: absolute;
+	    		z-index: 1;
+	    	}
+	        img{
+	    		width: 400px;
+	    		height: 300px;
+	    		float: left;
+	    	}
+	    	#zz{ transition: 1s;}
+	    	.zzul{
+	    		position: absolute;
+	    		bottom: 20px;
+	    		left: 120px;
+	    		width: 80px;
+	    		height: 20px;
+	    		z-index: 3;
+	    		display: flex;
+	    		justify-content: space-between;
+	    		
+	    	}
+	    	.zzul li{
+	    		list-style: none;
+	    		width: 20px;
+	    		height: 20px;
+	    		background:#000000;
+	    		float: left;
+	    		border-radius: 50%;
+	    		
+	    	}
+		</style>
+	</head>
+
+	<body>
+		<input id="text" type="text" value="请输入用户名" />
+		 <br /> <br />
+         <div class="box" ">
+         	<input id="a" type="button" value="-"/>
+         	<input id="b" type="text" value="1"/>
+         	<input id="c" type="button" value="+"/>
+         </div>
+         <br>
+         	
+         <input id="hidden" type="button" value="隐藏" />
+         <input id="show" type="button" value="显示" />
+         <div id="box"></div>
+
+        <br><br>
+        <img id='img' src="images/a1_14.jpg"/>
+        <br><br>
+      <div class="bin">
+                 <a id='left' href="javascript:;"><</a>
+                 <a id='right' href="javascript:;">></a>
+                 <div id='zz' class="bin-box" style="left:0;">
+                 	<img class="zz" src="images/ee1_39.jpg" alt="1"/>
+      	            <img class="zz" src="images/ee1_40.jpg" alt="2" />
+      	            <img class="zz" src="images/ee1_42.jpg" alt="3" />
+                 </div>
+                 <ul class="zzul">
+                 	<li style="background: #fff;"></li>
+                 	<li></li>
+                 	<li></li>
+                 </ul>
+                 
+      </div>
+
+	</body>
+
+</html>

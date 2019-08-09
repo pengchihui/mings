@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //点击超级链接，弹出对话框
+    //阻止这个超级链接默认跳转    return fasle;
+</script>
+<a href="http://www.baidu.com/" onclick="alert('哎呀，我被点了');return false;">百度</a>
+
+<hr />
+<!--第二种写法-->
+<a href="http://www.baidu.com/" onclick="return f1();">百度</a>
+<script>
+    function f1(){
+        alert('哎呀呀，我被点了被点了');
+        return false;
+    }
+</script>
+<hr />
+<!--第三种-->
+<a href="http://www.baidu.com/" id="ak">百度</a>
+<script>
+    document.getElementById('ak').onclick=function(){
+        alert('嘎嘎');
+        return false;
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        #dv2 div {
+            width: 200px;
+            height: 100px;
+            background-color: gray;
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        //点击按钮，设置div的背景颜色
+        $(function(){
+            //点击按钮，设置每个div相应的背景颜色
+            /*$('#dv>input:button').click(function(){
+                $(this).parent().next().children('div').css('backgroundColor',$(this).val());
+            });*/
+
+            $('#dv>input:button').changeColor();
+        });
+
+        // 如何封装插件
+        // jQuery的插件       调用某个jQuery对象.方法({});
+        /**
+         * 插件的基本代码， 一般都加入到 $.fn对象中，   加入到这个对象中，jQuery对象就能使用这个方法了。
+         *     类似于  js中 原型
+         */
+        
+
+    </script>
+    <div id="dv">
+        <input type="button" value="red" />
+        <input type="button" value="yellow" />
+        <input type="button" value="blue" />
+    </div>
+    <div id="dv2">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

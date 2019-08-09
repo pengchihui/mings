@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>一个完整的折线图</title>
+    <style type="text/css">
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script type="text/javascript">
+        // 1.构造函数
+        var LineChart = function(ctx){
+            //获取绘图工具
+            this.ctx = ctx || document.querySelector('canvas').getContext('2d');
+
+            // 画布的大小
+            this.canvasWidth = this.ctx.canvas.width;
+            this.canvasHeight = this.ctx.canvas.height;
+
+            //网格大小
+            this.grid = 10;
+
+            // 坐标系距离画布边缘宽度
+            this.space = 20;
+            // 坐标系原点
+            this.origin = {
+                x: this.space - .5,
+                y: this.canvasHeight - this.space -.5
+            };
+            // 箭头的宽度
+            this.arrowSize = 10;
+
+            //点的坐标是与传递进来的数据有关
+            
+            // 点的尺寸
+            this.dotSize = 5;
+        };
+
+        // 构造函数方法
+        LineChart.prototype.init = function(data){
+            // console.log(data);
+            // 1.绘制网格
+            this.drawGrid();
+            // 2.绘制坐标系
+            this.drawAxis();
+            // 3.绘制所有的点和线
+            this.lineDots(data);
+        }
+
+        /**
+         * 绘制网格
+         * @return {[type]} [description]
+         */
+        LineChart.prototype.drawGrid = function(){
+            var xLineCount = Math.floor(this.canvasHeight/this.grid);
+            var yLineCount = Math.floor(this.canvasWidth/this.grid);
+            this.ctx.strokeStyle = '#eee';
+
+            for (var i = 1; i < xLineCount; i++) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(0, this.grid * i - .5);
+                this.ctx.lineTo(this.canvasWidth, this.grid * i - .5);
+                this.ctx.stroke();
+            }
+            for (var i = 1; i < yLineCount; i++) {
+                this.ctx.beginPath();
+                this.ctx.moveTo(this.grid * i - .5, 0);
+                this.ctx.lineTo(this.grid * i - .5, this.canvasHeight);
+                this.ctx.stroke();
+            }
+
+        };
+
+        /**
+         * 画坐标系
+         * @return {[type]} [description]
+         */
+        LineChart.prototype.drawAxis = function(){
+            // 绘制x轴
+            this.ctx.fillStyle = this.ctx.strokeStyle = '#f00';
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.origin.x, this.origin.y);
+            this.ctx.lineTo(this.canvasWidth - this.space, this.origin.y);
+            this.ctx.moveTo(this.canvasWidth - this.space, this.origin.y);
+            this.ctx.lineTo(this.canvasWidth -this.space - this.arrowSize - .5, this.origin.y + this.arrowSize / 2);
+            this.ctx.lineTo(this.canvasWidth -this.space - this.arrowSize - .5, this.origin.y - this.arrowSize / 2);
+            this.ctx.closePath();
+            this.ctx.stroke();
+            this.ctx.fill();
+
+            // 绘制y轴
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.origin.x, this.origin.y);
+            this.ctx.lineTo(this.origin.x, this.space);
+            this.ctx.moveTo(this.origin.x, this.space);
+            this.ctx.lineTo(this.origin.x + this.arrowSize / 2, this.space + this.arrowSize - .5);
+            this.ctx.lineTo(this.origin.x - this.arrowSize / 2 , this.space + this.arrowSize - .5);
+            this.ctx.closePath();
+            this.ctx.stroke();
+            this.ctx.fill();
+        };
+
+        /**
+         * 绘制点
+         * @return {[type]} [description]
+         */
+        LineChart.prototype.drawDot = function(dot){
+            this.ctx.beginPath();
+            this.ctx.moveTo(dot.x - this.dotSize / 2, dot.y - this.dotSize / 2);
+            this.ctx.lineTo(dot.x + this.dotSize /2, dot.y - this.dotSize / 2);
+            this.ctx.lineTo(dot.x + this.dotSize /2, dot.y + this.dotSize / 2);
+            this.ctx.lineTo(dot.x - this.dotSize /2, dot.y + this.dotSize / 2);
+            this.ctx.fill();
+        };
+
+        /**
+         * 连接所有的点
+         * @param  {[type]} data [description]
+         * @return {[type]}      [description]
+         */
+        LineChart.prototype.lineDots = function(data){
+            // console.log(data)
+            // 1. 数据的坐标 是数学坐标   需要转换成canvas 坐标 
+            // 2. 对点进行绘制
+            // 3. 把线连接起来
+            var beginDot = this.origin;
+            data.forEach(function(item, i){
+                // console.log(item);
+                // 先把坐标转换成 canvas坐标
+                var myDot = this.exAxis(item);
+                this.drawDot(myDot);
+                this.ctx.beginPath();
+                this.ctx.moveTo(beginDot.x,beginDot.y);
+                this.ctx.lineTo(myDot.x,myDot.y);
+                this.ctx.stroke();
+                beginDot = myDot;
+            }.bind(this));
+        }
+
+        /**
+         * 把传入的数学坐标系 转化成  canvas坐标  用于绘制点
+         * @param  {[type]} dot [description]
+         * @return {[type]}     [description]
+         */
+        LineChart.prototype.exAxis = function(dot){
+            /**
+             * 经过分析：
+             *     canvasX = origin.x + dot.x
+             *     canvasY = origin.y - dot.y
+             */
+            // console.log(dot);
+            return {
+                x: this.origin.x + dot.x,
+                y: this.origin.y - dot.y
+            };
+        };
+
+        // 准备数据
+        var data = [
+            {x:100,y:120},
+            {x:200,y:150},
+            {x:300,y:240},
+            {x:400,y:360},
+            {x:500,y:40}
+        ];
+        // 实例化
+        var lineChart = new LineChart();
+        // 初始化
+        lineChart.init(data);
+        /**
+         *   这个过程叫    数据可视化   canvas主要在前端领域的应用 也就在这里。
+         *   当然 还有一些网页应用、游戏开发也会用到canvas
+         */
+    </script>
+</body>
+</html>

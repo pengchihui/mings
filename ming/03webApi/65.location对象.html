@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn" />
+    <script type="text/javascript">
+        // window.location
+        /**
+         * 我们学习对象，主要是学习 对象的属性和方法
+         * location对象  是window对象里边一个子对象
+         */
+        console.log(location);
+
+        //地址栏上#及后边的内容   ---  hash参数
+        console.log(location.hash);
+        //主机名以及端口号
+        console.log(location.host);
+        //主机名
+        console.log(location.hostname);
+        //文件的路径----相对路径
+        console.log(location.pathname);
+        //端口号
+        console.log(location.port);
+        //协议
+        console.log(location.protocol);
+        //地址栏上?以及后边的内容 ----搜索内容
+        console.log(location.search);
+
+
+        //以上是location对象的一些常用属性
+
+
+        // location对象的方法
+        onload=function(){
+            document.getElementById('btn').onclick=function(){
+                //设置跳转的页面地址
+                // location.href='http://www.jd.com';   //通过属性地址栏跳转
+                // location.assign('http://www.baidu.com');  //通过方法进行地址栏跳转
+                // location.reload();
+                location.replace('http://www.taobao.com/');//这个方法不会记录历史
+            };
+        };
+    </script>
+</body>
+</html>

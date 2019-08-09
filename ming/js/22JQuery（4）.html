@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div ul{display: none;}
+		</style>
+		<script src="jquery-1.7.2.js"></script>
+	</head>
+	<body>
+		<button id="asd">新闻</button>
+		<button>动态</button>
+		<button>资讯</button>
+		<div>
+			<ul style="display: block;">
+				<li>新闻2133</li>
+				<li>新闻asdasd</li>
+				<li>新闻sad1321</li>
+			</ul>
+			<ul>
+				<li>动态2133</li>
+				<li>动态asdasd</li>
+				<li>动态sad1321</li>
+			</ul>
+			<ul>
+				<li>资讯2133</li>
+				<li>资讯asdasd</li>
+				<li>资讯sad1321</li>
+			</ul>
+		</div>
+		
+		<script>
+			
+
+			
+			$("button").click(function(){
+				$("div>ul").hide();
+				$("div>ul").eq($(this).index()).show();				
+			})
+			
+			
+			$("li").each(function(i){
+				console.log($(this).html()+i)
+			})
+			
+			
+			$("li").get(0).onclick=function(){
+				console.log(123)
+			}
+			
+			
+			$.getJSON("json.txt",function(val){
+				console.log(val)
+			})
+			
+			
+			$("body").load("xml.xml");
+		</script>
+		
+	</body>
+</html>

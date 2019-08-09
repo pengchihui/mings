@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //用户按键改变body的背景颜色
+            $(document).keydown(function(e){
+                // console.log(e.keyCode);
+                switch (e.keyCode) {
+                    case 49:
+                        $('body').css('backgroundColor','#100000');
+                        break;
+                    case 51:
+                        $('body').css('backgroundColor','#200100');
+                        break;
+                    case 52:
+                        $('body').css('backgroundColor','#300200');
+                        break;
+                    case 53:
+                        $('body').css('backgroundColor','#400300');
+                        break;
+                    case 54:
+                        $('body').css('backgroundColor','#500400');
+                        break;
+                    case 55:
+                        $('body').css('backgroundColor','#600500');
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

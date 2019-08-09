@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--<meta http-equiv="refresh" content="3">-->
+		<!--页面刷新-->
+
+		<title></title>
+	</head>
+
+	<body>
+
+		<ul>
+
+		</ul>
+		<div><input type="checkbox" id="qx" /><label for="qx">全选</label> 总价：￥<span>0</span></div>
+
+		<script>
+			var ul = document.getElementsByTagName("ul")[0];
+			var shop = localStorage.getItem("shopcar") || "[]"
+			var shop_arr = JSON.parse(shop);
+			console.log(shop_arr)
+			var len = shop_arr.length
+			if(len == 0) {
+				alert("购物车为空")
+			} else {
+				for(var i = 0; i < len; i++) {
+					ul.innerHTML += '<li><input type="checkbox" /><img src="' + shop_arr[i].pic + '" alt="" /><h2>' + shop_arr[i].tit + '</h2><span>￥' + shop_arr[i].pay + '</span><input type="button" value="-" /><input type="text" value="' + shop_arr[i].num + '" /><input type="button" value="+" /><a href="javasrcipt:;">删除</a><hr></li>'
+				}
+			}
+
+			//数量加减
+			var btn = document.querySelectorAll("li input[type='button']");
+			for(var i = 0; i < btn.length; i++) {
+				btn[i].index = i
+				btn[i].onclick = function() {
+					if(this.index % 2 == 0) {
+						var inp = this.nextElementSibling
+						inp.value = inp.value > 1 ? inp.value - 1 : 1
+					} else {
+						var inp = this.previousElementSibling
+						inp.value = parseInt(inp.value) + 1
+					}
+					pay()
+				}
+			}
+
+			//全选和反选
+			var qx = document.querySelector("div input")
+			var check = document.querySelectorAll("li input[type='checkbox']")
+			qx.onclick = function() {
+				if(this.checked == true) {
+					for(var i = 0; i < len; i++) {
+						check[i].checked = true
+					}
+				} else {
+					for(var i = 0; i < len; i++) {
+						check[i].checked = false
+					}
+				}
+				pay()
+			}
+
+			//单个栏目全选个反选联动效果
+			for(var i = 0; i < len; i++) {
+				check[i].onclick = function() {
+					choose()
+					pay()
+				}
+			}
+
+			//全选和反选
+			function choose() {
+				var check = document.querySelectorAll("li input[type='checkbox']")
+				var all = true
+				for(var i = 0; i < check.length; i++) {
+					if(check[i].checked == false) {
+						all = false
+					}
+				}
+				all ? qx.checked = true : qx.checked = false
+			}
+
+			//价格计算
+			var asdasd = document.querySelector("div span")
+			function pay() {
+				var all_pay = 0
+				var check = document.querySelectorAll("li input[type='checkbox']")
+				for(var i = 0; i < check.length; i++) {
+					if(check[i].checked == true) {
+						var li = check[i].parentElement
+						var pay1 = li.children[3].innerText.substr(1)
+						var num1 = li.children[5].value
+						all_pay += num1 * pay1
+					}
+				}
+				asdasd.innerText = all_pay
+			}
+
+			//删除产品（存储的记录里面也要删除）
+			var dlt = document.querySelectorAll("li a");
+			for(var k = 0; k < len; k++) {
+				dlt[k].onclick = function() {
+					if(confirm("是否确定删除")) {
+						var li = document.getElementsByTagName("li");
+						for(var m = 0; m < li.length; m++) {
+							li[m].index = m;
+						}
+						var kai = this.parentElement
+						ul.removeChild(kai);
+						shop_arr.splice(kai.index, 1);
+						var stra = JSON.stringify(shop_arr);
+						localStorage.setItem("shopcar", stra);
+						choose()
+						pay()
+					}
+				}
+			}
+
+			//
+		</script>
+	</body>
+
+</html>
